@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 
-interface BikeNetworkService {
+interface IBikeNetworkService {
     @GET(EndPoints.BIKE_NETWORK_LIST_ENDPOINT)
     suspend fun getBikeNetworkList(): Response<BikeNetworkListResponseDto>
 

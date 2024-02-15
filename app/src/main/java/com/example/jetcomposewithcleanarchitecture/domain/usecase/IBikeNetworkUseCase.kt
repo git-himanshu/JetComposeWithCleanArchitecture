@@ -5,7 +5,7 @@ import com.example.jetcomposewithcleanarchitecture.domain.entity.BikeNetworksEnt
 import com.example.jetcomposewithcleanarchitecture.model.Result
 import kotlinx.coroutines.flow.Flow
 
-interface IGetBikeNetworkListUseCase {
+interface IBikeNetworkUseCase {
     suspend fun getList(): Flow<Result<BikeNetworksEntity>?>
     suspend fun getDetail(networkId:String): Flow<Result<BikeNetworkDetailEntity>?>
 }

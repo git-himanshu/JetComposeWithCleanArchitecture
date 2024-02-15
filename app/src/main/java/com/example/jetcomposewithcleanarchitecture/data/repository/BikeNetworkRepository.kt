@@ -1,11 +1,11 @@
 package com.example.jetcomposewithcleanarchitecture.data.repository
 
+import com.example.jetcomposewithcleanarchitecture.data.datasource.IBikeNetworkDataSource
 import com.example.jetcomposewithcleanarchitecture.data.model_mapper.BikeNetworkDetailRemoteDataMapper
 import com.example.jetcomposewithcleanarchitecture.data.model_mapper.BikeNetworkRemoteListDataMapper
 import com.example.jetcomposewithcleanarchitecture.domain.entity.BikeNetworkDetailEntity
 import com.example.jetcomposewithcleanarchitecture.domain.entity.BikeNetworksEntity
 import com.example.jetcomposewithcleanarchitecture.domain.repository.IBikeNetworkRepository
-import com.example.jetcomposewithcleanarchitecture.network.data_source.BikeNetworkRemoteDataSource
 import com.example.jetcomposewithcleanarchitecture.model.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class BikeNetworkRepository @Inject constructor(
-    private val dataSource: BikeNetworkRemoteDataSource,
+    private val dataSource: IBikeNetworkDataSource,
     private val networkListModelMapper: BikeNetworkRemoteListDataMapper,
     private val networkDetailModelMapper: BikeNetworkDetailRemoteDataMapper
 ) : IBikeNetworkRepository {

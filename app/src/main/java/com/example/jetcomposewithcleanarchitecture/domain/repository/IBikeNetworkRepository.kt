@@ -1,8 +1,8 @@
 package com.example.jetcomposewithcleanarchitecture.domain.repository
 
 import com.example.jetcomposewithcleanarchitecture.domain.entity.BikeNetworkDetailEntity
-import com.example.jetcomposewithcleanarchitecture.model.Result
 import com.example.jetcomposewithcleanarchitecture.domain.entity.BikeNetworksEntity
+import com.example.jetcomposewithcleanarchitecture.model.Result
 import kotlinx.coroutines.flow.Flow
 
 interface IBikeNetworkRepository {

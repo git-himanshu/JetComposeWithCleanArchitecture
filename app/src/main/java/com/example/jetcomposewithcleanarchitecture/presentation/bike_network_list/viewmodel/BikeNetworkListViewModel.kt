@@ -3,7 +3,7 @@ package com.example.jetcomposewithcleanarchitecture.presentation.bike_network_li
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.jetcomposewithcleanarchitecture.domain.entity.BikeNetworkEntity
-import com.example.jetcomposewithcleanarchitecture.domain.usecase.GetBikeNetworkListUseCase
+import com.example.jetcomposewithcleanarchitecture.domain.usecase.IBikeNetworkUseCase
 import com.example.jetcomposewithcleanarchitecture.model.Result
 import com.example.jetcomposewithcleanarchitecture.presentation.util.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BikeNetworkListViewModel @Inject constructor(
-    private val getBikeNetworkListUseCase: GetBikeNetworkListUseCase,
+    private val bikeNetworkUseCase: IBikeNetworkUseCase,
 ) : ViewModel() {
     private val _bikeNetworkList = MutableStateFlow<List<BikeNetworkEntity>?>(emptyList())
     val bikeNetworkList : StateFlow<List<BikeNetworkEntity>?> = _bikeNetworkList.asStateFlow()
@@ -36,7 +36,7 @@ class BikeNetworkListViewModel @Inject constructor(
 
     private fun fetchBikeNetworkList() {
         viewModelScope.launch {
-            getBikeNetworkListUseCase.getList().collect {
+            bikeNetworkUseCase.getList().collect {
                 when(it?.status){
                     Result.Status.LOADING -> {
                         _uiState.value = UIState.LOADING

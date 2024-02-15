@@ -1,8 +1,8 @@
-package com.example.jetcomposewithcleanarchitecture.network.module
+package com.example.jetcomposewithcleanarchitecture.network.di
 
 import android.util.Log
 import com.example.jetcomposewithcleanarchitecture.network.BASE_URL
-import com.example.jetcomposewithcleanarchitecture.network.BikeNetworkService
+import com.example.jetcomposewithcleanarchitecture.network.IBikeNetworkService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,8 +39,8 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): BikeNetworkService {
-        return retrofit.create(BikeNetworkService::class.java)
+    fun provideApiService(retrofit: Retrofit): IBikeNetworkService {
+        return retrofit.create(IBikeNetworkService::class.java)
     }
 }
 

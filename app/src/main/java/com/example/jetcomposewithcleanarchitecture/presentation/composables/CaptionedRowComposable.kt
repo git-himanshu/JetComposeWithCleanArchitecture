@@ -21,12 +21,12 @@ fun CaptionedRowComposable(caption: String, value: String, modifier: Modifier = 
         Text(
             text = caption,
             modifier = modifier,
-            style = MaterialTheme.typography.labelLarge
+            style = MaterialTheme.typography.titleMedium
         )
         Text(
             text = value,
             modifier = modifier.padding(start = 4.dp),
-            style = MaterialTheme.typography.bodyMedium
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 

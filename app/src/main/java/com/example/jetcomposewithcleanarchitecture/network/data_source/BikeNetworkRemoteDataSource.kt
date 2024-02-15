@@ -2,17 +2,17 @@ package com.example.jetcomposewithcleanarchitecture.network.data_source
 
 import com.example.jetcomposewithcleanarchitecture.data.datasource.IBikeNetworkDataSource
 import com.example.jetcomposewithcleanarchitecture.model.Error
-import com.example.jetcomposewithcleanarchitecture.network.BikeNetworkService
-import com.example.jetcomposewithcleanarchitecture.network.util.ErrorUtils
 import com.example.jetcomposewithcleanarchitecture.model.Result
+import com.example.jetcomposewithcleanarchitecture.network.IBikeNetworkService
 import com.example.jetcomposewithcleanarchitecture.network.dto.BikeNetworkDetailResponseDto
 import com.example.jetcomposewithcleanarchitecture.network.dto.BikeNetworkListResponseDto
+import com.example.jetcomposewithcleanarchitecture.network.util.ErrorUtils
 import retrofit2.Response
 import retrofit2.Retrofit
 import javax.inject.Inject
 
 class BikeNetworkRemoteDataSource @Inject constructor(
-    private val service: BikeNetworkService,
+    private val service: IBikeNetworkService,
     private val retrofit: Retrofit
 ) : IBikeNetworkDataSource {
     override suspend fun getBikeNetworkList(): Result<BikeNetworkListResponseDto> =

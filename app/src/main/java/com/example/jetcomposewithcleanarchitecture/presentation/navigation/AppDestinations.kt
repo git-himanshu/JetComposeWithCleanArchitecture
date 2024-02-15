@@ -1,6 +1,5 @@
 package com.example.jetcomposewithcleanarchitecture.presentation.navigation
 
-import androidx.compose.material.icons.Icons
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 
