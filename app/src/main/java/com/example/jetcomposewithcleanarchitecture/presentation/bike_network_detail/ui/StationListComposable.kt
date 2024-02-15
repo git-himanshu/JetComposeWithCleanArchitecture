@@ -24,7 +24,7 @@ import com.example.jetcomposewithcleanarchitecture.presentation.composables.Capt
 @Composable
 fun StationListComposable(modifier: Modifier = Modifier, stationList: List<Station>) {
     LazyColumn(
-        modifier = modifier.padding(horizontal = 16.dp),
+        modifier = modifier.padding(horizontal = 20.dp),
         contentPadding = PaddingValues(vertical = 8.dp)
     ) {
         items(

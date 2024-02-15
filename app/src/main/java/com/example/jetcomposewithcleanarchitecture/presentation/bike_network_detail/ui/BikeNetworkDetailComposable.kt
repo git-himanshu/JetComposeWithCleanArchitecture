@@ -20,9 +20,9 @@ import com.example.jetcomposewithcleanarchitecture.presentation.composables.Capt
 @Composable
 fun BikeNetworkDetailComposable(modifier: Modifier, bikeNetworkDetail: BikeNetworkDetailEntity?) {
 
-    Column(modifier = modifier.padding(horizontal = 4.dp)) {
+    Column(modifier = modifier) {
         Surface(color = MaterialTheme.colorScheme.primaryContainer) {
-            Column(modifier = Modifier.padding(16.dp)) {
+            Column(modifier = Modifier.padding(20.dp)) {
                 CaptionedRowComposable(
                     caption = stringResource(id = R.string.network_name),
                     value = bikeNetworkDetail?.name ?: "",
@@ -35,10 +35,10 @@ fun BikeNetworkDetailComposable(modifier: Modifier, bikeNetworkDetail: BikeNetwo
                 )
             }
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = stringResource(id = R.string.all_stations),
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+            modifier = Modifier.padding(horizontal = 20.dp, vertical = 8.dp),
             style = MaterialTheme.typography.titleLarge
         )
         StationListComposable(stationList = bikeNetworkDetail?.stations ?: emptyList())
