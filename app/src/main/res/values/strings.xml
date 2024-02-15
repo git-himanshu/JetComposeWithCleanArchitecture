@@ -3,5 +3,11 @@
     <string name="bike_network_screen_name">Bike Networks</string>
     <string name="bike_network_detail_screen_name">Bike Network Detail</string>
     <string name="retry">Retry</string>
+    <string name="network_name">Network name:</string>
+    <string name="location">Location:</string>
+    <string name="all_stations">All Stations:</string>
+    <string name="total_slots">Total Slots:</string>
+    <string name="available_slots">Available Slots:</string>
+    <string name="free_bikes">Free Bikes:</string>
     <string name="generic_error_message">Something went wrong!</string>
 </resources>

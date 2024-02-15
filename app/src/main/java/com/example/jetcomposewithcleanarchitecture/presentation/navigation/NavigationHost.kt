@@ -28,8 +28,6 @@ fun NavigationHost(
             route = BikeNetworkDetails.routeWithArgs,
             arguments = BikeNetworkDetails.arguments,
         ) { navBackStackEntry ->
-//            val networkId =
-//                navBackStackEntry.arguments?.getString(BikeNetworkDetails.networkIDArg)
             BikeNetworkDetailScreen(
                 onBack = { navController.navigateUp() }
             )

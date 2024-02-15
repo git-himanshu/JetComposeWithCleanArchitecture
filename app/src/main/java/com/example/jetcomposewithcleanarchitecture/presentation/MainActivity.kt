@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun BikeNetworkApp(){
     JetComposeWithCleanArchitectureTheme {
-        // A surface container using the 'background' color from the theme
         val navController = rememberNavController()
         Surface(
             modifier = Modifier.fillMaxSize(),
