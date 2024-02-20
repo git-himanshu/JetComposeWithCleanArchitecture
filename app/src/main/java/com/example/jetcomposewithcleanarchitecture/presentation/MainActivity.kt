@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.jetcomposewithcleanarchitecture.presentation.navigation.NavigationHost
+import com.example.feature.bikenetwork.presentation.navigation.NavigationHost
 import com.example.jetcomposewithcleanarchitecture.ui.theme.JetComposeWithCleanArchitectureTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,8 +30,7 @@ fun BikeNetworkApp(){
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
-        ) {
-            NavigationHost(navController = navController)
+        ) {NavigationHost(navController = navController)
         }
     }
 }
