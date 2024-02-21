@@ -16,23 +16,27 @@ object Libs {
             const val material3 = "androidx.compose.material3:material3"
             const val uiTooling = "androidx.compose.ui:ui-tooling"
         }
-        object Hilt{
-            const val hiltNavigationCompose =  "androidx.hilt:hilt-navigation-compose:1.1.0"
+
+        object Hilt {
+            const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:1.1.0"
         }
-        object Lifecycle{
+
+        object Lifecycle {
             const val runtimeCompose = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0"
         }
 
     }
-    object Google{
-        object Hilt{
+
+    object Google {
+        object Hilt {
             const val hiltAndroid = "com.google.dagger:hilt-android:2.50"
             const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:2.48"
         }
 
     }
-    object Retrofit{
-        const val version = "2.9.0"
+
+    object Retrofit {
+        private const val version = "2.9.0"
         const val retrofitClient = "com.squareup.retrofit2:retrofit:$version"
         const val converterGson = "com.squareup.retrofit2:converter-gson:$version"
         const val adapterRxjava = "com.squareup.retrofit2:adapter-rxjava2:$version"

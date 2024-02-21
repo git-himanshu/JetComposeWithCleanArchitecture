@@ -17,6 +17,7 @@ data class BikeNetworkDto(
     @SerializedName("location")
     val location: Location?,
 )
+
 data class Location(
     @SerializedName("city")
     val city: String?,

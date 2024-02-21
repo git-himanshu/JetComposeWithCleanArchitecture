@@ -2,16 +2,13 @@ package com.example.feature.bikenetwork.presentation.list.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.core.uiwidgets.CustomTopAppBar
 import com.example.core.uiwidgets.ErrorComposable
 import com.example.core.uiwidgets.LoaderComposable
 import com.example.core.uiwidgets.NoDataComposable
@@ -24,7 +21,7 @@ import com.example.feature.bikenetwork.presentation.util.UIState
 fun BikeNetworkListScreen(
     modifier: Modifier = Modifier,
     viewModel: BikeNetworkListViewModel = hiltViewModel<BikeNetworkListViewModel>(),
-    onItemClick:(networkId:String)->Unit
+    onItemClick: (networkId: String) -> Unit
 ) {
     val bikeNetworkList = viewModel.bikeNetworkList.collectAsStateWithLifecycle()
     val errorMessage = viewModel.errorMessage.collectAsStateWithLifecycle()
@@ -33,14 +30,8 @@ fun BikeNetworkListScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
-                ),
-                title = {
-                    Text(stringResource(id = R.string.bike_network_screen_name))
-                }
+            CustomTopAppBar(
+                title = stringResource(id = R.string.bike_network_detail_screen_name),
             )
         }
     ) { innerPadding ->
@@ -50,7 +41,6 @@ fun BikeNetworkListScreen(
             }
 
             UIState.SUCCESS -> {
-
                 BikeNetworkList(
                     bikeNetworkList = bikeNetworkList.value,
                     modifier = Modifier.padding(innerPadding),

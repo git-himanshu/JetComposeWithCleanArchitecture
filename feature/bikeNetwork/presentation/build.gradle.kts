@@ -4,7 +4,7 @@ import com.example.jetcomposewithcleanarchitecture.Versions
 
 plugins {
     id("com.android.library")
-    id ("kotlin-kapt")
+    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.android")
 }
@@ -55,7 +55,7 @@ dependencies {
     implementation(Libs.Google.Hilt.hiltAndroid)
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
-    implementation (Libs.AndroidX.Lifecycle.runtimeCompose)
+    implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
     debugImplementation(Libs.AndroidX.Compose.uiTooling)
     implementation(project(":feature:bikeNetwork:domain"))
     implementation(project(":core:uiWidgets"))

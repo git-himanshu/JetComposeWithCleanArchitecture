@@ -3,7 +3,7 @@ import com.example.jetcomposewithcleanarchitecture.Libs
 import com.example.jetcomposewithcleanarchitecture.Versions
 
 plugins {
-    id ("kotlin-kapt")
+    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -61,12 +61,13 @@ dependencies {
     implementation(Libs.Google.Hilt.hiltAndroid)
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
-    implementation (Libs.AndroidX.Lifecycle.runtimeCompose)
-    implementation (Libs.Retrofit.converterGson)
+    implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
+    implementation(Libs.Retrofit.converterGson)
     debugImplementation(Libs.AndroidX.Compose.uiTooling)
     implementation(project(":feature:bikeNetwork:presentation"))
     implementation(project(":feature:bikeNetwork:domain"))
     implementation(project(":feature:bikeNetwork:data"))
+    implementation(project(":core:uiWidgets"))
 }
 
 // Allow references to generated code

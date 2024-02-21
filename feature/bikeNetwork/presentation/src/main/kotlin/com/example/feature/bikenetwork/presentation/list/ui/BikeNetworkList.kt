@@ -6,15 +6,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.bikenetwork.domain.entity.BikeNetworkEntity
+import com.example.core.theme.AppTheme
 
 @Composable
 fun BikeNetworkList(
@@ -23,8 +22,8 @@ fun BikeNetworkList(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        modifier = modifier.padding(horizontal = 16.dp),
-        contentPadding = PaddingValues(vertical = 8.dp)
+        modifier = modifier.padding(horizontal = AppTheme.dimens.grid_2),
+        contentPadding = PaddingValues(vertical = AppTheme.dimens.grid_1)
     ) {
         items(
             items = bikeNetworkList,
@@ -43,24 +42,24 @@ fun ListItemRow(
 ) {
     Surface(
         onClick = { onItemClick(item.id) },
-        color = MaterialTheme.colorScheme.surfaceVariant,
-        modifier = modifier.padding(vertical = 4.dp),
-        shape = RoundedCornerShape(5.dp)
+        color = MaterialTheme.colorScheme.secondaryContainer,
+        modifier = modifier.padding(vertical = AppTheme.dimens.grid_0_5),
+        shape = MaterialTheme.shapes.small
     ) {
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(AppTheme.dimens.grid_1)
         ) {
             Text(
                 text = item.name,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
             Text(
                 text = "${item.city}, ${item.country}",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
         }
     }

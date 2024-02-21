@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.feature.bikenetwork.presentation.navigation.NavigationHost
-import com.example.jetcomposewithcleanarchitecture.ui.theme.JetComposeWithCleanArchitectureTheme
+import com.example.jetcomposewithcleanarchitecture.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,13 +24,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BikeNetworkApp(){
-    JetComposeWithCleanArchitectureTheme {
+fun BikeNetworkApp() {
+    AppTheme {
         val navController = rememberNavController()
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {NavigationHost(navController = navController)
+            color = MaterialTheme.colorScheme.surface
+        ) {
+            NavigationHost(navController = navController)
         }
     }
 }

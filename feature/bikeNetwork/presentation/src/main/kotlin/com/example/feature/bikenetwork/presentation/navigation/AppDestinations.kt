@@ -18,5 +18,6 @@ object BikeNetworkDetails : AppDestinations {
     val arguments = listOf(
         navArgument(networkIDArg) { type = NavType.StringType }
     )
+
     fun createRoute(networkId: String) = "$route/${networkId}"
 }

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">JetComposeWithCleanArchitecture</string>
     <string name="bike_network_screen_name">Bike Networks</string>
     <string name="bike_network_detail_screen_name">Bike Network Detail</string>

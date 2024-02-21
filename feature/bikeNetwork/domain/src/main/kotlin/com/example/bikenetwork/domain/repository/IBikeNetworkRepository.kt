@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface IBikeNetworkRepository {
     suspend fun getBikeNetworkList(): Flow<Result<BikeNetworksEntity>?>
-    suspend fun getBikeNetworkDetail(networkId:String): Flow<Result<BikeNetworkDetailEntity>?>
+    suspend fun getBikeNetworkDetail(networkId: String): Flow<Result<BikeNetworkDetailEntity>?>
 }

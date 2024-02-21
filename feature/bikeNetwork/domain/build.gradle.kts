@@ -4,7 +4,7 @@ import com.example.jetcomposewithcleanarchitecture.Versions
 
 plugins {
     id("com.android.library")
-    id ("kotlin-kapt")
+    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.android")
 }

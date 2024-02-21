@@ -8,4 +8,4 @@ public data class BikeNetworkEntity(
     val country: String,
 )
 
-public data class BikeNetworksEntity(val networks:List<BikeNetworkEntity>)
+public data class BikeNetworksEntity(val networks: List<BikeNetworkEntity>)

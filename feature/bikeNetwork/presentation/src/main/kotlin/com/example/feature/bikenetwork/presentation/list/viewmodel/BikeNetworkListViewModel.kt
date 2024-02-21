@@ -18,41 +18,44 @@ class BikeNetworkListViewModel @Inject constructor(
     private val bikeNetworkUseCase: IBikeNetworkUseCase,
 ) : ViewModel() {
     private val _bikeNetworkList = MutableStateFlow<List<BikeNetworkEntity>>(emptyList())
-    val bikeNetworkList : StateFlow<List<BikeNetworkEntity>> = _bikeNetworkList.asStateFlow()
+    val bikeNetworkList: StateFlow<List<BikeNetworkEntity>> = _bikeNetworkList.asStateFlow()
 
     private val _uiState = MutableStateFlow(UIState.LOADING)
-    val uiState:StateFlow<UIState> = _uiState.asStateFlow()
+    val uiState: StateFlow<UIState> = _uiState.asStateFlow()
 
     private val _errorMessage = MutableStateFlow<String?>("")
-    val errorMessage:StateFlow<String?> = _errorMessage.asStateFlow()
+    val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
     init {
         fetchBikeNetworkList()
     }
 
-    fun onRetry(){
+    fun onRetry() {
         fetchBikeNetworkList()
     }
 
     private fun fetchBikeNetworkList() {
         viewModelScope.launch {
             bikeNetworkUseCase.getList().collect {
-                when(it?.status){
+                when (it?.status) {
                     Result.Status.LOADING -> {
                         _uiState.value = UIState.LOADING
                     }
+
                     Result.Status.SUCCESS -> {
-                        if(it.data?.networks?.isNotEmpty() == true){
+                        if (it.data?.networks?.isNotEmpty() == true) {
                             _uiState.value = UIState.SUCCESS
                             _bikeNetworkList.value = it.data?.networks!!
-                        }else{
+                        } else {
                             _uiState.value = UIState.NO_DATA
                         }
                     }
-                    Result.Status.ERROR ->{
+
+                    Result.Status.ERROR -> {
                         _uiState.value = UIState.ERROR
                         _errorMessage.value = it.error?.status_message
                     }
+
                     else -> {
                         _uiState.value = UIState.ERROR
                         _errorMessage.value = null

@@ -1,4 +1,5 @@
 package com.example.bikenetwork.data.remotedatasource
+
 import com.example.bikenetwork.data.datasource.IBikeNetworkDataSource
 import com.example.bikenetwork.data.dto.BikeNetworkDetailResponseDto
 import com.example.bikenetwork.data.dto.BikeNetworkListResponseDto
@@ -11,7 +12,7 @@ import javax.inject.Inject
 class BikeNetworkRemoteDataSource @Inject constructor(
     private val service: IBikeNetworkService,
     private val retrofit: Retrofit
-) : IBikeNetworkDataSource, RemoteDataSource(retrofit=retrofit) {
+) : IBikeNetworkDataSource, RemoteDataSource(retrofit = retrofit) {
     override suspend fun getBikeNetworkList(): Result<BikeNetworkListResponseDto> =
         getResponse(
             request = { service.getBikeNetworkList() }

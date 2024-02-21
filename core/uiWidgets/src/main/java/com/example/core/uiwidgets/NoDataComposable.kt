@@ -1,15 +1,13 @@
 package com.example.core.uiwidgets
 
 import android.R
-import android.graphics.drawable.Drawable
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -20,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.example.core.theme.AppTheme
 
 
 @Composable
@@ -32,7 +30,7 @@ fun NoDataComposable(
     modifier: Modifier = Modifier,
 
     ) {
-    Surface(color = MaterialTheme.colorScheme.primaryContainer) {
+    Surface(color = MaterialTheme.colorScheme.tertiaryContainer) {
         Column(
             modifier = modifier
                 .fillMaxWidth()
@@ -42,12 +40,16 @@ fun NoDataComposable(
         ) {
             Icon(
                 painterResource(noDataDrawable),
-                contentDescription = "Content description for visually impaired"
+                contentDescription = ""
             )
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(AppTheme.dimens.grid_4))
             Text(text = errorText, style = MaterialTheme.typography.titleMedium)
-            Spacer(modifier = Modifier.height(16.dp))
-            ElevatedButton(onClick = onRetry) {
+            Spacer(modifier = Modifier.height(AppTheme.dimens.grid_2))
+            ElevatedButton(
+                onClick = onRetry, colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onTertiaryContainer
+                )
+            ) {
                 Text(text = retryButtonLabel)
             }
         }

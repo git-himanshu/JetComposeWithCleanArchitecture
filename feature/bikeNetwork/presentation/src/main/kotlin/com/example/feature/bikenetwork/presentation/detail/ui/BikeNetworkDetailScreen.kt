@@ -1,21 +1,14 @@
 package com.example.feature.bikenetwork.presentation.detail.ui
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.core.uiwidgets.CustomTopAppBar
 import com.example.core.uiwidgets.ErrorComposable
 import com.example.core.uiwidgets.LoaderComposable
 import com.example.core.uiwidgets.NoDataComposable
@@ -27,7 +20,7 @@ import com.example.feature.bikenetwork.presentation.util.UIState
 @Composable
 fun BikeNetworkDetailScreen(
     modifier: Modifier = Modifier,
-    onBack:()->Unit,
+    onBack: () -> Unit,
     viewModel: BikeNetworkDetailViewModel = hiltViewModel<BikeNetworkDetailViewModel>(),
 ) {
     val bikeNetworkDetail = viewModel.bikeNetworkDetail.collectAsStateWithLifecycle()
@@ -37,25 +30,13 @@ fun BikeNetworkDetailScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimary,
-                ),
-                title = {
-                    Text(stringResource(id = R.string.bike_network_detail_screen_name))
-                },
-                navigationIcon = {
-                    IconButton(onClick = { onBack() }) {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = stringResource(id = R.string.back),
-                            tint = MaterialTheme.colorScheme.onPrimary
-                        )
-                    }
-                }
+            CustomTopAppBar(
+                title = stringResource(id = R.string.bike_network_detail_screen_name),
+                onBack = onBack,
+                backContentDescription = stringResource(id = R.string.back),
             )
         }
+
     ) { innerPadding ->
         when (uiState.value) {
             UIState.LOADING -> {
@@ -63,7 +44,10 @@ fun BikeNetworkDetailScreen(
             }
 
             UIState.SUCCESS -> {
-                BikeNetworkDetailComposable(modifier.padding(innerPadding), bikeNetworkDetail = bikeNetworkDetail.value)
+                BikeNetworkDetailComposable(
+                    modifier.padding(innerPadding),
+                    bikeNetworkDetail = bikeNetworkDetail.value
+                )
             }
 
             UIState.NO_DATA -> {

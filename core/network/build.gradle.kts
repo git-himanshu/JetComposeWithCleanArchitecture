@@ -4,7 +4,7 @@ import com.example.jetcomposewithcleanarchitecture.Versions
 
 plugins {
     id("com.android.library")
-    id ("kotlin-kapt")
+    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.android")
 }
@@ -24,7 +24,8 @@ android {
 dependencies {
     implementation(Libs.Google.Hilt.hiltAndroid)
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
-    implementation (Libs.Retrofit.converterGson)
+    implementation(Libs.Retrofit.retrofitClient)
+    implementation(Libs.Retrofit.converterGson)
     implementation(project(":core:common"))
 }
 

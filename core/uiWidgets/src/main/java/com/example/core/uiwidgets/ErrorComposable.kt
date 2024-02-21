@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.example.core.theme.AppTheme
 
 @Composable
 fun ErrorComposable(
@@ -23,8 +23,8 @@ fun ErrorComposable(
     onRetry: () -> Unit,
     modifier: Modifier = Modifier,
 
-) {
-    Surface(color = MaterialTheme.colorScheme.primaryContainer) {
+    ) {
+    Surface(color = MaterialTheme.colorScheme.errorContainer) {
         Column(
             modifier = modifier
                 .fillMaxWidth()
@@ -32,8 +32,12 @@ fun ErrorComposable(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = errorText, style = MaterialTheme.typography.titleMedium)
-            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = errorText,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onErrorContainer
+            )
+            Spacer(modifier = Modifier.height(AppTheme.dimens.grid_2))
             ElevatedButton(onClick = onRetry) {
                 Text(text = retryButtonLabel)
             }

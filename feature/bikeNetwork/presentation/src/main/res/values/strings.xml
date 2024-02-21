@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name"/>
-    <string name="bike_network_screen_name"/>
-    <string name="bike_network_detail_screen_name"/>
-    <string name="retry"/>
-    <string name="network_name"/>
-    <string name="location"/>
-    <string name="all_stations"/>
-    <string name="total_slots"/>
-    <string name="available_slots"/>
-    <string name="free_bikes"/>
-    <string name="generic_error_message"/>
-    <string name="data_not_found"/>
-    <string name="back"/>
+    <string name="app_name" />
+    <string name="bike_network_screen_name" />
+    <string name="bike_network_detail_screen_name" />
+    <string name="retry" />
+    <string name="network_name" />
+    <string name="location" />
+    <string name="all_stations" />
+    <string name="total_slots" />
+    <string name="available_slots" />
+    <string name="free_bikes" />
+    <string name="generic_error_message" />
+    <string name="data_not_found" />
+    <string name="back" />
 </resources>

@@ -50,7 +50,8 @@ internal class LoggingInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request: Request = chain.request()
         val t1 = System.nanoTime()
-        Log.d("NetworkRequest",
+        Log.d(
+            "NetworkRequest",
             String.format(
                 "Sending request %s on %s%n%s",
                 request.url(), chain.connection(), request.headers()
@@ -58,10 +59,14 @@ internal class LoggingInterceptor : Interceptor {
         )
         val response: Response = chain.proceed(request)
         val t2 = System.nanoTime()
-        Log.d("NetworkRequest",
+        Log.d(
+            "NetworkRequest",
             String.format(
                 "Received response for %s in %.1fms%n%s \n %s",
-                response.request().url(), (t2 - t1) / 1e6, response.headers(),response.body().toString()
+                response.request().url(),
+                (t2 - t1) / 1e6,
+                response.headers(),
+                response.body().toString()
             )
         )
         return response

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,16 +15,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.bikenetwork.domain.entity.Station
+import com.example.core.theme.AppTheme
 import com.example.core.uiwidgets.CaptionedRowComposable
 import com.example.feature.bikenetwork.presentation.R
 
 @Composable
 fun StationListComposable(modifier: Modifier = Modifier, stationList: List<Station>) {
     LazyColumn(
-        modifier = modifier.padding(horizontal = 20.dp),
-        contentPadding = PaddingValues(vertical = 8.dp)
+        modifier = modifier.padding(horizontal = AppTheme.dimens.grid_2_5),
+        contentPadding = PaddingValues(vertical = AppTheme.dimens.grid_1)
     ) {
         items(
             items = stationList,
@@ -39,35 +38,35 @@ fun StationListComposable(modifier: Modifier = Modifier, stationList: List<Stati
 @Composable
 fun StationListRow(station: Station, modifier: Modifier = Modifier) {
     Surface(
-        color = MaterialTheme.colorScheme.surfaceVariant,
-        modifier = modifier.padding(vertical = 4.dp),
-        shape = RoundedCornerShape(5.dp)
+        color = MaterialTheme.colorScheme.secondaryContainer,
+        modifier = modifier.padding(vertical = AppTheme.dimens.grid_0_5),
+        shape = MaterialTheme.shapes.small
     ) {
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(AppTheme.dimens.grid_1)
         ) {
             Text(
                 text = station.name,
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(AppTheme.dimens.grid_1_5))
             CaptionedRowComposable(
                 caption = stringResource(id = R.string.total_slots),
                 value = station.slots.toString(),
-                modifier = Modifier.padding(vertical = 1.dp)
+                modifier = Modifier.padding(vertical = AppTheme.dimens.grid_0_25)
             )
             CaptionedRowComposable(
                 caption = stringResource(id = R.string.available_slots),
                 value = station.emptySlot.toString(),
-                modifier = Modifier.padding(vertical = 1.dp)
+                modifier = Modifier.padding(vertical = AppTheme.dimens.grid_0_25)
             )
             CaptionedRowComposable(
                 caption = stringResource(id = R.string.free_bikes),
                 value = station.freeBikes.toString(),
-                modifier = Modifier.padding(vertical = 1.dp)
+                modifier = Modifier.padding(vertical = AppTheme.dimens.grid_0_25)
             )
 
         }

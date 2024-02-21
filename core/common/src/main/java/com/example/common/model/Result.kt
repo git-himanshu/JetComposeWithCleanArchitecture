@@ -1,6 +1,11 @@
 package com.example.common.model
 
-data class Result<out T>(val status: Status, val data: T?, val error: Error?, val message: String?) {
+data class Result<out T>(
+    val status: Status,
+    val data: T?,
+    val error: Error?,
+    val message: String?
+) {
 
     enum class Status {
         SUCCESS,

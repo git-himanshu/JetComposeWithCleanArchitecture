@@ -19,6 +19,7 @@ data class BikeNetworkDetail(
     @SerializedName("stations")
     val stations: List<Station>?,
 )
+
 data class Station(
     @SerializedName("id")
     val id: String?,

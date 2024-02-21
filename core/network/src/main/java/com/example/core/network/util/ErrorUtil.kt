@@ -1,4 +1,5 @@
 package com.example.core.network.util
+
 import com.example.common.model.Error
 import retrofit2.Response
 import retrofit2.Retrofit

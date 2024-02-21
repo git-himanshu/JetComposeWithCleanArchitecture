@@ -2,10 +2,10 @@ package com.example.bikenetwork.domain.entity
 
 public data class BikeNetworkDetailEntity(
     val id: String = "",
-    val name: String= "",
-    val href: String= "",
-    val city: String= "",
-    val country: String= "",
+    val name: String = "",
+    val href: String = "",
+    val city: String = "",
+    val country: String = "",
     val stations: List<Station> = emptyList()
 )
 
