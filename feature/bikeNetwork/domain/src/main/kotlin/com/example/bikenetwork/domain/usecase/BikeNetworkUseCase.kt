@@ -9,9 +9,9 @@ import javax.inject.Inject
 
 class BikeNetworkUseCase @Inject constructor(private val repository: IBikeNetworkRepository) :
     IBikeNetworkUseCase {
-    override suspend fun getList(): Flow<Result<BikeNetworksEntity>?> =
+    override suspend fun getList(): Flow<Result<BikeNetworksEntity>> =
         repository.getBikeNetworkList()
 
-    override suspend fun getDetail(networkId: String): Flow<Result<BikeNetworkDetailEntity>?> =
+    override suspend fun getDetail(networkId: String): Flow<Result<BikeNetworkDetailEntity>> =
         repository.getBikeNetworkDetail(networkId)
 }

@@ -78,8 +78,8 @@ class BikeNetworkDetailRemoteDataMapper @Inject constructor() :
             href = dto.network?.href ?: "",
             city = dto.network?.location?.city ?: "",
             country = dto.network?.location?.country ?: "",
-            stations = dto.network?.stations?.let { stationList ->
-                stationList.map {
+            stations = dto.network?.stations?.let { stations ->
+                stations.map {
                     Station(
                         id = it.id ?: "",
                         freeBikes = it.freeBikes ?: 0,

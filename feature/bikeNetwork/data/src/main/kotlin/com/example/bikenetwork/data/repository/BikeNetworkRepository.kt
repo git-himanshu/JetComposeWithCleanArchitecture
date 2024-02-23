@@ -19,7 +19,7 @@ class BikeNetworkRepository @Inject constructor(
     private val listModelMapper: BikeNetworkRemoteListDataMapper,
     private val detailModelMapper: BikeNetworkDetailRemoteDataMapper
 ) : IBikeNetworkRepository {
-    override suspend fun getBikeNetworkList(): Flow<Result<BikeNetworksEntity>?> {
+    override suspend fun getBikeNetworkList(): Flow<Result<BikeNetworksEntity>> {
         val listDto = dataSource.getBikeNetworkList()
         return processDataSourceResponse(
             resultDto = listDto,
@@ -32,7 +32,7 @@ class BikeNetworkRepository @Inject constructor(
         )
     }
 
-    override suspend fun getBikeNetworkDetail(networkId: String): Flow<Result<BikeNetworkDetailEntity>?> {
+    override suspend fun getBikeNetworkDetail(networkId: String): Flow<Result<BikeNetworkDetailEntity>> {
         val detailDto = dataSource.getBikeNetworkDetail(networkId)
         return processDataSourceResponse(
             resultDto = detailDto,
@@ -50,9 +50,8 @@ class BikeNetworkRepository @Inject constructor(
     private suspend fun <T, S> processDataSourceResponse(
         resultDto: Result<T>,
         onSuccess: () -> Result<S>,
-    ): Flow<Result<S>?> {
-        return flow<Result<S>?> {
-            emit(Result.loading())
+    ): Flow<Result<S>> {
+        return flow {
             when (resultDto.status) {
                 Result.Status.ERROR -> {
                     emit(
@@ -68,9 +67,6 @@ class BikeNetworkRepository @Inject constructor(
                     emit(onSuccess())
                 }
 
-                Result.Status.LOADING -> {
-                    emit(Result.loading())
-                }
             }
         }.flowOn(Dispatchers.IO)
     }

@@ -3,6 +3,7 @@
     <string name="bike_network_screen_name" />
     <string name="bike_network_detail_screen_name" />
     <string name="retry" />
+    <string name="load_data" />
     <string name="network_name" />
     <string name="location" />
     <string name="all_stations" />

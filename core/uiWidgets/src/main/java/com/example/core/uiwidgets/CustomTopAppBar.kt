@@ -27,14 +27,15 @@ fun CustomTopAppBar(
             Text(title)
         },
         navigationIcon = {
-            if (onBack != null)
-                IconButton(onClick = { onBack() }) {
+            onBack?.let {
+                IconButton(onClick = it) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = backContentDescription,
                         tint = MaterialTheme.colorScheme.onPrimary
                     )
                 }
+            }
         }
     )
 }

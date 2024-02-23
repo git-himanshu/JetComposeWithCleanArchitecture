@@ -9,8 +9,7 @@ data class Result<out T>(
 
     enum class Status {
         SUCCESS,
-        ERROR,
-        LOADING
+        ERROR
     }
 
     companion object {
@@ -20,10 +19,6 @@ data class Result<out T>(
 
         fun <T> error(message: String, error: Error?): Result<T> {
             return Result(Status.ERROR, null, error, message)
-        }
-
-        fun <T> loading(data: T? = null): Result<T> {
-            return Result(Status.LOADING, data, null, null)
         }
     }
 

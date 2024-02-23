@@ -24,8 +24,8 @@ abstract class RemoteDataSource(private val retrofit: Retrofit) {
         } catch (e: Throwable) {
             print(e.printStackTrace())
             Result.error(
-                Constants.unknownError,
-                Error(status_message = Constants.unknownError)
+                e.message ?: Constants.unknownError,
+                Error(status_message = e.message ?: Constants.unknownError)
             )
         }
     }

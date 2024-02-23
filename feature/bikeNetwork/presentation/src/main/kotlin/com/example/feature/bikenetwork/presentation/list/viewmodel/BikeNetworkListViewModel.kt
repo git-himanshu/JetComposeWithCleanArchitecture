@@ -1,15 +1,15 @@
 package com.example.feature.bikenetwork.presentation.list.viewmodel
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bikenetwork.domain.entity.BikeNetworkEntity
 import com.example.bikenetwork.domain.usecase.IBikeNetworkUseCase
 import com.example.common.model.Result
-import com.example.feature.bikenetwork.presentation.util.UIState
+import com.example.feature.bikenetwork.presentation.list.intent.ListIntent
+import com.example.feature.bikenetwork.presentation.list.state.ListState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,48 +17,42 @@ import javax.inject.Inject
 class BikeNetworkListViewModel @Inject constructor(
     private val bikeNetworkUseCase: IBikeNetworkUseCase,
 ) : ViewModel() {
-    private val _bikeNetworkList = MutableStateFlow<List<BikeNetworkEntity>>(emptyList())
-    val bikeNetworkList: StateFlow<List<BikeNetworkEntity>> = _bikeNetworkList.asStateFlow()
 
-    private val _uiState = MutableStateFlow(UIState.LOADING)
-    val uiState: StateFlow<UIState> = _uiState.asStateFlow()
+    val userIntent = Channel<ListIntent>(Channel.UNLIMITED)
 
-    private val _errorMessage = MutableStateFlow<String?>("")
-    val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
+    val state = mutableStateOf<ListState>(ListState.Loading)
 
     init {
+        handleIntent()
         fetchBikeNetworkList()
     }
 
-    fun onRetry() {
-        fetchBikeNetworkList()
+    private fun handleIntent() {
+        viewModelScope.launch {
+            userIntent.consumeAsFlow().collect() { intent ->
+                when (intent) {
+                    is ListIntent.FetchBikeNetworks -> fetchBikeNetworkList()
+                }
+            }
+        }
     }
+
 
     private fun fetchBikeNetworkList() {
         viewModelScope.launch {
+            state.value = ListState.Loading
             bikeNetworkUseCase.getList().collect {
-                when (it?.status) {
-                    Result.Status.LOADING -> {
-                        _uiState.value = UIState.LOADING
-                    }
-
+                when (it.status) {
                     Result.Status.SUCCESS -> {
                         if (it.data?.networks?.isNotEmpty() == true) {
-                            _uiState.value = UIState.SUCCESS
-                            _bikeNetworkList.value = it.data?.networks!!
+                            state.value = ListState.BikeNetworks(it.data?.networks!!)
                         } else {
-                            _uiState.value = UIState.NO_DATA
+                            state.value = ListState.DataNotFound
                         }
                     }
 
                     Result.Status.ERROR -> {
-                        _uiState.value = UIState.ERROR
-                        _errorMessage.value = it.error?.status_message
-                    }
-
-                    else -> {
-                        _uiState.value = UIState.ERROR
-                        _errorMessage.value = null
+                        state.value = ListState.Error(it.error?.status_message ?: "")
                     }
                 }
             }
