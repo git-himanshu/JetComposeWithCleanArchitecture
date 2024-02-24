@@ -6,6 +6,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.core.uiwidgets.CustomTopAppBar
@@ -48,12 +49,18 @@ fun BikeNetworkDetailScreen(
     ) { innerPadding ->
         when (state) {
             is DetailState.Loading -> {
-                LoaderComposable(modifier = modifier.padding(innerPadding))
+                LoaderComposable(
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_loader))
+                )
             }
 
             is DetailState.NetworkDetail -> {
                 BikeNetworkDetailComposable(
-                    modifier.padding(innerPadding),
+                    modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_networkDetail)),
                     bikeNetworkDetail = state.networks
                 )
             }
@@ -63,7 +70,9 @@ fun BikeNetworkDetailScreen(
                     infoText = stringResource(id = R.string.data_not_found),
                     retryButtonLabel = stringResource(id = R.string.retry),
                     onRetry = fetchNetworksIntent,
-                    modifier = modifier.padding(innerPadding),
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_noData)),
                     noDataDrawable = R.drawable.no_data
                 )
             }
@@ -73,16 +82,20 @@ fun BikeNetworkDetailScreen(
                     errorText = state.error,
                     retryButtonLabel = stringResource(id = R.string.retry),
                     onRetry = fetchNetworksIntent,
-                    modifier = modifier.padding(innerPadding)
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_error))
                 )
             }
 
             is DetailState.Idle -> {
-                ErrorComposable(
-                    errorText = stringResource(id = R.string.generic_error_message),
+                NoDataComposable(
+                    infoText = stringResource(id = R.string.generic_error_message),
                     retryButtonLabel = stringResource(id = R.string.retry),
                     onRetry = fetchNetworksIntent,
-                    modifier = modifier.padding(innerPadding)
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_idle))
                 )
             }
         }

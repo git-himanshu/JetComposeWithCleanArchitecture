@@ -6,6 +6,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.core.uiwidgets.CustomTopAppBar
@@ -48,18 +49,38 @@ fun BikeNetworkListScreen(
                 NoDataComposable(
                     retryButtonLabel = stringResource(id = R.string.load_data),
                     onRetry = fetchNetworksIntent,
-                    modifier = modifier.padding(innerPadding)
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(
+                            stringResource(
+                                id = R.string.testTag_idle
+                            )
+                        )
                 )
             }
 
             is ListState.Loading -> {
-                LoaderComposable(modifier = modifier.padding(innerPadding))
+                LoaderComposable(
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(
+                            stringResource(
+                                id = R.string.testTag_loader
+                            )
+                        ),
+                )
             }
 
             is ListState.BikeNetworks -> {
                 BikeNetworkList(
                     bikeNetworkList = state.networks,
-                    modifier = Modifier.padding(innerPadding),
+                    modifier = Modifier
+                        .padding(innerPadding)
+                        .testTag(
+                            stringResource(
+                                id = R.string.testTag_networkList
+                            )
+                        ),
                     onItemClick = onItemClick
                 )
             }
@@ -69,7 +90,13 @@ fun BikeNetworkListScreen(
                     infoText = stringResource(id = R.string.data_not_found),
                     retryButtonLabel = stringResource(id = R.string.retry),
                     onRetry = fetchNetworksIntent,
-                    modifier = modifier.padding(innerPadding),
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(
+                            stringResource(
+                                id = R.string.testTag_noData
+                            )
+                        ),
                     noDataDrawable = R.drawable.no_data
                 )
             }
@@ -79,7 +106,13 @@ fun BikeNetworkListScreen(
                     errorText = state.error,
                     retryButtonLabel = stringResource(id = R.string.retry),
                     onRetry = fetchNetworksIntent,
-                    modifier = modifier.padding(innerPadding)
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(
+                            stringResource(
+                                id = R.string.testTag_error
+                            )
+                        )
                 )
             }
         }

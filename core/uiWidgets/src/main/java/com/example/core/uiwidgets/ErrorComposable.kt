@@ -21,8 +21,8 @@ import com.example.core.theme.AppTheme
 @Composable
 fun ErrorComposable(
     errorText: String,
-    retryButtonLabel: String,
     modifier: Modifier = Modifier,
+    retryButtonLabel: String? = null,
     onRetry: (() -> Unit)? = null,
 ) {
     Surface(color = MaterialTheme.colorScheme.errorContainer) {
@@ -40,10 +40,12 @@ fun ErrorComposable(
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onErrorContainer,
             )
-            onRetry?.let {
-                Spacer(modifier = Modifier.height(AppTheme.dimens.grid_2))
-                ElevatedButton(onClick = it) {
-                    Text(text = retryButtonLabel)
+            retryButtonLabel?.let {
+                onRetry?.let {
+                    Spacer(modifier = Modifier.height(AppTheme.dimens.grid_2))
+                    ElevatedButton(onClick = it) {
+                        Text(text = retryButtonLabel)
+                    }
                 }
             }
         }

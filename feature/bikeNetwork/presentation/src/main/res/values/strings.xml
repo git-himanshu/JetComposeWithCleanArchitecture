@@ -1,16 +1,23 @@
 <resources>
-    <string name="app_name" />
-    <string name="bike_network_screen_name" />
-    <string name="bike_network_detail_screen_name" />
-    <string name="retry" />
-    <string name="load_data" />
-    <string name="network_name" />
-    <string name="location" />
-    <string name="all_stations" />
-    <string name="total_slots" />
-    <string name="available_slots" />
-    <string name="free_bikes" />
-    <string name="generic_error_message" />
-    <string name="data_not_found" />
-    <string name="back" />
+    <string name="app_name">JetComposeWithCleanArchitecture</string>
+    <string name="bike_network_screen_name">Bike Networks</string>
+    <string name="bike_network_detail_screen_name">Bike Network Detail</string>
+    <string name="retry">Retry</string>
+    <string name="network_name">Network name:</string>
+    <string name="location">Location:</string>
+    <string name="all_stations">All Stations:</string>
+    <string name="total_slots">Total Slots:</string>
+    <string name="available_slots">Available Slots:</string>
+    <string name="free_bikes">Free Bikes:</string>
+    <string name="generic_error_message">Something went wrong!</string>
+    <string name="data_not_found">No data available at the moment, Please try again!</string>
+    <string name="back">Back</string>
+    <string name="load_data">Load Data</string>
+
+    <string name="testTag_loader">testTag_LoaderComposable</string>
+    <string name="testTag_noData">testTag_NoDataComposable</string>
+    <string name="testTag_networkList">testTag_NetworkList</string>
+    <string name="testTag_networkDetail">testTag_NetworkDetail</string>
+    <string name="testTag_error">testTag_Error</string>
+    <string name="testTag_idle">testTag_Idle</string>
 </resources>

@@ -57,6 +57,11 @@ dependencies {
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
     implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
     debugImplementation(Libs.AndroidX.Compose.uiTooling)
+
+    androidTestImplementation(platform(Libs.AndroidX.Compose.bom))
+    androidTestImplementation(Libs.AndroidTest.composeTestJunit4)
+    debugImplementation(Libs.AndroidTest.composeTestUiTooling)
+    debugImplementation(Libs.AndroidTest.composeTestManifest)
 }
 
 kapt {

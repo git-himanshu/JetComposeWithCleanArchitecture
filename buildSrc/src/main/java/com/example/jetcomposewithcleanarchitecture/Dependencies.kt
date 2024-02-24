@@ -39,6 +39,18 @@ object Libs {
         private const val version = "2.9.0"
         const val retrofitClient = "com.squareup.retrofit2:retrofit:$version"
         const val converterGson = "com.squareup.retrofit2:converter-gson:$version"
-        const val adapterRxjava = "com.squareup.retrofit2:adapter-rxjava2:$version"
+    }
+
+    object AndroidTest {
+        const val composeTestJunit4 = "androidx.compose.ui:ui-test-junit4"
+        const val composeTestUiTooling = "androidx.compose.ui:ui-tooling"
+        const val composeTestManifest = "androidx.compose.ui:ui-test-manifest"
+        const val extJUnit = "androidx.test.ext:junit:1.1.5"
+        const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
+        const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
+    }
+
+    object JUnit{
+        const val jUnit = "junit:junit:4.13.2"
     }
 }

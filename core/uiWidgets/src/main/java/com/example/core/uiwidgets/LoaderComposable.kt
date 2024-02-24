@@ -9,18 +9,21 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.core.theme.AppTheme
 
 @Composable
-fun LoaderComposable(modifier: Modifier) {
+fun LoaderComposable(modifier: Modifier = Modifier, testTag: String = "") {
     Box(
         modifier = modifier
             .fillMaxWidth()
             .fillMaxHeight(), contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator(
-            modifier = Modifier.width(AppTheme.dimens.grid_6),
+            modifier = Modifier
+                .width(AppTheme.dimens.grid_6)
+                .testTag(testTag),
             color = MaterialTheme.colorScheme.primary,
             trackColor = MaterialTheme.colorScheme.inversePrimary,
         )
