@@ -22,7 +22,7 @@ fun LoaderComposable(modifier: Modifier = Modifier, testTag: String = "") {
     ) {
         CircularProgressIndicator(
             modifier = Modifier
-                .width(AppTheme.dimens.grid_6)
+                .width(AppTheme.dimens.grid6)
                 .testTag(testTag),
             color = MaterialTheme.colorScheme.primary,
             trackColor = MaterialTheme.colorScheme.inversePrimary,

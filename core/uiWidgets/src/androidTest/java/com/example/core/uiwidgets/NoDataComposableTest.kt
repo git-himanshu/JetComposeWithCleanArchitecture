@@ -3,15 +3,16 @@ package com.example.core.uiwidgets
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import com.example.core.uiwidgets.Constants.iconContentDescription
+import com.example.core.uiwidgets.Constants.infoText
+import com.example.core.uiwidgets.Constants.retryBtnLabel
 import org.junit.Rule
 import org.junit.Test
 
 class NoDataComposableTest {
     @get:Rule
     val composeTestRule = createComposeRule()
-    private val infoText = "Information text"
-    private val retryBtnLabel = "Retry"
-    private val iconContentDescription = "Icon content description"
+
 
     @Test
     fun noDataComposableTest_infoAndRetryButtonVisible() {

@@ -1,8 +1,11 @@
-package com.example.core.network.data_source.di
+package com.example.core.network.di
 
 import android.util.Log
+import com.example.core.network.BASE_URL
+import com.example.core.network.Constants.logTag
+import com.example.core.network.Constants.requestLogPlaceHolder
+import com.example.core.network.Constants.responseLogPlaceHolder
 import com.example.core.network.service.IBikeNetworkService
-import com.example.network.data_source.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -51,18 +54,18 @@ internal class LoggingInterceptor : Interceptor {
         val request: Request = chain.request()
         val t1 = System.nanoTime()
         Log.d(
-            "NetworkRequest",
+            logTag,
             String.format(
-                "Sending request %s on %s%n%s",
+                requestLogPlaceHolder,
                 request.url(), chain.connection(), request.headers()
             )
         )
         val response: Response = chain.proceed(request)
         val t2 = System.nanoTime()
         Log.d(
-            "NetworkRequest",
+            logTag,
             String.format(
-                "Received response for %s in %.1fms%n%s \n %s",
+                responseLogPlaceHolder,
                 response.request().url(),
                 (t2 - t1) / 1e6,
                 response.headers(),

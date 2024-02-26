@@ -9,6 +9,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.core.Constants.captionLabel
+import com.example.core.Constants.value
 import com.example.core.theme.AppTheme
 
 @Composable
@@ -25,7 +27,7 @@ fun CaptionedRowComposable(caption: String, value: String, modifier: Modifier = 
         )
         Text(
             text = value,
-            modifier = modifier.padding(start = AppTheme.dimens.grid_0_5),
+            modifier = modifier.padding(start = AppTheme.dimens.grid0p5),
             style = MaterialTheme.typography.bodyLarge
         )
     }
@@ -36,6 +38,6 @@ fun CaptionedRowComposable(caption: String, value: String, modifier: Modifier = 
 @Composable
 fun CaptionedRowComposablePreview() {
     Surface {
-        CaptionedRowComposable(caption = "Caption:", value = "Value")
+        CaptionedRowComposable(caption = captionLabel, value = value)
     }
 }

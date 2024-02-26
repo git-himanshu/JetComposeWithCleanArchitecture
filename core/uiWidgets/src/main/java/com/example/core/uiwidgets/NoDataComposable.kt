@@ -1,6 +1,7 @@
 package com.example.core.uiwidgets
 
-import android.R
+
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.core.Constants.noDataText
+import com.example.core.Constants.retry
 import com.example.core.theme.AppTheme
 
 
@@ -37,7 +40,7 @@ fun NoDataComposable(
             modifier = modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .padding(AppTheme.dimens.grid_3),
+                .padding(AppTheme.dimens.grid3),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -48,14 +51,14 @@ fun NoDataComposable(
                 )
             }
             infoText?.let {
-                Spacer(modifier = Modifier.height(AppTheme.dimens.grid_4))
+                Spacer(modifier = Modifier.height(AppTheme.dimens.grid4))
                 Text(
                     text = it,
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.titleMedium
                 )
             }
-            Spacer(modifier = Modifier.height(AppTheme.dimens.grid_2))
+            Spacer(modifier = Modifier.height(AppTheme.dimens.grid2))
             ElevatedButton(
                 onClick = onRetry, colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.onSecondaryContainer
@@ -67,13 +70,14 @@ fun NoDataComposable(
     }
 }
 
+@SuppressLint("PrivateResource")
 @Preview
 @Composable
 fun NoDataComposablePreview() {
     NoDataComposable(
-        infoText = "No Data Found at the moment, please try again.",
+        infoText = noDataText,
         onRetry = {},
-        retryButtonLabel = "Retry",
-        noDataDrawable = R.drawable.stat_sys_data_bluetooth
+        retryButtonLabel = retry,
+        noDataDrawable = androidx.core.R.drawable.ic_call_answer
     )
 }

@@ -3,4 +3,4 @@
     android:height="24dp"
     android:tint="#800F0F"
     android:viewportWidth="24"
-    android:viewportHeight="24"></vector>
+    android:viewportHeight="24" />

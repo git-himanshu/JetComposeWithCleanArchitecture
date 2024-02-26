@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature.bikenetwork.data"
+    namespace = "com.example.feature.bikeNetwork.data"
     compileSdk = ConfigurationData.compileSdk
 
     compileOptions {

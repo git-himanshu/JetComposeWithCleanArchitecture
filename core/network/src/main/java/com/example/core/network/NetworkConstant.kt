@@ -1,6 +1,6 @@
-package com.example.network.data_source
+package com.example.core.network
 
-public const val BASE_URL = "https://api.citybik.es"
+const val BASE_URL = "https://api.citybik.es"
 
 class EndPoints {
     companion object {

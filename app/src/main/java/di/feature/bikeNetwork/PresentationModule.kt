@@ -1,7 +1,7 @@
 package di.feature.bikeNetwork
 
-import com.example.bikenetwork.domain.usecase.BikeNetworkUseCase
-import com.example.bikenetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.bikeNetwork.domain.usecase.BikeNetworkUseCase
+import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

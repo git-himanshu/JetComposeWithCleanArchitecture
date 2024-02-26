@@ -1,6 +1,6 @@
 package com.example.common.model
 
 data class Error(
-    val status_code: Int = 0,
-    val status_message: String = ""
+    val statusCode: Int = 0,
+    val statusMessage: String = ""
 )

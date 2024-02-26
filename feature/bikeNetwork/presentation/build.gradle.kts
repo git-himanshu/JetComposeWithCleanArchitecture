@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature.bikenetwork.presentation"
+    namespace = "com.example.feature.bikeNetwork.presentation"
     compileSdk = ConfigurationData.compileSdk
 
     defaultConfig {

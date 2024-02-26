@@ -50,7 +50,7 @@ object Libs {
         const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
     }
 
-    object JUnit{
+    object JUnit {
         const val jUnit = "junit:junit:4.13.2"
     }
 }

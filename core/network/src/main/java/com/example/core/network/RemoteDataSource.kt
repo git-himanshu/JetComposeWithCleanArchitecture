@@ -17,7 +17,7 @@ abstract class RemoteDataSource(private val retrofit: Retrofit) {
             } else {
                 val errorResponse = ErrorUtils.parseError(response, retrofit)
                 Result.error(
-                    errorResponse?.status_message ?: Constants.defaultErrorMessage,
+                    errorResponse?.statusMessage ?: Constants.defaultErrorMessage,
                     errorResponse
                 )
             }
@@ -25,7 +25,7 @@ abstract class RemoteDataSource(private val retrofit: Retrofit) {
             print(e.printStackTrace())
             Result.error(
                 e.message ?: Constants.unknownError,
-                Error(status_message = e.message ?: Constants.unknownError)
+                Error(statusMessage = e.message ?: Constants.unknownError)
             )
         }
     }

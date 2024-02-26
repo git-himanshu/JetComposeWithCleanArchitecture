@@ -16,6 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.core.Constants.genericErrorMessage
+import com.example.core.Constants.retry
 import com.example.core.theme.AppTheme
 
 @Composable
@@ -30,7 +32,7 @@ fun ErrorComposable(
             modifier = modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .padding(AppTheme.dimens.grid_3),
+                .padding(AppTheme.dimens.grid3),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -42,7 +44,7 @@ fun ErrorComposable(
             )
             retryButtonLabel?.let {
                 onRetry?.let {
-                    Spacer(modifier = Modifier.height(AppTheme.dimens.grid_2))
+                    Spacer(modifier = Modifier.height(AppTheme.dimens.grid2))
                     ElevatedButton(onClick = it) {
                         Text(text = retryButtonLabel)
                     }
@@ -56,8 +58,8 @@ fun ErrorComposable(
 @Composable
 fun ErrorComposablePreview() {
     ErrorComposable(
-        "Something went wrong g Something went wrong Something went wrong",
+        genericErrorMessage,
         onRetry = {},
-        retryButtonLabel = "Retry"
+        retryButtonLabel = retry
     )
 }

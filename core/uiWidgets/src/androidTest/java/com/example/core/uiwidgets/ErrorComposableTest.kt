@@ -2,14 +2,15 @@ package com.example.core.uiwidgets
 
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import com.example.core.uiwidgets.Constants.btnLabel
+import com.example.core.uiwidgets.Constants.errorText
 import org.junit.Rule
 import org.junit.Test
 
 class ErrorComposableTest {
     @get:Rule
     val composeTestRule = createComposeRule()
-    private val errorText = "Error text"
-    private val btnLabel = "Retry"
+
 
     @Test
     fun errorComposableTest_errorTextVisibility() {

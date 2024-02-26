@@ -1,8 +1,8 @@
 package com.example.core.network.service
 
-import com.example.bikenetwork.data.dto.BikeNetworkDetailResponseDto
-import com.example.bikenetwork.data.dto.BikeNetworkListResponseDto
-import com.example.network.data_source.EndPoints
+import com.example.core.network.EndPoints
+import com.example.core.network.dto.BikeNetworkDetailResponseDto
+import com.example.core.network.dto.BikeNetworkListResponseDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

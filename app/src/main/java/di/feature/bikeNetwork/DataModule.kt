@@ -1,7 +1,7 @@
 package di.feature.bikeNetwork
 
-import com.example.bikenetwork.data.datasource.IBikeNetworkDataSource
-import com.example.bikenetwork.data.remotedatasource.BikeNetworkRemoteDataSource
+import com.example.bikeNetwork.data.datasource.IBikeNetworkDataSource
+import com.example.bikeNetwork.data.remotedatasource.BikeNetworkRemoteDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

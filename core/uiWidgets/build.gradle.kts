@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.core.uiwidgets"
+    namespace = "com.example.core.uiWidgets"
     compileSdk = ConfigurationData.compileSdk
 
     defaultConfig {
