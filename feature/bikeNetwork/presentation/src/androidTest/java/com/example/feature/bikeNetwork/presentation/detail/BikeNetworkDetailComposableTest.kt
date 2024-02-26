@@ -7,8 +7,8 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import com.example.feature.bikeNetwork.presentation.R
 import com.example.feature.bikeNetwork.presentation.detail.ui.BikeNetworkDetailComposable
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.networkEntity
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.stations
+import com.example.feature.bikeNetwork.presentation.previewData.networkEntity
+import com.example.feature.bikeNetwork.presentation.previewData.stations
 import org.junit.Rule
 import org.junit.Test
 
@@ -18,7 +18,7 @@ class BikeNetworkDetailComposableTest {
 
 
     @Test
-    fun bikeNetworkDetail_NetworkDetailVisibility() {
+    fun bikeNetworkDetail_networkDetailVisibility() {
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
                 bikeNetworkDetail = networkEntity
@@ -40,7 +40,7 @@ class BikeNetworkDetailComposableTest {
     }
 
     @Test
-    fun bikeNetworkDetail_StationsListVisibility() {
+    fun bikeNetworkDetail_stationsListVisibility() {
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
                 bikeNetworkDetail = networkEntity

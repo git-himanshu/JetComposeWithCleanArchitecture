@@ -22,9 +22,5 @@ data class Location(
     @SerializedName("city")
     val city: String?,
     @SerializedName("country")
-    val country: String?,
-    @SerializedName("latitude")
-    val latitude: Double?,
-    @SerializedName("longitude")
-    val longitude: Double?,
+    val country: String?
 )

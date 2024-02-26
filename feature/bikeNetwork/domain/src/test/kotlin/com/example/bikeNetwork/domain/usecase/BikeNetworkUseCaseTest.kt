@@ -1,0 +1,73 @@
+package com.example.bikeNetwork.domain.usecase
+
+import com.example.bikeNetwork.domain.repository.IBikeNetworkRepository
+import com.example.common.model.Result
+import com.example.feature.bikeNetwork.presentation.dispatcherRule.MainDispatcherRule
+import com.example.feature.bikeNetwork.presentation.testData.bikeNetworkEntity
+import com.example.feature.bikeNetwork.presentation.testData.networkDetailEntity
+import com.example.feature.bikeNetwork.presentation.testData.networkId
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.impl.annotations.MockK
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.test.runTest
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
+
+class BikeNetworkUseCaseTest {
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @get:Rule
+    val dispatcherRule = MainDispatcherRule()
+
+    @MockK
+    lateinit var repository: IBikeNetworkRepository
+
+    private lateinit var useCase: IBikeNetworkUseCase
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+        coEvery { repository.getBikeNetworkList() } returns flow {
+            emit(
+                Result(
+                    status = Result.Status.SUCCESS,
+                    data = bikeNetworkEntity,
+                    error = null,
+                    message = null
+                )
+            )
+        }
+        coEvery { repository.getBikeNetworkDetail(any()) } returns flow {
+            emit(
+                Result(
+                    status = Result.Status.SUCCESS,
+                    data = networkDetailEntity,
+                    error = null,
+                    message = null
+                )
+            )
+        }
+        useCase = BikeNetworkUseCase(repository)
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @Test
+    fun bikeNetworkUseCase_getList() = runTest {
+        useCase.getList()
+        coVerify {
+            repository.getBikeNetworkList()
+        }
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @Test
+    fun bikeNetworkUseCase_getDetail() = runTest {
+        useCase.getDetail(networkId)
+        coVerify {
+            repository.getBikeNetworkDetail(any())
+        }
+    }
+}

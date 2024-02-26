@@ -15,7 +15,7 @@ import com.example.bikeNetwork.domain.entity.BikeNetworkDetailEntity
 import com.example.core.theme.AppTheme
 import com.example.core.uiwidgets.CaptionedRowComposable
 import com.example.feature.bikeNetwork.presentation.R
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.networkEntity
+import com.example.feature.bikeNetwork.presentation.previewData.networkEntity
 
 @Composable
 fun BikeNetworkDetailComposable(

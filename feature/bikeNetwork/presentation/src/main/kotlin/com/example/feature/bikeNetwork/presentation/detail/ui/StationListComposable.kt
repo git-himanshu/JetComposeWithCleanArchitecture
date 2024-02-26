@@ -19,7 +19,7 @@ import com.example.bikeNetwork.domain.entity.Station
 import com.example.core.theme.AppTheme
 import com.example.core.uiwidgets.CaptionedRowComposable
 import com.example.feature.bikeNetwork.presentation.R
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.station2
+import com.example.feature.bikeNetwork.presentation.previewData.station2
 
 @Composable
 fun StationListComposable(modifier: Modifier = Modifier, stationList: List<Station>) {

@@ -1,12 +1,23 @@
 package com.example.feature.bikeNetwork.presentation.list.viewmodel
 
+import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.common.model.Error
+import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.dispatcherRule.MainDispatcherRule
-import com.example.feature.bikeNetwork.presentation.fake.FakeBikeNetworkUseCase
 import com.example.feature.bikeNetwork.presentation.list.intent.ListIntent
 import com.example.feature.bikeNetwork.presentation.list.state.ListState
+import com.example.feature.bikeNetwork.presentation.testData.bikeNetworkEntity
+import com.example.feature.bikeNetwork.presentation.testData.bikeNetworkEntityWithEmptyList
+import com.example.feature.bikeNetwork.presentation.testData.genericError
+import com.example.feature.bikeNetwork.presentation.testData.serverError
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -16,13 +27,29 @@ class BikeNetworkListViewModelTest {
     @get:Rule
     val dispatcherRule = MainDispatcherRule()
 
+    @MockK
+    lateinit var useCase: IBikeNetworkUseCase
+
     private lateinit var viewModel: BikeNetworkListViewModel
 
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+    }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkList_listLoaded_Success_WithData() = runTest {
-        val useCase = FakeBikeNetworkUseCase(FakeBikeNetworkUseCase.ResponseType.SUCCESS_WITH_DATA)
+    fun bikeNetworkList_listLoaded_success_withData() = runTest {
+        coEvery { useCase.getList() } returns flow {
+            emit(
+                Result(
+                    status = Result.Status.SUCCESS,
+                    data = bikeNetworkEntity,
+                    error = null,
+                    message = null
+                )
+            )
+        }
         viewModel = BikeNetworkListViewModel(useCase)
         val state = viewModel.state.value
         viewModel.userIntent.send(ListIntent.FetchBikeNetworks)
@@ -32,9 +59,17 @@ class BikeNetworkListViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkList_listLoaded_Success_WithoutData() = runTest {
-        val useCase =
-            FakeBikeNetworkUseCase(FakeBikeNetworkUseCase.ResponseType.SUCCESS_WITHOUT_DATA)
+    fun bikeNetworkList_listLoaded_success_withoutData() = runTest {
+        coEvery { useCase.getList() } returns flow {
+            emit(
+                Result(
+                    status = Result.Status.SUCCESS,
+                    data = bikeNetworkEntityWithEmptyList,
+                    error = null,
+                    message = null
+                )
+            )
+        }
         viewModel = BikeNetworkListViewModel(useCase)
         val state = viewModel.state.value
         viewModel.userIntent.send(ListIntent.FetchBikeNetworks)
@@ -44,8 +79,17 @@ class BikeNetworkListViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkList_listLoaded_Error() = runTest {
-        val useCase = FakeBikeNetworkUseCase(FakeBikeNetworkUseCase.ResponseType.ERROR)
+    fun bikeNetworkList_listLoaded_error() = runTest {
+        coEvery { useCase.getList() } returns flow {
+            emit(
+                Result(
+                    status = Result.Status.ERROR,
+                    data = null,
+                    error = Error(statusCode = 500, statusMessage = serverError),
+                    message = genericError
+                )
+            )
+        }
         viewModel = BikeNetworkListViewModel(useCase)
         val state = viewModel.state.value
         viewModel.userIntent.send(ListIntent.FetchBikeNetworks)

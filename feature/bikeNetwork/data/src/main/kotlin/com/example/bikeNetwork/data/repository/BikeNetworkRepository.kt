@@ -21,40 +21,37 @@ class BikeNetworkRepository @Inject constructor(
 ) : IBikeNetworkRepository {
     override suspend fun getBikeNetworkList(): Flow<Result<BikeNetworksEntity>> {
         val listDto = dataSource.getBikeNetworkList()
-        return processDataSourceResponse(
+        return {
+            val resultEntity = listDto.data?.bikeNetworks?.map {
+                listModelMapper.fromDtoToEntity(it)
+            }
+            Result.success(resultEntity?.let { BikeNetworksEntity(it) })
+        }.processDataSourceResponse(
             resultDto = listDto,
-            onSuccess = {
-                val resultEntity = listDto.data?.bikeNetworks?.map {
-                    listModelMapper.fromDtoToEntity(it)
-                }
-                Result.success(resultEntity?.let { BikeNetworksEntity(it) })
-            },
         )
     }
 
     override suspend fun getBikeNetworkDetail(networkId: String): Flow<Result<BikeNetworkDetailEntity>> {
         val detailDto = dataSource.getBikeNetworkDetail(networkId)
-        return processDataSourceResponse(
+        return {
+            val resultEntity = detailDto.data?.let {
+                detailModelMapper.fromDtoToEntity(
+                    it
+                )
+            }
+            Result.success(resultEntity)
+        }.processDataSourceResponse(
             resultDto = detailDto,
-            onSuccess = {
-                val resultEntity = detailDto.data?.let {
-                    detailModelMapper.fromDtoToEntity(
-                        it
-                    )
-                }
-                Result.success(resultEntity)
-            },
         )
     }
 
-    private suspend fun <T, S> processDataSourceResponse(
+    private suspend fun <T, S> (() -> Result<S>).processDataSourceResponse(
         resultDto: Result<T>,
-        onSuccess: () -> Result<S>,
     ): Flow<Result<S>> {
         return flow {
             when (resultDto.status) {
                 Result.Status.ERROR -> {
-                    emit(
+                    this.emit(
                         Result.error(
                             error = resultDto.error,
                             message = resultDto.error?.statusMessage
@@ -64,7 +61,7 @@ class BikeNetworkRepository @Inject constructor(
                 }
 
                 Result.Status.SUCCESS -> {
-                    emit(onSuccess())
+                    this.emit(this@processDataSourceResponse())
                 }
 
             }

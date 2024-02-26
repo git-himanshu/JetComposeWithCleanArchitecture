@@ -50,6 +50,13 @@ object Libs {
         const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
     }
 
+    object MockK {
+        private const val version = "1.13.9"
+        const val mockk = "io.mockk:mockk:${version}"
+        const val mockkAgent = "io.mockk:mockk-agent:${version}"
+        const val mockkAndroid = "io.mockk:mockk-android:${version}"
+    }
+
     object JUnit {
         const val jUnit = "junit:junit:4.13.2"
     }

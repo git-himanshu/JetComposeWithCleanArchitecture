@@ -7,14 +7,19 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.printToLog
 import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.R
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.networks
-import com.example.feature.bikeNetwork.presentation.fake.FakeBikeNetworkUseCase
 import com.example.feature.bikeNetwork.presentation.list.state.ListState
 import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkListScreen
 import com.example.feature.bikeNetwork.presentation.list.viewmodel.BikeNetworkListViewModel
+import com.example.feature.bikeNetwork.presentation.previewData.networks
 import com.example.feature.bikeNetwork.presentation.testData.currentLabelExists
 import com.example.feature.bikeNetwork.presentation.testData.errorText
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.impl.annotations.MockK
+import kotlinx.coroutines.flow.flow
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -22,11 +27,29 @@ class BikeNetworkListScreenTest {
     @get:Rule
     val composeTestRule = createAndroidComposeRule(ComponentActivity::class.java)
 
-    private val useCase: IBikeNetworkUseCase = FakeBikeNetworkUseCase()
-    private val viewModel: BikeNetworkListViewModel = BikeNetworkListViewModel(useCase)
+    @MockK
+    lateinit var useCase: IBikeNetworkUseCase
+
+    private lateinit var viewModel: BikeNetworkListViewModel
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+        coEvery { useCase.getList() } returns flow {
+            emit(
+                Result(
+                    status = Result.Status.SUCCESS,
+                    data = null,
+                    error = null,
+                    message = null
+                )
+            )
+        }
+        viewModel = BikeNetworkListViewModel(useCase)
+    }
 
     @Test
-    fun bikeNetworksListScreen_screenTitle_Visibility() {
+    fun bikeNetworksListScreen_screenTitle_visibility() {
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
@@ -34,7 +57,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_Idle() {
+    fun bikeNetworksListScreen_idle() {
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
@@ -63,7 +86,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_networkList_NotLoaded() {
+    fun bikeNetworksListScreen_networkList_notLoaded() {
 
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
@@ -77,7 +100,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_networkList_Loaded() {
+    fun bikeNetworksListScreen_networkList_loaded() {
 
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)

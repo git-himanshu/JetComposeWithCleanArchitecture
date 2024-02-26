@@ -14,6 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.bikeNetwork.domain.entity.BikeNetworkEntity
 import com.example.core.theme.AppTheme
+import com.example.feature.bikeNetwork.presentation.previewData.firstCity
+import com.example.feature.bikeNetwork.presentation.previewData.firstCountry
+import com.example.feature.bikeNetwork.presentation.previewData.firstName
+import com.example.feature.bikeNetwork.presentation.previewData.networkId
 
 @Composable
 fun BikeNetworkList(
@@ -71,11 +75,11 @@ fun ListItemRowPreview() {
     ListItemRow(
         modifier = Modifier,
         item = BikeNetworkEntity(
-            id = "1",
-            name = "New Delhi Bikers Club",
+            id = networkId,
+            name = firstName,
             href = "",
-            city = "New Delhi",
-            country = "India"
+            city = firstCity,
+            country = firstCountry
         ),
         onItemClick = {}
     )

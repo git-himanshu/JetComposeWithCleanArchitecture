@@ -30,6 +30,13 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:network"))
     implementation(project(":feature:bikeNetwork:domain"))
+
+    testImplementation(Libs.JUnit.jUnit)
+    androidTestImplementation(Libs.AndroidTest.extJUnit)
+    androidTestImplementation(platform(Libs.AndroidX.Compose.bom))
+    testImplementation(Libs.AndroidTest.coroutinesTest)
+    testImplementation(Libs.MockK.mockk)
+    testImplementation(Libs.MockK.mockkAgent)
 }
 
 // Allow references to generated code

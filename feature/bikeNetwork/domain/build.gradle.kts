@@ -27,6 +27,13 @@ dependencies {
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
     implementation(project(":core:common"))
+
+    testImplementation(Libs.JUnit.jUnit)
+    androidTestImplementation(Libs.AndroidTest.extJUnit)
+    androidTestImplementation(platform(Libs.AndroidX.Compose.bom))
+    testImplementation(Libs.AndroidTest.coroutinesTest)
+    testImplementation(Libs.MockK.mockk)
+    testImplementation(Libs.MockK.mockkAgent)
 }
 
 // Allow references to generated code

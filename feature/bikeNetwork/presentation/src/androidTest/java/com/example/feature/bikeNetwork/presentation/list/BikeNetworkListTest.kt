@@ -6,14 +6,14 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.firstCity
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.firstCountry
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.firstName
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.networks
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.secondCity
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.secondCountry
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.secondName
 import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkList
+import com.example.feature.bikeNetwork.presentation.previewData.firstCity
+import com.example.feature.bikeNetwork.presentation.previewData.firstCountry
+import com.example.feature.bikeNetwork.presentation.previewData.firstName
+import com.example.feature.bikeNetwork.presentation.previewData.networks
+import com.example.feature.bikeNetwork.presentation.previewData.secondCity
+import com.example.feature.bikeNetwork.presentation.previewData.secondCountry
+import com.example.feature.bikeNetwork.presentation.previewData.secondName
 import org.junit.Rule
 import org.junit.Test
 

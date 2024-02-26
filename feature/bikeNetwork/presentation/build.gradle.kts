@@ -45,6 +45,8 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/LICENSE.md"
+            excludes += "/META-INF/LICENSE-notice.md"
         }
     }
 }
@@ -53,6 +55,8 @@ dependencies {
     implementation(platform(Libs.AndroidX.Compose.bom))
     implementation(Libs.AndroidX.Compose.material3)
     implementation(Libs.Google.Hilt.hiltAndroid)
+    testImplementation(project(":core:common"))
+    testImplementation(project(":core:common"))
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
     implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
@@ -69,6 +73,10 @@ dependencies {
     debugImplementation(Libs.AndroidTest.composeTestUiTooling)
     debugImplementation(Libs.AndroidTest.composeTestManifest)
     testImplementation(Libs.AndroidTest.coroutinesTest)
+    testImplementation(Libs.MockK.mockk)
+    testImplementation(Libs.MockK.mockkAgent)
+    androidTestImplementation(Libs.MockK.mockkAndroid)
+    androidTestImplementation(Libs.MockK.mockkAgent)
 }
 
 kapt {

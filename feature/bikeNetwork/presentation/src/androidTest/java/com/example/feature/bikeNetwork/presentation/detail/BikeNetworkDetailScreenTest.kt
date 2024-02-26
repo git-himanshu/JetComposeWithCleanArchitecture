@@ -6,15 +6,20 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.lifecycle.SavedStateHandle
 import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.R
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
 import com.example.feature.bikeNetwork.presentation.detail.ui.BikeNetworkDetailScreen
-import com.example.feature.bikeNetwork.presentation.detail.ui.testData.networkEntity
+import com.example.feature.bikeNetwork.presentation.previewData.networkEntity
 import com.example.feature.bikeNetwork.presentation.detail.viewmodel.BikeNetworkDetailViewModel
-import com.example.feature.bikeNetwork.presentation.fake.FakeBikeNetworkUseCase
 import com.example.feature.bikeNetwork.presentation.testData.errorText
 import com.example.feature.bikeNetwork.presentation.testData.netWorkId
 import com.example.feature.bikeNetwork.presentation.testData.netWorkIdArg
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.impl.annotations.MockK
+import kotlinx.coroutines.flow.flow
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -22,17 +27,35 @@ class BikeNetworkDetailScreenTest {
     @get:Rule
     val composeTestRule = createAndroidComposeRule(ComponentActivity::class.java)
 
-    private val useCase: IBikeNetworkUseCase = FakeBikeNetworkUseCase()
-    private val viewModel: BikeNetworkDetailViewModel =
-        BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
-            set(
-                netWorkIdArg,
-                netWorkId
+    @MockK
+    lateinit var useCase: IBikeNetworkUseCase
+
+    private lateinit var viewModel: BikeNetworkDetailViewModel
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+        coEvery { useCase.getDetail(any()) } returns flow {
+            emit(
+                Result(
+                    status = Result.Status.SUCCESS,
+                    data = null,
+                    error = null,
+                    message = null
+                )
             )
-        }, bikeNetworkUseCase = useCase)
+        }
+        viewModel =
+            BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
+                set(
+                    netWorkIdArg,
+                    netWorkId
+                )
+            }, bikeNetworkUseCase = useCase)
+    }
 
     @Test
-    fun bikeNetworksDetailScreen_screenTitle_Visibility() {
+    fun bikeNetworksDetailScreen_screenTitle_visibility() {
         composeTestRule.setContent {
             BikeNetworkDetailScreen(onBack = {}, viewModel = viewModel)
         }
@@ -40,7 +63,7 @@ class BikeNetworkDetailScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_Idle() {
+    fun bikeNetworksListScreen_idle() {
         composeTestRule.setContent {
             BikeNetworkDetailScreen(onBack = {}, viewModel = viewModel)
         }
@@ -69,7 +92,7 @@ class BikeNetworkDetailScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_networkList_NotLoaded() {
+    fun bikeNetworksListScreen_networkList_notLoaded() {
 
         composeTestRule.setContent {
             BikeNetworkDetailScreen(onBack = {}, viewModel = viewModel)
@@ -82,7 +105,7 @@ class BikeNetworkDetailScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_networkList_Loaded() {
+    fun bikeNetworksListScreen_networkList_loaded() {
 
         composeTestRule.setContent {
             BikeNetworkDetailScreen(onBack = {}, viewModel = viewModel)

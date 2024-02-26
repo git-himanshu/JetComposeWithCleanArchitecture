@@ -21,9 +21,7 @@ class BikeNetworkRemoteListDataMapper @Inject constructor() :
             href = entity.href,
             Location(
                 city = entity.city,
-                country = entity.country,
-                0.0,
-                0.0
+                country = entity.country
             )
         )
     }
@@ -50,9 +48,7 @@ class BikeNetworkDetailRemoteDataMapper @Inject constructor() :
                 href = entity.href,
                 location = Location(
                     city = entity.city,
-                    country = entity.country,
-                    0.0,
-                    0.0
+                    country = entity.country
                 ),
                 stations = entity.stations.map {
                     StationDto(
