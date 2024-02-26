@@ -9,6 +9,8 @@ const val networkId = "network_id"
 const val networkIdValue = "1"
 const val serverError = "Server not reachable"
 const val genericError = "Some thing went wrong!"
+const val errorText = "Error"
+const val netWorkId = "1"
 
 private val networkList = listOf(
     BikeNetworkEntity(

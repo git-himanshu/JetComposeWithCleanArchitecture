@@ -12,6 +12,12 @@ plugins {
 android {
     namespace = "com.example.core.network"
     compileSdk = ConfigurationData.compileSdk
+    defaultConfig {
+        minSdk = ConfigurationData.minSdk
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+    }
     compileOptions {
         sourceCompatibility = Versions.sourceCompatibility
         targetCompatibility = Versions.targetCompatibility

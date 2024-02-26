@@ -10,6 +10,13 @@ android {
     namespace = "com.example.core.common"
     compileSdk = ConfigurationData.compileSdk
 
+    defaultConfig {
+        minSdk = ConfigurationData.minSdk
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+    }
+
     compileOptions {
         sourceCompatibility = Versions.sourceCompatibility
         targetCompatibility = Versions.targetCompatibility

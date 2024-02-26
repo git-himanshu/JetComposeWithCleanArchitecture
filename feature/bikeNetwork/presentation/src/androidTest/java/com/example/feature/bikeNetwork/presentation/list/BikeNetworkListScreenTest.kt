@@ -13,7 +13,6 @@ import com.example.feature.bikeNetwork.presentation.list.state.ListState
 import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkListScreen
 import com.example.feature.bikeNetwork.presentation.list.viewmodel.BikeNetworkListViewModel
 import com.example.feature.bikeNetwork.presentation.previewData.networks
-import com.example.feature.bikeNetwork.presentation.testData.currentLabelExists
 import com.example.feature.bikeNetwork.presentation.testData.errorText
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -92,7 +91,6 @@ class BikeNetworkListScreenTest {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
         viewModel.state.value = ListState.DataNotFound
-        composeTestRule.onRoot(useUnmergedTree = true).printToLog(currentLabelExists)
         composeTestRule.onNodeWithTag(
             composeTestRule.activity.getString(R.string.testTag_noData),
             useUnmergedTree = true

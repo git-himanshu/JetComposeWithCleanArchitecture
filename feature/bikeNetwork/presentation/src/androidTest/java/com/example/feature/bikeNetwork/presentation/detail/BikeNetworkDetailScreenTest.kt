@@ -12,9 +12,9 @@ import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
 import com.example.feature.bikeNetwork.presentation.detail.ui.BikeNetworkDetailScreen
 import com.example.feature.bikeNetwork.presentation.previewData.networkEntity
 import com.example.feature.bikeNetwork.presentation.detail.viewmodel.BikeNetworkDetailViewModel
+import com.example.feature.bikeNetwork.presentation.navigation.BikeNetworkDetails.networkIDArg
 import com.example.feature.bikeNetwork.presentation.testData.errorText
 import com.example.feature.bikeNetwork.presentation.testData.netWorkId
-import com.example.feature.bikeNetwork.presentation.testData.netWorkIdArg
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -48,7 +48,7 @@ class BikeNetworkDetailScreenTest {
         viewModel =
             BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
                 set(
-                    netWorkIdArg,
+                    networkIDArg,
                     netWorkId
                 )
             }, bikeNetworkUseCase = useCase)
