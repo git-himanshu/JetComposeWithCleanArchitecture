@@ -46,7 +46,6 @@ object Libs {
         const val composeTestUiTooling = "androidx.compose.ui:ui-tooling"
         const val composeTestManifest = "androidx.compose.ui:ui-test-manifest"
         const val extJUnit = "androidx.test.ext:junit:1.1.5"
-        const val espresso = "androidx.test.espresso:espresso-core:3.5.1"
         const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
     }
 
