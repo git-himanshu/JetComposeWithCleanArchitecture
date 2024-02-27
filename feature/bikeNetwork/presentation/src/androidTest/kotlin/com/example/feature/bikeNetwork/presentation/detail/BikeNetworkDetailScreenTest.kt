@@ -10,11 +10,11 @@ import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.R
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
 import com.example.feature.bikeNetwork.presentation.detail.ui.BikeNetworkDetailScreen
-import com.example.testing.testData.networkDetailEntity
 import com.example.feature.bikeNetwork.presentation.detail.viewmodel.BikeNetworkDetailViewModel
 import com.example.feature.bikeNetwork.presentation.navigation.BikeNetworkDetails.networkIDArg
 import com.example.testing.testData.errorText
 import com.example.testing.testData.netWorkId
+import com.example.testing.testData.networkDetailEntity
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

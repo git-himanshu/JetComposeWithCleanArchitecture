@@ -63,7 +63,6 @@ dependencies {
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
     implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
-    implementation(Libs.Retrofit.converterGson)
     debugImplementation(Libs.AndroidX.Compose.uiTooling)
     implementation(project(":feature:bikeNetwork:presentation"))
     implementation(project(":feature:bikeNetwork:domain"))

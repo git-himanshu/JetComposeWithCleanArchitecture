@@ -5,11 +5,11 @@ import com.example.common.model.Error
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.list.intent.ListIntent
 import com.example.feature.bikeNetwork.presentation.list.state.ListState
+import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.bikeNetworkEntity
 import com.example.testing.testData.bikeNetworkEntityWithEmptyList
 import com.example.testing.testData.genericError
 import com.example.testing.testData.serverError
-import com.example.testing.dispatcherRule.MainDispatcherRule
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

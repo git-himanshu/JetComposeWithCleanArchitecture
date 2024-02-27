@@ -6,11 +6,10 @@ import com.example.bikeNetwork.data.remotedatasource.modelMapper.BikeNetworkRemo
 import com.example.bikeNetwork.domain.entity.BikeNetworkDetailEntity
 import com.example.bikeNetwork.domain.entity.BikeNetworksEntity
 import com.example.common.model.Result
-import com.example.core.network.dto.BikeNetworkDetailResponseDto
+import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.networkDetailDto
 import com.example.testing.testData.networkId
 import com.example.testing.testData.networkListDto
-import com.example.testing.dispatcherRule.MainDispatcherRule
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

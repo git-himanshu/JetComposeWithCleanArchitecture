@@ -67,7 +67,6 @@ dependencies {
     androidTestImplementation(project(":core:testing"))
     testImplementation(Libs.JUnit.jUnit)
     androidTestImplementation(Libs.AndroidTest.extJUnit)
-    androidTestImplementation(Libs.AndroidTest.espresso)
     androidTestImplementation(platform(Libs.AndroidX.Compose.bom))
     androidTestImplementation(Libs.AndroidTest.composeTestJunit4)
     debugImplementation(Libs.AndroidTest.composeTestUiTooling)

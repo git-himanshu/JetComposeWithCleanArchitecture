@@ -37,8 +37,6 @@ dependencies {
     implementation(project(":feature:bikeNetwork:domain"))
 
     testImplementation(Libs.JUnit.jUnit)
-    androidTestImplementation(Libs.AndroidTest.extJUnit)
-    androidTestImplementation(platform(Libs.AndroidX.Compose.bom))
     testImplementation(Libs.AndroidTest.coroutinesTest)
     testImplementation(Libs.MockK.mockk)
     testImplementation(Libs.MockK.mockkAgent)

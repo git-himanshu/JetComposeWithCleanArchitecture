@@ -6,12 +6,12 @@ import com.example.common.model.Error
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.detail.intent.DetailIntent
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
+import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.genericError
 import com.example.testing.testData.networkDetailEntity
 import com.example.testing.testData.networkId
 import com.example.testing.testData.networkIdValue
 import com.example.testing.testData.serverError
-import com.example.testing.dispatcherRule.MainDispatcherRule
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
