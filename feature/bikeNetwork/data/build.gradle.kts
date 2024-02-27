@@ -41,6 +41,11 @@ dependencies {
     testImplementation(Libs.MockK.mockk)
     testImplementation(Libs.MockK.mockkAgent)
     testImplementation(project(":core:testing"))
+
+    android.testVariants.all {
+        compileConfiguration.exclude(group = ":feature:core", module = "common")
+        runtimeConfiguration.exclude(group = ":feature:core", module = "common")
+    }
 }
 
 // Allow references to generated code
