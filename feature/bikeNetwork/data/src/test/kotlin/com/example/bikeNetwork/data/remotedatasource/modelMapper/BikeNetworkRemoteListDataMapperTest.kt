@@ -1,7 +1,7 @@
 package com.example.bikeNetwork.data.remotedatasource.modelMapper
 
-import com.example.feature.bikeNetwork.presentation.testData.bikeNetwork1
-import com.example.feature.bikeNetwork.presentation.testData.networkDto1
+import com.example.testing.testData.bikeNetwork1
+import com.example.testing.testData.networkDto1
 import org.junit.Test
 
 class BikeNetworkRemoteListDataMapperTest {

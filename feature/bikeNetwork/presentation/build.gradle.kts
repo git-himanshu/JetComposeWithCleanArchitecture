@@ -55,8 +55,6 @@ dependencies {
     implementation(platform(Libs.AndroidX.Compose.bom))
     implementation(Libs.AndroidX.Compose.material3)
     implementation(Libs.Google.Hilt.hiltAndroid)
-    testImplementation(project(":core:common"))
-    testImplementation(project(":core:common"))
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
     implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
@@ -65,6 +63,8 @@ dependencies {
     implementation(project(":core:uiWidgets"))
     implementation(project(":core:common"))
 
+    testImplementation(project(":core:testing"))
+    androidTestImplementation(project(":core:testing"))
     testImplementation(Libs.JUnit.jUnit)
     androidTestImplementation(Libs.AndroidTest.extJUnit)
     androidTestImplementation(Libs.AndroidTest.espresso)

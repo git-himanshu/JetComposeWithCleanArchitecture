@@ -2,10 +2,10 @@ package com.example.bikeNetwork.domain.usecase
 
 import com.example.bikeNetwork.domain.repository.IBikeNetworkRepository
 import com.example.common.model.Result
-import com.example.feature.bikeNetwork.presentation.dispatcherRule.MainDispatcherRule
-import com.example.feature.bikeNetwork.presentation.testData.bikeNetworkEntity
-import com.example.feature.bikeNetwork.presentation.testData.networkDetailEntity
-import com.example.feature.bikeNetwork.presentation.testData.networkId
+import com.example.testing.testData.bikeNetworkEntity
+import com.example.testing.testData.networkDetailEntity
+import com.example.testing.testData.networkId
+import com.example.testing.dispatcherRule.MainDispatcherRule
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

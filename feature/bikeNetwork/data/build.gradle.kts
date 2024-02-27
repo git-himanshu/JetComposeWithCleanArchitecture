@@ -42,6 +42,7 @@ dependencies {
     testImplementation(Libs.AndroidTest.coroutinesTest)
     testImplementation(Libs.MockK.mockk)
     testImplementation(Libs.MockK.mockkAgent)
+    testImplementation(project(":core:testing"))
 }
 
 // Allow references to generated code
