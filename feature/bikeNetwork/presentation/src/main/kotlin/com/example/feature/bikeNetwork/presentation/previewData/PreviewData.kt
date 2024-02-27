@@ -1,7 +1,6 @@
 package com.example.feature.bikeNetwork.presentation.previewData
 
 import com.example.bikeNetwork.domain.entity.BikeNetworkDetailEntity
-import com.example.bikeNetwork.domain.entity.BikeNetworkEntity
 import com.example.bikeNetwork.domain.entity.Station
 
 val station1 = Station(
@@ -30,10 +29,6 @@ val stations = listOf(
 const val firstName = "New Delhi Bikers club"
 const val firstCity = "New Delhi"
 const val firstCountry = "India"
-
-const val secondName = "London Bikers club"
-const val secondCity = "London"
-const val secondCountry = "UK"
 const val networkId = "1"
 
 val networkEntity = BikeNetworkDetailEntity(
@@ -43,21 +38,4 @@ val networkEntity = BikeNetworkDetailEntity(
     city = firstCity,
     country = firstCountry,
     stations = stations
-)
-
-val networks = listOf(
-    BikeNetworkEntity(
-        id = "1",
-        href = "",
-        name = firstName,
-        city = firstCity,
-        country = firstCountry
-    ),
-    BikeNetworkEntity(
-        id = "2",
-        href = "",
-        name = secondName,
-        city = secondCity,
-        country = secondCountry
-    )
 )

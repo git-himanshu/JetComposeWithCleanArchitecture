@@ -90,7 +90,7 @@ class BikeNetworkRepositoryTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkRepository_getBikeNetworkDetail_loaded() = runTest {
-        coEvery { dataSource.getBikeNetworkDetail(any()) } returns Result<BikeNetworkDetailResponseDto>(
+        coEvery { dataSource.getBikeNetworkDetail(any()) } returns Result(
             status = Result.Status.SUCCESS,
             data = networkDetailDto,
             error = null,
