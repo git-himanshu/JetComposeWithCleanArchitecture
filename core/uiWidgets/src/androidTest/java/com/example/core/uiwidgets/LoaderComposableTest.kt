@@ -12,7 +12,7 @@ class LoaderComposableTest {
 
 
     @Test
-    fun loaderComposableVisibility() {
+    fun loaderComposable_is_displayed() {
         composeTestRule.setContent {
             LoaderComposable(testTag = testingTag)
         }

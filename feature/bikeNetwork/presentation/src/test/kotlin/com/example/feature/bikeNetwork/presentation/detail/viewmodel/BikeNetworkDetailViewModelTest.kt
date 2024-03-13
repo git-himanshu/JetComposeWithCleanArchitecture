@@ -40,7 +40,7 @@ class BikeNetworkDetailViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkDetail_dataLoaded_success_withData() = runTest {
+    fun bikeNetworkDetailViewModel_bike_network_detail_is_success_with_data() = runTest {
         coEvery { useCase.getDetail(any()) } returns flow {
             emit(
                 Result(
@@ -65,7 +65,7 @@ class BikeNetworkDetailViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkDetail_dataLoaded_success_withoutData() = runTest {
+    fun bikeNetworkDetailViewModel_bike_network_detail_is_success_without_data() = runTest {
         coEvery { useCase.getDetail(any()) } returns flow {
             emit(
                 Result(
@@ -90,7 +90,7 @@ class BikeNetworkDetailViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkDetail_dataLoaded_error() = runTest {
+    fun bikeNetworkDetailViewModel_error_in_getting_bike_network_detail() = runTest {
         coEvery { useCase.getDetail(any()) } returns flow {
             emit(
                 Result(

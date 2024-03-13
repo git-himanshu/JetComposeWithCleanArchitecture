@@ -60,6 +60,7 @@ dependencies {
     implementation(platform(Libs.AndroidX.Compose.bom))
     implementation(Libs.AndroidX.Compose.material3)
     implementation(Libs.Google.Hilt.hiltAndroid)
+    implementation(project(":core:network"))
     kapt(Libs.Google.Hilt.hiltAndroidCompiler)
     implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
     implementation(Libs.AndroidX.Lifecycle.runtimeCompose)

@@ -8,7 +8,7 @@ class BikeNetworkDetailRemoteDataMapperTest {
     private val modelMapper = BikeNetworkDetailRemoteDataMapper()
 
     @Test
-    fun bikeNetworkRemoteListDataMapper_fromEntityToDto() {
+    fun bikeNetworkRemoteDetailDataMapper_conversion_from_entity_to_dto_is_success() {
         val dto = modelMapper.fromEntityToDto(networkDetailEntity)
         dto.network?.id?.isNotEmpty()?.let { assert(it) }
         dto.network?.name?.isNotEmpty()?.let { assert(it) }
@@ -20,7 +20,7 @@ class BikeNetworkDetailRemoteDataMapperTest {
     }
 
     @Test
-    fun bikeNetworkRemoteListDataMapper_fromDtoToEntity() {
+    fun bikeNetworkRemoteDetailDataMapper_conversion_from_dto_to_entity_success() {
         val entity = modelMapper.fromDtoToEntity(networkDetailDto)
         assert(entity.id.isNotEmpty())
         assert(entity.name.isNotEmpty())

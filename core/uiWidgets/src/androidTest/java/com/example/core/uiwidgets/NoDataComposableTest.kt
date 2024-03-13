@@ -3,6 +3,7 @@ package com.example.core.uiwidgets
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import com.example.core.uiWidgets.R
 import com.example.core.uiwidgets.Constants.iconContentDescription
 import com.example.core.uiwidgets.Constants.infoText
 import com.example.core.uiwidgets.Constants.retryBtnLabel
@@ -15,7 +16,7 @@ class NoDataComposableTest {
 
 
     @Test
-    fun noDataComposableTest_infoAndRetryButtonVisible() {
+    fun noDataComposable_info_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
                 infoText = infoText,
@@ -30,13 +31,13 @@ class NoDataComposableTest {
     }
 
     @Test
-    fun noDataComposableTest_iconAndRetryButtonVisible() {
+    fun noDataComposable_icon_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
                 onRetry = {},
                 retryButtonLabel = retryBtnLabel,
                 iconContentDescription = iconContentDescription,
-                noDataDrawable = androidx.core.R.drawable.ic_call_answer
+                noDataDrawable = R.drawable.no_data
             )
         }
         composeTestRule.onNodeWithText(infoText).assertDoesNotExist()
@@ -45,14 +46,14 @@ class NoDataComposableTest {
     }
 
     @Test
-    fun noDataComposableTest_iconInfoTextAndRetryButtonVisible() {
+    fun noDataComposable_icon_info_text_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
                 infoText = infoText,
                 onRetry = {},
                 retryButtonLabel = retryBtnLabel,
                 iconContentDescription = iconContentDescription,
-                noDataDrawable = androidx.core.R.drawable.ic_call_answer
+                noDataDrawable = R.drawable.no_data
             )
         }
         composeTestRule.onNodeWithText(infoText).assertExists()

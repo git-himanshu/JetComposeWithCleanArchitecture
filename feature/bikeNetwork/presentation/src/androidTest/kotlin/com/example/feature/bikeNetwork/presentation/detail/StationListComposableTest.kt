@@ -17,7 +17,7 @@ class StationListComposableTest {
     val composeTestRule = createAndroidComposeRule(ComponentActivity::class.java)
 
     @Test
-    fun stationListTest_listItemsVisibility() {
+    fun stationList_list_items_are_visible() {
 
         composeTestRule.setContent {
             StationListComposable(stationList = stations)

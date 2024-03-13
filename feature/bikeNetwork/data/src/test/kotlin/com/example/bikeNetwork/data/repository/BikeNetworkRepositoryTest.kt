@@ -35,7 +35,7 @@ class BikeNetworkRepositoryTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkRepository_getBikeNetworkList_loaded() = runTest {
+    fun bikeNetworkRepository_bike_network_list_is_loaded() = runTest {
         coEvery { dataSource.getBikeNetworkList() } returns Result(
             status = Result.Status.SUCCESS,
             data = networkListDto,
@@ -62,7 +62,7 @@ class BikeNetworkRepositoryTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkRepository_getBikeNetworkList_error() = runTest {
+    fun bikeNetworkRepository_error_in_loading_bike_network_list() = runTest {
         coEvery { dataSource.getBikeNetworkList() } returns Result(
             status = Result.Status.ERROR,
             data = null,
@@ -88,7 +88,7 @@ class BikeNetworkRepositoryTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkRepository_getBikeNetworkDetail_loaded() = runTest {
+    fun bikeNetworkRepository_bike_network_detail_loaded() = runTest {
         coEvery { dataSource.getBikeNetworkDetail(any()) } returns Result(
             status = Result.Status.SUCCESS,
             data = networkDetailDto,
@@ -115,7 +115,7 @@ class BikeNetworkRepositoryTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkRepository_getBikeNetworkDetail_error() = runTest {
+    fun bikeNetworkRepository_error_in_loading_bike_network_detail() = runTest {
         coEvery { dataSource.getBikeNetworkDetail(any()) } returns Result(
             status = Result.Status.ERROR,
             data = null,

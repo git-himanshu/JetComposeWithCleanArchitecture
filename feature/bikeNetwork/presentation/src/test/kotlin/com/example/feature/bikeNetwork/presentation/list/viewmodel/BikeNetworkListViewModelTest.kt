@@ -39,7 +39,7 @@ class BikeNetworkListViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkList_listLoaded_success_withData() = runTest {
+    fun bikeNetworkListViewModel_bike_network_list_is_success_with_data() = runTest {
         coEvery { useCase.getList() } returns flow {
             emit(
                 Result(
@@ -59,7 +59,7 @@ class BikeNetworkListViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkList_listLoaded_success_withoutData() = runTest {
+    fun bikeNetworkListViewModel_bike_network_list_is_success_without_data() = runTest {
         coEvery { useCase.getList() } returns flow {
             emit(
                 Result(
@@ -79,7 +79,7 @@ class BikeNetworkListViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkList_listLoaded_error() = runTest {
+    fun bikeNetworkListViewModel_error_in_getting_bike_network_list() = runTest {
         coEvery { useCase.getList() } returns flow {
             emit(
                 Result(

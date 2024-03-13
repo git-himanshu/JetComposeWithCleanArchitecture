@@ -14,7 +14,7 @@ class CustomTopAppBarTest {
 
 
     @Test
-    fun customTopAppBar_verifyScreenTitle() {
+    fun customTopAppBar_screen_title_is_available() {
         composeTestRule.setContent {
             CustomTopAppBar(title = screenTitle)
         }
@@ -22,7 +22,7 @@ class CustomTopAppBarTest {
     }
 
     @Test
-    fun customTopAppBar_verifyScreenBackButton_NotExist() {
+    fun customTopAppBar_screen_back_button_is_not_available() {
         composeTestRule.setContent {
             CustomTopAppBar(
                 title = screenTitle,
@@ -34,7 +34,7 @@ class CustomTopAppBarTest {
     }
 
     @Test
-    fun customTopAppBar_verifyScreenBackButton_Exist() {
+    fun customTopAppBar_screen_back_button_is_available() {
         composeTestRule.setContent {
             CustomTopAppBar(
                 title = screenTitle,

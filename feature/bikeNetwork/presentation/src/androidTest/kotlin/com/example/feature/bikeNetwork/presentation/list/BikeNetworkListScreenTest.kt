@@ -46,7 +46,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_screenTitle_visibility() {
+    fun bikeNetworksListScreen_screen_title_is_displayed() {
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
@@ -54,7 +54,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_idle() {
+    fun bikeNetworksListScreen_idle_screen_is_displayed() {
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
@@ -69,7 +69,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_loader_displayed() {
+    fun bikeNetworksListScreen_loader_is_displayed() {
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
@@ -83,7 +83,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_networkList_notLoaded() {
+    fun bikeNetworksListScreen_network_list_is_not_loaded() {
 
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
@@ -96,7 +96,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_networkList_loaded() {
+    fun bikeNetworksListScreen_network_list_is_displayed() {
 
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
@@ -113,7 +113,7 @@ class BikeNetworkListScreenTest {
     }
 
     @Test
-    fun bikeNetworksListScreen_errorDisplayed() {
+    fun bikeNetworksListScreen_error_screen_is_displayed() {
 
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)

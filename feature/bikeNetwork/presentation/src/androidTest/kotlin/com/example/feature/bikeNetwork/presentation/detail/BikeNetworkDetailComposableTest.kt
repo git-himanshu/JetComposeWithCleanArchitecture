@@ -18,7 +18,7 @@ class BikeNetworkDetailComposableTest {
 
 
     @Test
-    fun bikeNetworkDetail_networkDetailVisibility() {
+    fun bikeNetworkDetail_network_detail_is_displayed() {
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
                 bikeNetworkDetail = networkDetailEntity
@@ -40,7 +40,7 @@ class BikeNetworkDetailComposableTest {
     }
 
     @Test
-    fun bikeNetworkDetail_stationsListVisibility() {
+    fun bikeNetworkDetail_stations_list_is_displayed() {
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
                 bikeNetworkDetail = networkDetailEntity

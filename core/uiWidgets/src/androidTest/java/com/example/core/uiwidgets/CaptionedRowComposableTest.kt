@@ -13,7 +13,7 @@ class CaptionedRowComposableTest {
 
 
     @Test
-    fun captionedRowComposableTest_captionIsVisible() {
+    fun captionedRowComposable_caption_is_displayed() {
         composeTestRule.setContent {
             CaptionedRowComposable(caption = caption, value = value)
         }
@@ -21,7 +21,7 @@ class CaptionedRowComposableTest {
     }
 
     @Test
-    fun captionedRowComposableTest_valueIsVisible() {
+    fun captionedRowComposable_value_is_displayed() {
         composeTestRule.setContent {
             CaptionedRowComposable(caption = caption, value = value)
         }

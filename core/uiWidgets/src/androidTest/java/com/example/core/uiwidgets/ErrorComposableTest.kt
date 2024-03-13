@@ -13,7 +13,7 @@ class ErrorComposableTest {
 
 
     @Test
-    fun errorComposableTest_errorTextVisibility() {
+    fun errorComposable_error_text_is_displayed() {
         composeTestRule.setContent {
             ErrorComposable(errorText = errorText)
         }
@@ -21,7 +21,7 @@ class ErrorComposableTest {
     }
 
     @Test
-    fun errorComposableTest_retryButtonVisibility_withLabelOnly() {
+    fun errorComposable_retry_button_is_displayed_with_label_only() {
         composeTestRule.setContent {
             ErrorComposable(errorText = errorText, retryButtonLabel = btnLabel)
         }
@@ -30,7 +30,7 @@ class ErrorComposableTest {
     }
 
     @Test
-    fun errorComposableTest_retryButtonVisibility_withClickHandlerOnly() {
+    fun errorComposable_retry_button_is_displayed_with_click_handler_only() {
         composeTestRule.setContent {
             ErrorComposable(errorText = errorText, onRetry = {})
         }
@@ -39,7 +39,7 @@ class ErrorComposableTest {
     }
 
     @Test
-    fun errorComposableTest_retryButtonVisibility_withLabelAndClickHandler() {
+    fun errorComposable_retry_button_is_displayed_with_label_and_click_handler() {
         composeTestRule.setContent {
             ErrorComposable(errorText = errorText, retryButtonLabel = btnLabel, onRetry = {})
         }

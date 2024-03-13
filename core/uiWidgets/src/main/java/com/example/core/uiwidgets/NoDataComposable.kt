@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.core.Constants.noDataText
 import com.example.core.Constants.retry
 import com.example.core.theme.AppTheme
+import com.example.core.uiWidgets.R
 
 
 @Composable
@@ -78,6 +79,6 @@ fun NoDataComposablePreview() {
         infoText = noDataText,
         onRetry = {},
         retryButtonLabel = retry,
-        noDataDrawable = androidx.core.R.drawable.ic_call_answer
+        noDataDrawable = R.drawable.no_data
     )
 }

@@ -23,7 +23,7 @@ class BikeNetworkListTest {
 
 
     @Test
-    fun networkListTest_listItemsVisibility() {
+    fun networkList_list_items_are_visible() {
 
         composeTestRule.setContent {
             BikeNetworkList(bikeNetworkList = networkList, onItemClick = {})
@@ -38,7 +38,7 @@ class BikeNetworkListTest {
     }
 
     @Test
-    fun networkListTest_listItemsClick() {
+    fun networkList_list_items_are_clickable() {
         var rowClicked = false
         composeTestRule.setContent {
             BikeNetworkList(bikeNetworkList = networkList, onItemClick = {

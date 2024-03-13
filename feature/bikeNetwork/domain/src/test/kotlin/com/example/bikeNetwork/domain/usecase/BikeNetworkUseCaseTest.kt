@@ -55,7 +55,7 @@ class BikeNetworkUseCaseTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkUseCase_getList() = runTest {
+    fun bikeNetworkUseCase_get_bike_network_list_is_called() = runTest {
         useCase.getList()
         coVerify {
             repository.getBikeNetworkList()
@@ -64,7 +64,7 @@ class BikeNetworkUseCaseTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkUseCase_getDetail() = runTest {
+    fun bikeNetworkUseCase_get_bike_network_detail_is_called() = runTest {
         useCase.getDetail(networkId)
         coVerify {
             repository.getBikeNetworkDetail(any())
