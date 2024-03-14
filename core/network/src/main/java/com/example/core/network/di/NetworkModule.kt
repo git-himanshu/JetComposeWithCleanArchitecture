@@ -2,7 +2,7 @@ package com.example.core.network.di
 
 import com.example.core.network.BASE_URL
 import com.example.core.network.networkInterceptor.LoggingInterceptor
-import com.example.core.network.service.IBikeNetworkService
+import com.example.core.network.service.BikeNetworkService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,7 +35,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): IBikeNetworkService {
-        return retrofit.create(IBikeNetworkService::class.java)
+    fun provideApiService(retrofit: Retrofit): BikeNetworkService {
+        return retrofit.create(BikeNetworkService::class.java)
     }
 }

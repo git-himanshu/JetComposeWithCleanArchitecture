@@ -1,6 +1,6 @@
 package com.example.bikeNetwork.domain.usecase
 
-import com.example.bikeNetwork.domain.repository.IBikeNetworkRepository
+import com.example.bikeNetwork.domain.repository.BikeNetworkRepository
 import com.example.common.model.Result
 import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.NETWORK_ID
@@ -17,15 +17,15 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-class BikeNetworkUseCaseTest {
+class BikeNetworkUseCaseImplTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @get:Rule
     val dispatcherRule = MainDispatcherRule()
 
     @MockK
-    lateinit var repository: IBikeNetworkRepository
+    lateinit var repository: BikeNetworkRepository
 
-    private lateinit var useCase: IBikeNetworkUseCase
+    private lateinit var useCase: BikeNetworkUseCase
 
     @Before
     fun setUp() {
@@ -50,7 +50,7 @@ class BikeNetworkUseCaseTest {
                 )
             )
         }
-        useCase = BikeNetworkUseCase(repository)
+        useCase = BikeNetworkUseCaseImpl(repository)
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)

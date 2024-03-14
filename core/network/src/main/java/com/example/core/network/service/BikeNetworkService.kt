@@ -11,7 +11,7 @@ object Constants {
     const val NETWORK_ID = "networkId"
 }
 
-interface IBikeNetworkService {
+interface BikeNetworkService {
     @GET(EndPoints.BIKE_NETWORK_LIST_ENDPOINT)
     suspend fun getBikeNetworkList(): Response<BikeNetworkListResponseDto>
 

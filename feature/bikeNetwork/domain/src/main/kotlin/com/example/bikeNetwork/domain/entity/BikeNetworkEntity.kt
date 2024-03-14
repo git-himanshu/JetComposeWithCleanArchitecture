@@ -6,5 +6,3 @@ data class BikeNetworkEntity(
     val city: String,
     val country: String,
 )
-
-data class BikeNetworksEntity(val networks: List<BikeNetworkEntity>)

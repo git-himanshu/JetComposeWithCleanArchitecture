@@ -5,7 +5,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.lifecycle.SavedStateHandle
-import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.bikeNetwork.domain.usecase.BikeNetworkUseCase
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.R
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
@@ -28,7 +28,7 @@ class BikeNetworkDetailScreenTest {
     val composeTestRule = createAndroidComposeRule(ComponentActivity::class.java)
 
     @MockK
-    lateinit var useCase: IBikeNetworkUseCase
+    lateinit var useCase: BikeNetworkUseCase
 
     private lateinit var viewModel: BikeNetworkDetailViewModel
 

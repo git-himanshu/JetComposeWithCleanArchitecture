@@ -2,7 +2,7 @@ package com.example.bikeNetwork.data.remotedatasource
 
 import com.example.common.model.Error
 import com.example.common.model.Result
-import com.example.core.network.service.IBikeNetworkService
+import com.example.core.network.service.BikeNetworkService
 import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.NETWORK_ID
 import com.example.testing.testData.networkDetailDto
@@ -28,7 +28,7 @@ class BikeNetworkRemoteDataSourceTest {
     val dispatcherRule = MainDispatcherRule()
 
     @MockK
-    lateinit var service: IBikeNetworkService
+    lateinit var service: BikeNetworkService
 
     @MockK
     lateinit var retrofit: Retrofit

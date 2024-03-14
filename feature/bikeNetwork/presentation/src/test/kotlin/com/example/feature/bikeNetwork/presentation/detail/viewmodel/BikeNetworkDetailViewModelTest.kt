@@ -1,7 +1,7 @@
 package com.example.feature.bikeNetwork.presentation.detail.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
-import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.bikeNetwork.domain.usecase.BikeNetworkUseCase
 import com.example.common.model.Error
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.detail.intent.DetailIntent
@@ -29,7 +29,7 @@ class BikeNetworkDetailViewModelTest {
     val dispatcherRule = MainDispatcherRule()
 
     @MockK
-    lateinit var useCase: IBikeNetworkUseCase
+    lateinit var useCase: BikeNetworkUseCase
 
     private lateinit var viewModel: BikeNetworkDetailViewModel
 

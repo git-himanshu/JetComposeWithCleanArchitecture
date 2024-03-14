@@ -1,6 +1,6 @@
 package com.example.feature.bikeNetwork.presentation.list.viewmodel
 
-import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.bikeNetwork.domain.usecase.BikeNetworkUseCase
 import com.example.common.model.Error
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.list.intent.ListIntent
@@ -28,7 +28,7 @@ class BikeNetworkListViewModelTest {
     val dispatcherRule = MainDispatcherRule()
 
     @MockK
-    lateinit var useCase: IBikeNetworkUseCase
+    lateinit var useCase: BikeNetworkUseCase
 
     private lateinit var viewModel: BikeNetworkListViewModel
 

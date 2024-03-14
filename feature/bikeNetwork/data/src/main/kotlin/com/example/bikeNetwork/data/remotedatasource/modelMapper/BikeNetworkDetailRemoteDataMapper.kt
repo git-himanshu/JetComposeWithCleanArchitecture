@@ -9,7 +9,7 @@ import com.example.core.network.dto.Station
 import javax.inject.Inject
 
 class BikeNetworkDetailRemoteDataMapper @Inject constructor() :
-    IModelMapper<BikeNetworkDetailEntity, BikeNetworkDetailResponseDto> {
+    ModelMapper<BikeNetworkDetailEntity, BikeNetworkDetailResponseDto> {
     override fun fromEntityToDto(entity: BikeNetworkDetailEntity): BikeNetworkDetailResponseDto {
         return BikeNetworkDetailResponseDto(
             network = BikeNetworkDetail(

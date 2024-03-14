@@ -1,6 +1,6 @@
 package com.example.bikeNetwork.data.repository
 
-import com.example.bikeNetwork.data.datasource.IBikeNetworkDataSource
+import com.example.bikeNetwork.data.datasource.BikeNetworkDataSource
 import com.example.bikeNetwork.data.remotedatasource.modelMapper.BikeNetworkDetailRemoteDataMapper
 import com.example.bikeNetwork.data.remotedatasource.modelMapper.BikeNetworkRemoteListDataMapper
 import com.example.bikeNetwork.domain.entity.BikeNetworkDetailEntity
@@ -20,13 +20,13 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-class BikeNetworkRepositoryTest {
+class BikeNetworkRepositoryImplTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @get:Rule
     val dispatcherRule = MainDispatcherRule()
 
     @MockK
-    lateinit var dataSource: IBikeNetworkDataSource
+    lateinit var dataSource: BikeNetworkDataSource
 
     @Before
     fun setUp() {
@@ -42,7 +42,7 @@ class BikeNetworkRepositoryTest {
             error = null,
             message = null
         )
-        val repository = BikeNetworkRepository(
+        val repository = BikeNetworkRepositoryImpl(
             dataSource = dataSource,
             listModelMapper = BikeNetworkRemoteListDataMapper(),
             detailModelMapper = BikeNetworkDetailRemoteDataMapper()
@@ -69,7 +69,7 @@ class BikeNetworkRepositoryTest {
             error = null,
             message = null
         )
-        val repository = BikeNetworkRepository(
+        val repository = BikeNetworkRepositoryImpl(
             dataSource = dataSource,
             listModelMapper = BikeNetworkRemoteListDataMapper(),
             detailModelMapper = BikeNetworkDetailRemoteDataMapper()
@@ -95,7 +95,7 @@ class BikeNetworkRepositoryTest {
             error = null,
             message = null
         )
-        val repository = BikeNetworkRepository(
+        val repository = BikeNetworkRepositoryImpl(
             dataSource = dataSource,
             listModelMapper = BikeNetworkRemoteListDataMapper(),
             detailModelMapper = BikeNetworkDetailRemoteDataMapper()
@@ -122,7 +122,7 @@ class BikeNetworkRepositoryTest {
             error = null,
             message = null
         )
-        val repository = BikeNetworkRepository(
+        val repository = BikeNetworkRepositoryImpl(
             dataSource = dataSource,
             listModelMapper = BikeNetworkRemoteListDataMapper(),
             detailModelMapper = BikeNetworkDetailRemoteDataMapper()

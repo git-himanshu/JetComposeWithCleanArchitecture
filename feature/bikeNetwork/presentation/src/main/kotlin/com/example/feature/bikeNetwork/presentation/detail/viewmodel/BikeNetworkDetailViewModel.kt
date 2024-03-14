@@ -4,7 +4,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
+import com.example.bikeNetwork.domain.usecase.BikeNetworkUseCase
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.detail.intent.DetailIntent
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class BikeNetworkDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val bikeNetworkUseCase: IBikeNetworkUseCase,
+    private val bikeNetworkUseCase: BikeNetworkUseCase,
 ) : ViewModel() {
     private val networkId: String = savedStateHandle.get<String>(NETWORK_ID_ARG) ?: ""
 

@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 
 class BikeNetworkRemoteListDataMapper @Inject constructor() :
-    IModelMapper<BikeNetworkEntity, BikeNetworkDto> {
+    ModelMapper<BikeNetworkEntity, BikeNetworkDto> {
     override fun fromEntityToDto(entity: BikeNetworkEntity): BikeNetworkDto {
         return BikeNetworkDto(
             id = entity.id,
