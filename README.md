@@ -1,4 +1,4 @@
-![JetComposeWithCleanArchitecture](docs/images/bike_networks_theme1.png "Jet Compose with Clean Architecture")
+![JetComposeWithCleanArchitecture](docs/images/app_image.png "Jet Compose with Clean Architecture")
 
 Jet Compose with Clean Architecture
 ===================================
