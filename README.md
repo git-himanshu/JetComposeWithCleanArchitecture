@@ -27,6 +27,7 @@ stations available under this particular network. Multiple stations are displaye
 - Free Bikes
 
 ## Screenshots
+Following screenshots shows the behaviour of dynamic theming. When user changes the basic color in the **Wallpaper & style** then it is reflected in the app theme.
 
 ![Screenshot showing For screen, Bike Network List Screen with Theme1](docs/images/bike_networks_theme1.png "Screenshot showing For screen, Bike Network List Screen with Theme1")
 ![Screenshot showing For screen, Bike Network List Screen with Theme2](docs/images/bike_networks_theme2.png "Screenshot showing For screen, Bike Network List Screen with Theme2")
@@ -50,6 +51,7 @@ App architecture includes following modules which are implemented as Android Lib
 
 Below architecture diagram shows the dependencies and relationship between the key components of the architecture. We can clearly see that it is a layered architecture with **presentation**, **domain**, **data** and **network** layer.
 Dependency between the layer is towards the center, Low level modules are dependent on the high level modules. So it is following the **Clean architecture.**
+
 ![Architecture diagram showing component dependencies and inheritance relationship](docs/images/architect_diagram.png "Architecture diagram showing component dependencies and inheritance relationship")
 
 **Hilt** is used for the Dependency Injection. Using **Gradle** dependency between the modules is defined.
