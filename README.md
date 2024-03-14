@@ -1,9 +1,9 @@
-![JetComposeWithCleanArchitecture]
+![JetComposeWithCleanArchitecture](docs/images/bike_networks_theme1.png "Jet Compose with Clean Architecture")
 
 Jet Compose with Clean Architecture
 ===================================
 
-This is the repository for the [Jet Compose with Clean Architecture] app. It is a **work in progress** 🚧.
+This is the repository for the **Jet Compose with Clean Architecture** app. It is a **work in progress** 🚧.
 
 **Jet Compose with Clean Architecture** is a fully functional sample Android app built entirely with Kotlin and Jetpack Compose. 
 It follows implementation of Clean Architecture, MVVM, MVI, Jetpack Compose, Hilt, Retrofit, Repository pattern 
@@ -26,7 +26,9 @@ stations available under this particular network. Multiple stations are displaye
 
 ## Screenshots
 
-![Screenshot showing For screen, Bike Network List Screen](docs/images/BikeNetworkListScreen.png "Screenshot showing For screen, Bike Network List Screen")
-![Screenshot showing For screen, Bike Network Details Screen](docs/images/BikeNetworkDetails.png "Screenshot showing For screen, Bike Network Details Screen")
+![Screenshot showing For screen, Bike Network List Screen with Theme1](docs/images/bike_networks_theme1.png "Screenshot showing For screen, Bike Network List Screen with Theme1")
+![Screenshot showing For screen, Bike Network List Screen with Theme2](docs/images/bike_networks_theme2.png "Screenshot showing For screen, Bike Network List Screen with Theme2")
+![Screenshot showing For screen, Bike Network Details Screen with Theme1](docs/images/bike_network_detail_theme1.png "Screenshot showing For screen, Bike Network Details Screen with Theme1")
+![Screenshot showing For screen, Bike Network Details Screen with Theme2](docs/images/bike_network_detail_theme2.png "Screenshot showing For screen, Bike Network Details Screen with Theme2")
 
 

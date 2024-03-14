@@ -38,7 +38,7 @@ fun BikeNetworkListScreen(
             modifier = modifier,
             topBar = {
                 CustomTopAppBar(
-                        title = stringResource(id = R.string.bike_network_detail_screen_name),
+                        title = stringResource(id = R.string.bike_network_list_screen_name),
                 )
             }
     ) { innerPadding ->
