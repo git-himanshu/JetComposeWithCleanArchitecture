@@ -27,7 +27,7 @@ stations available under this particular network. Multiple stations are displaye
 - Free Bikes
 
 ## Screenshots
-Following screenshots shows the behaviour of dynamic theming. When user changes the basic color in the **Wallpaper & style** then it is reflected in the app theme.
+Following screenshots shows the behaviour of dynamic theme. When user changes the basic color in the **Wallpaper & style** then it is reflected in the app theme.
 
 ![Screenshot showing For screen, Bike Network List Screen with Theme1](docs/images/bike_networks_theme1.png "Screenshot showing For screen, Bike Network List Screen with Theme1")
 ![Screenshot showing For screen, Bike Network List Screen with Theme2](docs/images/bike_networks_theme2.png "Screenshot showing For screen, Bike Network List Screen with Theme2")
@@ -49,14 +49,14 @@ App architecture includes following modules which are implemented as Android Lib
   - **uiWidgets** : This module is the JetCompose Widgets library which are reusable UI components across the app.
   - **testing** : This module contains the Unit Test cases and Android Test cases dependencies that can be shared between all the modules.
 
-Below architecture diagram shows the dependencies and relationship between the key components of the architecture. We can clearly see that it is a layered architecture with **presentation**, **domain**, **data** and **network** layer.
+  Below architecture diagram shows the dependencies and relationship between the key components of the architecture. We can clearly see that it is a layered architecture with **presentation**, **domain**, **data** and **network** layer.
 Dependency between the layer is towards the center, Low level modules are dependent on the high level modules. So it is following the **Clean architecture.**
 
 ![Architecture diagram showing component dependencies and inheritance relationship](docs/images/architect_diagram.png "Architecture diagram showing component dependencies and inheritance relationship")
 
 **Hilt** is used for the Dependency Injection. Using **Gradle** dependency between the modules is defined.
 
-Below diagram clearly shows that there is no cyclic dependency among the modules. **:testing** module is dependent on the **:core:domain** and **:core:network** module. Note that **:domain** module don't have the **dependency** on the **:testing** module, instead of that it is having **testDependency** which does not create cyclic dependency.
+  Below diagram clearly shows that there is no cyclic dependency among the modules. **:testing** module is dependent on the **:core:domain** and **:core:network** module. Note that **:domain** module don't have the **dependency** on the **:testing** module, instead of that it is having **testDependency** which does not create cyclic dependency.
 
 ![Module Dependency diagram showing dependencies between all the modules](docs/images/module_dependency_diagram.png "Module Dependency diagram showing dependencies between all the modules")
 
