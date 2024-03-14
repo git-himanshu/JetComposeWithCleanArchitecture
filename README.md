@@ -51,3 +51,4 @@ App architecture includes following modules which are implemented as Android Lib
 **Hilt** is used for the Dependency Injection. Using **Gradle** dependency between the modules is defined.
 
 ![Module Dependency diagram showing dependencies between all the modules](docs/images/module_dependency_diagram.png "Module Dependency diagram showing dependencies between all the modules")
+Above diagram clearly shows that there is no cyclic dependency among the modules. **:testing** module is dependent on the **:core:domain** and **:core:network** module. Note that **:domain** module don't have the **dependency** on the **:testing** module, instead of that it is having **testDependency** which does not create cyclic dependency. 
