@@ -48,7 +48,11 @@ App architecture includes following modules which are implemented as Android Lib
   - **uiWidgets** : This module is the JetCompose Widgets library which are reusable UI components across the app.
   - **testing** : This module contains the Unit Test cases and Android Test cases dependencies that can be shared between all the modules.
 
+![Architecture diagram showing component dependencies and inheritance relationship](docs/images/architect_diagram.png "Architecture diagram showing component dependencies and inheritance relationship")
+
 **Hilt** is used for the Dependency Injection. Using **Gradle** dependency between the modules is defined.
 
+Below diagram clearly shows that there is no cyclic dependency among the modules. **:testing** module is dependent on the **:core:domain** and **:core:network** module. Note that **:domain** module don't have the **dependency** on the **:testing** module, instead of that it is having **testDependency** which does not create cyclic dependency.
+
 ![Module Dependency diagram showing dependencies between all the modules](docs/images/module_dependency_diagram.png "Module Dependency diagram showing dependencies between all the modules")
-Above diagram clearly shows that there is no cyclic dependency among the modules. **:testing** module is dependent on the **:core:domain** and **:core:network** module. Note that **:domain** module don't have the **dependency** on the **:testing** module, instead of that it is having **testDependency** which does not create cyclic dependency. 
+
