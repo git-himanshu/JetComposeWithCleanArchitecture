@@ -11,26 +11,26 @@ import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkListScree
 
 @Composable
 fun NavigationHost(
-    navController: NavHostController,
-    modifier: Modifier = Modifier
+        navController: NavHostController,
+        modifier: Modifier = Modifier
 ) {
     NavHost(
-        navController = navController,
-        startDestination = BikeNetworkList.route,
-        modifier = modifier
+            navController = navController,
+            startDestination = BikeNetworkList.route,
+            modifier = modifier
     ) {
         composable(route = BikeNetworkList.route) {
             BikeNetworkListScreen(
-                onItemClick = {
-                    navController.navigate(BikeNetworkDetails.createRoute(it))
-                })
+                    onItemClick = {
+                        navController.navigate(BikeNetworkDetails.createRoute(it))
+                    })
         }
         composable(
-            route = BikeNetworkDetails.routeWithArgs,
-            arguments = BikeNetworkDetails.arguments,
+                route = BikeNetworkDetails.routeWithArgs,
+                arguments = BikeNetworkDetails.arguments,
         ) {
             BikeNetworkDetailScreen(
-                onBack = { navController.navigateUp() }
+                    onBack = { navController.navigateUp() }
             )
         }
     }

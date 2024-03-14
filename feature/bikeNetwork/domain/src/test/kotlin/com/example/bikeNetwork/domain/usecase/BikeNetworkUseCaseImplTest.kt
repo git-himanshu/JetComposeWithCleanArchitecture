@@ -32,22 +32,22 @@ class BikeNetworkUseCaseImplTest {
         MockKAnnotations.init(this)
         coEvery { repository.getBikeNetworkList() } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = bikeNetworkEntity,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = bikeNetworkEntity,
+                            error = null,
+                            message = null
+                    )
             )
         }
         coEvery { repository.getBikeNetworkDetail(any()) } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = networkDetailEntity,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = networkDetailEntity,
+                            error = null,
+                            message = null
+                    )
             )
         }
         useCase = BikeNetworkUseCaseImpl(repository)

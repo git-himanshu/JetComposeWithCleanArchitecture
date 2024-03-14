@@ -43,18 +43,18 @@ class BikeNetworkDetailViewModelTest {
     fun bikeNetworkDetailViewModel_bike_network_detail_is_success_with_data() = runTest {
         coEvery { useCase.getDetail(any()) } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = networkDetailEntity,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = networkDetailEntity,
+                            error = null,
+                            message = null
+                    )
             )
         }
         viewModel = BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
             set(
-                NETWORK_ID,
-                NETWORK_ID_VALUE
+                    NETWORK_ID,
+                    NETWORK_ID_VALUE
             )
         }, bikeNetworkUseCase = useCase)
         val state = viewModel.state.value
@@ -68,18 +68,18 @@ class BikeNetworkDetailViewModelTest {
     fun bikeNetworkDetailViewModel_bike_network_detail_is_success_without_data() = runTest {
         coEvery { useCase.getDetail(any()) } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = null,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = null,
+                            error = null,
+                            message = null
+                    )
             )
         }
         viewModel = BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
             set(
-                NETWORK_ID,
-                NETWORK_ID_VALUE
+                    NETWORK_ID,
+                    NETWORK_ID_VALUE
             )
         }, bikeNetworkUseCase = useCase)
         val state = viewModel.state.value
@@ -93,18 +93,18 @@ class BikeNetworkDetailViewModelTest {
     fun bikeNetworkDetailViewModel_error_in_getting_bike_network_detail() = runTest {
         coEvery { useCase.getDetail(any()) } returns flow {
             emit(
-                Result(
-                    status = Result.Status.ERROR,
-                    data = null,
-                    error = Error(statusCode = 500, statusMessage = SERVER_ERROR),
-                    message = GENERIC_ERROR
-                )
+                    Result(
+                            status = Result.Status.ERROR,
+                            data = null,
+                            error = Error(statusCode = 500, statusMessage = SERVER_ERROR),
+                            message = GENERIC_ERROR
+                    )
             )
         }
         viewModel = BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
             set(
-                NETWORK_ID,
-                NETWORK_ID_VALUE
+                    NETWORK_ID,
+                    NETWORK_ID_VALUE
             )
         }, bikeNetworkUseCase = useCase)
         val state = viewModel.state.value

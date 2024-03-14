@@ -26,21 +26,21 @@ const val SECOND_CITY = "London"
 const val SECOND_COUNTRY = "UK"
 
 val bikeNetwork1 = BikeNetworkEntity(
-    id = "1",
-    name = FIRST_NAME,
-    city = FIRST_CITY,
-    country = FIRST_COUNTRY
+        id = "1",
+        name = FIRST_NAME,
+        city = FIRST_CITY,
+        country = FIRST_COUNTRY
 )
 val bikeNetwork2 = BikeNetworkEntity(
-    id = "2",
-    name = SECOND_NAME,
-    city = SECOND_CITY,
-    country = SECOND_COUNTRY
+        id = "2",
+        name = SECOND_NAME,
+        city = SECOND_CITY,
+        country = SECOND_COUNTRY
 )
 
 val networkList = listOf(
-    bikeNetwork1,
-    bikeNetwork2
+        bikeNetwork1,
+        bikeNetwork2
 )
 
 val bikeNetworkEntity = BikeNetworksEntity(networks = networkList)
@@ -49,90 +49,90 @@ val bikeNetworkEntityWithEmptyList = BikeNetworksEntity(networks = emptyList())
 
 
 val station1 = Station(
-    id = "1",
-    freeBikes = 10,
-    name = "CP",
-    address = "Inner Circle",
-    emptySlot = 5,
-    slots = 15
+        id = "1",
+        freeBikes = 10,
+        name = "CP",
+        address = "Inner Circle",
+        emptySlot = 5,
+        slots = 15
 )
 
 val station2 = Station(
-    id = "2",
-    freeBikes = 8,
-    name = "South Ex",
-    address = "South extension",
-    emptySlot = 12,
-    slots = 20
+        id = "2",
+        freeBikes = 8,
+        name = "South Ex",
+        address = "South extension",
+        emptySlot = 12,
+        slots = 20
 )
 
 val stations = listOf(
-    station1,
-    station2
+        station1,
+        station2
 )
 
 val networkDetailEntity = BikeNetworkDetailEntity(
-    id = "1",
-    name = FIRST_NAME,
-    city = FIRST_CITY,
-    country = FIRST_COUNTRY,
-    stations = stations
+        id = "1",
+        name = FIRST_NAME,
+        city = FIRST_CITY,
+        country = FIRST_COUNTRY,
+        stations = stations
 )
 
 val networkDto1 = BikeNetworkDto(
-    id = "1",
-    name = FIRST_NAME,
-    location = Location(
-        city = FIRST_CITY,
-        country = FIRST_COUNTRY,
-    )
+        id = "1",
+        name = FIRST_NAME,
+        location = Location(
+                city = FIRST_CITY,
+                country = FIRST_COUNTRY,
+        )
 )
 
 val networkDto2 = BikeNetworkDto(
-    id = "2",
-    name = SECOND_NAME,
-    location = Location(
-        city = SECOND_CITY,
-        country = SECOND_COUNTRY
-    )
+        id = "2",
+        name = SECOND_NAME,
+        location = Location(
+                city = SECOND_CITY,
+                country = SECOND_COUNTRY
+        )
 )
 val networksDto = listOf(
-    networkDto1,
-    networkDto2
+        networkDto1,
+        networkDto2
 )
 
 val networkListDto = BikeNetworkListResponseDto(networksDto)
 
 val stationsDto = listOf(
-    StationDto(
-        id = "1",
-        freeBikes = 10,
-        name = "South Ex",
-        emptySlot = 8,
-        extra = Extra(
-            address = "South Ex, New Delhi",
-            slots = 18
+        StationDto(
+                id = "1",
+                freeBikes = 10,
+                name = "South Ex",
+                emptySlot = 8,
+                extra = Extra(
+                        address = "South Ex, New Delhi",
+                        slots = 18
+                )
+        ),
+        StationDto(
+                id = "2",
+                freeBikes = 12,
+                name = "South Ex",
+                emptySlot = 8,
+                extra = Extra(
+                        address = "CP, New Delhi",
+                        slots = 20
+                )
         )
-    ),
-    StationDto(
-        id = "2",
-        freeBikes = 12,
-        name = "South Ex",
-        emptySlot = 8,
-        extra = Extra(
-            address = "CP, New Delhi",
-            slots = 20
-        )
-    )
 )
 val networkDetailDto = BikeNetworkDetailResponseDto(
-    network = BikeNetworkDetail(
-        id = NETWORK_ID,
-        name = FIRST_NAME,
-        location = Location(
-            city = SECOND_CITY,
-            country = SECOND_COUNTRY
-        ),
-        stations = stationsDto,
-    )
+        network = BikeNetworkDetail(
+                id = NETWORK_ID,
+                name = FIRST_NAME,
+                location = Location(
+                        city = SECOND_CITY,
+                        country = SECOND_COUNTRY
+                ),
+                stations = stationsDto,
+        )
 )

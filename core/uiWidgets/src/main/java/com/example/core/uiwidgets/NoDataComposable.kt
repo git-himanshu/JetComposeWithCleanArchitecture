@@ -29,41 +29,41 @@ import com.example.core.uiWidgets.R
 
 @Composable
 fun NoDataComposable(
-    modifier: Modifier = Modifier,
-    iconContentDescription: String = "",
-    infoText: String? = null,
-    noDataDrawable: Int? = null,
-    retryButtonLabel: String,
-    onRetry: () -> Unit,
+        modifier: Modifier = Modifier,
+        iconContentDescription: String = "",
+        infoText: String? = null,
+        noDataDrawable: Int? = null,
+        retryButtonLabel: String,
+        onRetry: () -> Unit,
 ) {
     Surface(color = MaterialTheme.colorScheme.secondaryContainer) {
         Column(
-            modifier = modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-                .padding(AppTheme.dimens.grid3),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+                modifier = modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight()
+                        .padding(AppTheme.dimens.grid3),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
         ) {
             noDataDrawable?.let {
                 Icon(
-                    painterResource(it),
-                    contentDescription = iconContentDescription
+                        painterResource(it),
+                        contentDescription = iconContentDescription
                 )
             }
             infoText?.let {
                 Spacer(modifier = Modifier.height(AppTheme.dimens.grid4))
                 Text(
-                    text = it,
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.titleMedium
+                        text = it,
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.titleMedium
                 )
             }
             Spacer(modifier = Modifier.height(AppTheme.dimens.grid2))
             ElevatedButton(
-                onClick = onRetry, colors = ButtonDefaults.buttonColors(
+                    onClick = onRetry, colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.onSecondaryContainer
-                )
+            )
             ) {
                 Text(text = retryButtonLabel)
             }
@@ -76,9 +76,9 @@ fun NoDataComposable(
 @Composable
 fun NoDataComposablePreview() {
     NoDataComposable(
-        infoText = NO_DATA_TEXT,
-        onRetry = {},
-        retryButtonLabel = RETRY,
-        noDataDrawable = R.drawable.no_data
+            infoText = NO_DATA_TEXT,
+            onRetry = {},
+            retryButtonLabel = RETRY,
+            noDataDrawable = R.drawable.no_data
     )
 }

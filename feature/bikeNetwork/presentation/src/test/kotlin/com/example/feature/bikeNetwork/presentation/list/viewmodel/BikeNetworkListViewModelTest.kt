@@ -42,12 +42,12 @@ class BikeNetworkListViewModelTest {
     fun bikeNetworkListViewModel_bike_network_list_is_success_with_data() = runTest {
         coEvery { useCase.getList() } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = bikeNetworkEntity,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = bikeNetworkEntity,
+                            error = null,
+                            message = null
+                    )
             )
         }
         viewModel = BikeNetworkListViewModel(useCase)
@@ -62,12 +62,12 @@ class BikeNetworkListViewModelTest {
     fun bikeNetworkListViewModel_bike_network_list_is_success_without_data() = runTest {
         coEvery { useCase.getList() } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = bikeNetworkEntityWithEmptyList,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = bikeNetworkEntityWithEmptyList,
+                            error = null,
+                            message = null
+                    )
             )
         }
         viewModel = BikeNetworkListViewModel(useCase)
@@ -82,12 +82,12 @@ class BikeNetworkListViewModelTest {
     fun bikeNetworkListViewModel_error_in_getting_bike_network_list() = runTest {
         coEvery { useCase.getList() } returns flow {
             emit(
-                Result(
-                    status = Result.Status.ERROR,
-                    data = null,
-                    error = Error(statusCode = 500, statusMessage = SERVER_ERROR),
-                    message = GENERIC_ERROR
-                )
+                    Result(
+                            status = Result.Status.ERROR,
+                            data = null,
+                            error = Error(statusCode = 500, statusMessage = SERVER_ERROR),
+                            message = GENERIC_ERROR
+                    )
             )
         }
         viewModel = BikeNetworkListViewModel(useCase)

@@ -17,18 +17,18 @@ import com.example.core.theme.AppTheme
 fun CaptionedRowComposable(caption: String, value: String, modifier: Modifier = Modifier) {
 
     Row(
-        modifier = modifier
-            .fillMaxWidth()
+            modifier = modifier
+                    .fillMaxWidth()
     ) {
         Text(
-            text = caption,
-            modifier = modifier,
-            style = MaterialTheme.typography.titleMedium
+                text = caption,
+                modifier = modifier,
+                style = MaterialTheme.typography.titleMedium
         )
         Text(
-            text = value,
-            modifier = modifier.padding(start = AppTheme.dimens.grid0p5),
-            style = MaterialTheme.typography.bodyLarge
+                text = value,
+                modifier = modifier.padding(start = AppTheme.dimens.grid0p5),
+                style = MaterialTheme.typography.bodyLarge
         )
     }
 

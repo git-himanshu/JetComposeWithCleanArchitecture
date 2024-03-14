@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BikeNetworkListViewModel @Inject constructor(
-    private val bikeNetworkUseCase: BikeNetworkUseCase,
+        private val bikeNetworkUseCase: BikeNetworkUseCase,
 ) : ViewModel() {
 
     val userIntent = Channel<ListIntent>(Channel.UNLIMITED)

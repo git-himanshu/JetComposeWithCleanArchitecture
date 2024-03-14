@@ -37,21 +37,21 @@ class BikeNetworkDetailScreenTest {
         MockKAnnotations.init(this)
         coEvery { useCase.getDetail(any()) } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = null,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = null,
+                            error = null,
+                            message = null
+                    )
             )
         }
         viewModel =
-            BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
-                set(
-                    NETWORK_ID_ARG,
-                    NETWORK_ID
-                )
-            }, bikeNetworkUseCase = useCase)
+                BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
+                    set(
+                            NETWORK_ID_ARG,
+                            NETWORK_ID
+                    )
+                }, bikeNetworkUseCase = useCase)
     }
 
     @Test
@@ -70,10 +70,10 @@ class BikeNetworkDetailScreenTest {
         viewModel.state.value = DetailState.Idle
 
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_idle),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_idle),
+                useUnmergedTree = true
         )
-            .assertExists()
+                .assertExists()
 
     }
 
@@ -84,10 +84,10 @@ class BikeNetworkDetailScreenTest {
         }
         viewModel.state.value = DetailState.Loading
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_loader),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_loader),
+                useUnmergedTree = true
         )
-            .assertExists()
+                .assertExists()
 
     }
 
@@ -99,8 +99,8 @@ class BikeNetworkDetailScreenTest {
         }
         viewModel.state.value = DetailState.DataNotFound
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_noData),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_noData),
+                useUnmergedTree = true
         ).assertExists()
     }
 
@@ -113,10 +113,10 @@ class BikeNetworkDetailScreenTest {
         viewModel.state.value = DetailState.NetworkDetail(networkDetailEntity)
 
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_networkDetail),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_networkDetail),
+                useUnmergedTree = true
         )
-            .assertExists()
+                .assertExists()
     }
 
     @Test
@@ -127,8 +127,8 @@ class BikeNetworkDetailScreenTest {
         }
         viewModel.state.value = DetailState.Error(ERROR_TEST)
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_error),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_error),
+                useUnmergedTree = true
         ).assertExists()
     }
 

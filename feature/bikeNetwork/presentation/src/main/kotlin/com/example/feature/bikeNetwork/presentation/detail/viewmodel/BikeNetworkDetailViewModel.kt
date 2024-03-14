@@ -17,8 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BikeNetworkDetailViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
-    private val bikeNetworkUseCase: BikeNetworkUseCase,
+        savedStateHandle: SavedStateHandle,
+        private val bikeNetworkUseCase: BikeNetworkUseCase,
 ) : ViewModel() {
     private val networkId: String = savedStateHandle.get<String>(NETWORK_ID_ARG) ?: ""
 

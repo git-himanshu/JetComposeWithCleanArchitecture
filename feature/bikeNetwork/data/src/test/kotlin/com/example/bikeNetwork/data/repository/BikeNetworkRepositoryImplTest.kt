@@ -37,15 +37,15 @@ class BikeNetworkRepositoryImplTest {
     @Test
     fun bikeNetworkRepository_bike_network_list_is_loaded() = runTest {
         coEvery { dataSource.getBikeNetworkList() } returns Result(
-            status = Result.Status.SUCCESS,
-            data = networkListDto,
-            error = null,
-            message = null
+                status = Result.Status.SUCCESS,
+                data = networkListDto,
+                error = null,
+                message = null
         )
         val repository = BikeNetworkRepositoryImpl(
-            dataSource = dataSource,
-            listModelMapper = BikeNetworkRemoteListDataMapper(),
-            detailModelMapper = BikeNetworkDetailRemoteDataMapper()
+                dataSource = dataSource,
+                listModelMapper = BikeNetworkRemoteListDataMapper(),
+                detailModelMapper = BikeNetworkDetailRemoteDataMapper()
         )
         lateinit var result: Result<BikeNetworksEntity>
         val response = repository.getBikeNetworkList()
@@ -64,15 +64,15 @@ class BikeNetworkRepositoryImplTest {
     @Test
     fun bikeNetworkRepository_error_in_loading_bike_network_list() = runTest {
         coEvery { dataSource.getBikeNetworkList() } returns Result(
-            status = Result.Status.ERROR,
-            data = null,
-            error = null,
-            message = null
+                status = Result.Status.ERROR,
+                data = null,
+                error = null,
+                message = null
         )
         val repository = BikeNetworkRepositoryImpl(
-            dataSource = dataSource,
-            listModelMapper = BikeNetworkRemoteListDataMapper(),
-            detailModelMapper = BikeNetworkDetailRemoteDataMapper()
+                dataSource = dataSource,
+                listModelMapper = BikeNetworkRemoteListDataMapper(),
+                detailModelMapper = BikeNetworkDetailRemoteDataMapper()
         )
         lateinit var result: Result<BikeNetworksEntity>
         val response = repository.getBikeNetworkList()
@@ -90,15 +90,15 @@ class BikeNetworkRepositoryImplTest {
     @Test
     fun bikeNetworkRepository_bike_network_detail_loaded() = runTest {
         coEvery { dataSource.getBikeNetworkDetail(any()) } returns Result(
-            status = Result.Status.SUCCESS,
-            data = networkDetailDto,
-            error = null,
-            message = null
+                status = Result.Status.SUCCESS,
+                data = networkDetailDto,
+                error = null,
+                message = null
         )
         val repository = BikeNetworkRepositoryImpl(
-            dataSource = dataSource,
-            listModelMapper = BikeNetworkRemoteListDataMapper(),
-            detailModelMapper = BikeNetworkDetailRemoteDataMapper()
+                dataSource = dataSource,
+                listModelMapper = BikeNetworkRemoteListDataMapper(),
+                detailModelMapper = BikeNetworkDetailRemoteDataMapper()
         )
         lateinit var result: Result<BikeNetworkDetailEntity>
         val response = repository.getBikeNetworkDetail(NETWORK_ID)
@@ -117,15 +117,15 @@ class BikeNetworkRepositoryImplTest {
     @Test
     fun bikeNetworkRepository_error_in_loading_bike_network_detail() = runTest {
         coEvery { dataSource.getBikeNetworkDetail(any()) } returns Result(
-            status = Result.Status.ERROR,
-            data = null,
-            error = null,
-            message = null
+                status = Result.Status.ERROR,
+                data = null,
+                error = null,
+                message = null
         )
         val repository = BikeNetworkRepositoryImpl(
-            dataSource = dataSource,
-            listModelMapper = BikeNetworkRemoteListDataMapper(),
-            detailModelMapper = BikeNetworkDetailRemoteDataMapper()
+                dataSource = dataSource,
+                listModelMapper = BikeNetworkRemoteListDataMapper(),
+                detailModelMapper = BikeNetworkDetailRemoteDataMapper()
         )
         lateinit var result: Result<BikeNetworkDetailEntity>
         val response = repository.getBikeNetworkDetail(NETWORK_ID)

@@ -16,16 +16,16 @@ import com.example.core.theme.AppTheme
 @Composable
 fun LoaderComposable(modifier: Modifier = Modifier, testTag: String = "") {
     Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .fillMaxHeight(), contentAlignment = Alignment.Center
+            modifier = modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(), contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator(
-            modifier = Modifier
-                .width(AppTheme.dimens.grid6)
-                .testTag(testTag),
-            color = MaterialTheme.colorScheme.primary,
-            trackColor = MaterialTheme.colorScheme.inversePrimary,
+                modifier = Modifier
+                        .width(AppTheme.dimens.grid6)
+                        .testTag(testTag),
+                color = MaterialTheme.colorScheme.primary,
+                trackColor = MaterialTheme.colorScheme.inversePrimary,
         )
     }
 }

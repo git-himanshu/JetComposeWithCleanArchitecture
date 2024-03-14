@@ -10,16 +10,16 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 
 class BikeNetworkRemoteDataSource @Inject constructor(
-    private val service: BikeNetworkService,
-    retrofit: Retrofit
+        private val service: BikeNetworkService,
+        retrofit: Retrofit
 ) : RemoteDataSource(retrofit = retrofit), BikeNetworkDataSource {
     override suspend fun getBikeNetworkList(): Result<BikeNetworkListResponseDto> =
-        getResponse(
-            request = { service.getBikeNetworkList() }
-        )
+            getResponse(
+                    request = { service.getBikeNetworkList() }
+            )
 
     override suspend fun getBikeNetworkDetail(networkId: String): Result<BikeNetworkDetailResponseDto> =
-        getResponse(
-            request = { service.getBikeNetworkDetail(networkId) }
-        )
+            getResponse(
+                    request = { service.getBikeNetworkDetail(networkId) }
+            )
 }

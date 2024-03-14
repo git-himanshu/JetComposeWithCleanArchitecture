@@ -28,8 +28,8 @@ fun BikeNetworkApp() {
     AppTheme {
         val navController = rememberNavController()
         Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.surface
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colorScheme.surface
         ) {
             NavigationHost(navController = navController)
         }

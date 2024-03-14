@@ -22,25 +22,25 @@ import com.example.core.theme.AppTheme
 
 @Composable
 fun ErrorComposable(
-    errorText: String,
-    modifier: Modifier = Modifier,
-    retryButtonLabel: String? = null,
-    onRetry: (() -> Unit)? = null,
+        errorText: String,
+        modifier: Modifier = Modifier,
+        retryButtonLabel: String? = null,
+        onRetry: (() -> Unit)? = null,
 ) {
     Surface(color = MaterialTheme.colorScheme.errorContainer) {
         Column(
-            modifier = modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-                .padding(AppTheme.dimens.grid3),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+                modifier = modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight()
+                        .padding(AppTheme.dimens.grid3),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
         ) {
             Text(
-                textAlign = TextAlign.Center,
-                text = errorText,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onErrorContainer,
+                    textAlign = TextAlign.Center,
+                    text = errorText,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onErrorContainer,
             )
             retryButtonLabel?.let {
                 onRetry?.let {
@@ -58,8 +58,8 @@ fun ErrorComposable(
 @Composable
 fun ErrorComposablePreview() {
     ErrorComposable(
-        GENERIC_ERROR_MESSAGE,
-        onRetry = {},
-        retryButtonLabel = RETRY
+            GENERIC_ERROR_MESSAGE,
+            onRetry = {},
+            retryButtonLabel = RETRY
     )
 }

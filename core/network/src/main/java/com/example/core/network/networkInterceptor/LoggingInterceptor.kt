@@ -13,23 +13,23 @@ class LoggingInterceptor : Interceptor {
         val request: Request = chain.request()
         val t1 = System.nanoTime()
         Log.d(
-            Constants.LOG_TAG,
-            String.format(
-                Constants.REQUEST_LOG_PLACE_HOLDER,
-                request.url(), chain.connection(), request.headers()
-            )
+                Constants.LOG_TAG,
+                String.format(
+                        Constants.REQUEST_LOG_PLACE_HOLDER,
+                        request.url(), chain.connection(), request.headers()
+                )
         )
         val response: Response = chain.proceed(request)
         val t2 = System.nanoTime()
         Log.d(
-            Constants.LOG_TAG,
-            String.format(
-                Constants.RESPONSE_LOG_PLACE_HOLDER,
-                response.request().url(),
-                (t2 - t1) / 1e6,
-                response.headers(),
-                response.body().toString()
-            )
+                Constants.LOG_TAG,
+                String.format(
+                        Constants.RESPONSE_LOG_PLACE_HOLDER,
+                        response.request().url(),
+                        (t2 - t1) / 1e6,
+                        response.headers(),
+                        response.body().toString()
+                )
         )
         return response
     }

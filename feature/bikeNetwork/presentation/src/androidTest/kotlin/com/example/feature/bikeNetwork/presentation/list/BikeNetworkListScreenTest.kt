@@ -34,12 +34,12 @@ class BikeNetworkListScreenTest {
         MockKAnnotations.init(this)
         coEvery { useCase.getList() } returns flow {
             emit(
-                Result(
-                    status = Result.Status.SUCCESS,
-                    data = null,
-                    error = null,
-                    message = null
-                )
+                    Result(
+                            status = Result.Status.SUCCESS,
+                            data = null,
+                            error = null,
+                            message = null
+                    )
             )
         }
         viewModel = BikeNetworkListViewModel(useCase)
@@ -61,10 +61,10 @@ class BikeNetworkListScreenTest {
         viewModel.state.value = ListState.Idle
 
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_idle),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_idle),
+                useUnmergedTree = true
         )
-            .assertExists()
+                .assertExists()
 
     }
 
@@ -75,10 +75,10 @@ class BikeNetworkListScreenTest {
         }
         viewModel.state.value = ListState.Loading
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_loader),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_loader),
+                useUnmergedTree = true
         )
-            .assertExists()
+                .assertExists()
 
     }
 
@@ -90,8 +90,8 @@ class BikeNetworkListScreenTest {
         }
         viewModel.state.value = ListState.DataNotFound
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_noData),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_noData),
+                useUnmergedTree = true
         ).assertExists()
     }
 
@@ -102,14 +102,14 @@ class BikeNetworkListScreenTest {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
         viewModel.state.value = ListState.BikeNetworks(
-            networks = networkList
+                networks = networkList
         )
 
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_networkList),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_networkList),
+                useUnmergedTree = true
         )
-            .assertExists()
+                .assertExists()
     }
 
     @Test
@@ -120,8 +120,8 @@ class BikeNetworkListScreenTest {
         }
         viewModel.state.value = ListState.Error(ERROR_TEST)
         composeTestRule.onNodeWithTag(
-            composeTestRule.activity.getString(R.string.testTag_error),
-            useUnmergedTree = true
+                composeTestRule.activity.getString(R.string.testTag_error),
+                useUnmergedTree = true
         ).assertExists()
     }
 }
