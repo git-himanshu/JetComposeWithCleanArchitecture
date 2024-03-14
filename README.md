@@ -48,6 +48,8 @@ App architecture includes following modules which are implemented as Android Lib
   - **uiWidgets** : This module is the JetCompose Widgets library which are reusable UI components across the app.
   - **testing** : This module contains the Unit Test cases and Android Test cases dependencies that can be shared between all the modules.
 
+Below architecture diagram shows the dependencies and relationship between the key components of the architecture. We can clearly see that it is a layered architecture with **presentation**, **domain**, **data** and **network** layer.
+Dependency between the layer is towards the center, Low level modules are dependent on the high level modules. So it is following the **Clean architecture.**
 ![Architecture diagram showing component dependencies and inheritance relationship](docs/images/architect_diagram.png "Architecture diagram showing component dependencies and inheritance relationship")
 
 **Hilt** is used for the Dependency Injection. Using **Gradle** dependency between the modules is defined.
