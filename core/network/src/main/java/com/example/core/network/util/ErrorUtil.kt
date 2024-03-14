@@ -9,7 +9,7 @@ object ErrorUtils {
     fun parseError(response: Response<*>, retrofit: Retrofit): Error? {
         val converter = retrofit.responseBodyConverter<Error>(Error::class.java, arrayOfNulls(0))
         return try {
-            converter.convert(response.errorBody()!!)
+            response.errorBody()?.let { converter.convert(it) }
         } catch (e: IOException) {
             Error()
         }

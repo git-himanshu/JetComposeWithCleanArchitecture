@@ -20,7 +20,7 @@ class BikeNetworkDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val bikeNetworkUseCase: IBikeNetworkUseCase,
 ) : ViewModel() {
-    private val networkId: String = savedStateHandle.get<String>(networkIDArg)!!
+    private val networkId: String = savedStateHandle.get<String>(networkIDArg) ?: ""
 
     val userIntent = Channel<DetailIntent>(Channel.UNLIMITED)
     val state = mutableStateOf<DetailState>(DetailState.Loading)
@@ -47,10 +47,11 @@ class BikeNetworkDetailViewModel @Inject constructor(
             bikeNetworkUseCase.getDetail(networkId).collect {
                 when (it.status) {
                     Result.Status.SUCCESS -> {
-                        if (it.data == null) {
-                            state.value = DetailState.DataNotFound
+                        val data = it.data
+                        if (data != null) {
+                            state.value = DetailState.NetworkDetail(data)
                         } else {
-                            state.value = DetailState.NetworkDetail(it.data!!)
+                            state.value = DetailState.DataNotFound
                         }
                     }
 

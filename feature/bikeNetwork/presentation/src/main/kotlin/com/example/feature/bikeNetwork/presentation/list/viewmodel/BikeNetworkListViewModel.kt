@@ -44,10 +44,11 @@ class BikeNetworkListViewModel @Inject constructor(
             bikeNetworkUseCase.getList().collect {
                 when (it.status) {
                     Result.Status.SUCCESS -> {
-                        if (it.data?.networks?.isNotEmpty() == true) {
-                            state.value = ListState.BikeNetworks(it.data?.networks!!)
-                        } else {
+                        val networks = it.data?.networks ?: emptyList()
+                        if (networks.isEmpty()) {
                             state.value = ListState.DataNotFound
+                        } else {
+                            state.value = ListState.BikeNetworks(networks)
                         }
                     }
 
