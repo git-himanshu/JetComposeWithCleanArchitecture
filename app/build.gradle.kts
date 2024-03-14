@@ -10,15 +10,15 @@ plugins {
 }
 
 android {
-    namespace = ConfigurationData.nameSpace
-    compileSdk = ConfigurationData.compileSdk
+    namespace = ConfigurationData.NAME_SPACE
+    compileSdk = ConfigurationData.COMPILE_SDK
 
     defaultConfig {
-        applicationId = ConfigurationData.applicationId
-        minSdk = ConfigurationData.minSdk
-        targetSdk = ConfigurationData.targetSdk
-        versionCode = ConfigurationData.versionCode
-        versionName = ConfigurationData.versionName
+        applicationId = ConfigurationData.APPLICATION_ID
+        minSdk = ConfigurationData.MIN_SDK
+        targetSdk = ConfigurationData.TARGET_SDK
+        versionCode = ConfigurationData.VERSION_CODE
+        versionName = ConfigurationData.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -36,17 +36,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = Versions.sourceCompatibility
-        targetCompatibility = Versions.targetCompatibility
+        sourceCompatibility = Versions.SOURCE_COMPATIBILITY
+        targetCompatibility = Versions.TARGET_COMPATIBILITY
     }
     kotlinOptions {
-        jvmTarget = Versions.jvmTarget
+        jvmTarget = Versions.JVM_TARGET
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
+        kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION_VERSION
     }
     packaging {
         resources {
@@ -57,14 +57,14 @@ android {
 }
 
 dependencies {
-    implementation(platform(Libs.AndroidX.Compose.bom))
-    implementation(Libs.AndroidX.Compose.material3)
-    implementation(Libs.Google.Hilt.hiltAndroid)
+    implementation(platform(Libs.AndroidX.Compose.BOM))
+    implementation(Libs.AndroidX.Compose.MATERIAL_3)
+    implementation(Libs.Google.Hilt.HILT_ANDROID)
     implementation(project(":core:network"))
-    kapt(Libs.Google.Hilt.hiltAndroidCompiler)
-    implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
-    implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
-    debugImplementation(Libs.AndroidX.Compose.uiTooling)
+    kapt(Libs.Google.Hilt.HILT_ANDROID_COMPILER)
+    implementation(Libs.AndroidX.Hilt.HILT_NAVIGATION_COMPOSE)
+    implementation(Libs.AndroidX.Lifecycle.RUN_TIME_COMPOSE)
+    debugImplementation(Libs.AndroidX.Compose.UI_TOOLING)
     implementation(project(":feature:bikeNetwork:presentation"))
     implementation(project(":feature:bikeNetwork:domain"))
     implementation(project(":feature:bikeNetwork:data"))

@@ -11,27 +11,27 @@ plugins {
 
 android {
     namespace = "com.example.core.network"
-    compileSdk = ConfigurationData.compileSdk
+    compileSdk = ConfigurationData.COMPILE_SDK
     defaultConfig {
-        minSdk = ConfigurationData.minSdk
+        minSdk = ConfigurationData.MIN_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
     compileOptions {
-        sourceCompatibility = Versions.sourceCompatibility
-        targetCompatibility = Versions.targetCompatibility
+        sourceCompatibility = Versions.SOURCE_COMPATIBILITY
+        targetCompatibility = Versions.TARGET_COMPATIBILITY
     }
     kotlinOptions {
-        jvmTarget = Versions.jvmTarget
+        jvmTarget = Versions.JVM_TARGET
     }
 }
 
 dependencies {
-    implementation(Libs.Google.Hilt.hiltAndroid)
-    kapt(Libs.Google.Hilt.hiltAndroidCompiler)
-    implementation(Libs.Retrofit.retrofitClient)
-    implementation(Libs.Retrofit.converterGson)
+    implementation(Libs.Google.Hilt.HILT_ANDROID)
+    kapt(Libs.Google.Hilt.HILT_ANDROID_COMPILER)
+    implementation(Libs.Retrofit.RETROFIT_CLIENT)
+    implementation(Libs.Retrofit.CONVERTER_GSON)
     implementation(project(":core:common"))
 }
 

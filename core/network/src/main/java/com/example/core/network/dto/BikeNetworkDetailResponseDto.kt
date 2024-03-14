@@ -12,8 +12,6 @@ data class BikeNetworkDetail(
     val id: String?,
     @SerializedName("name")
     val name: String?,
-    @SerializedName("href")
-    val href: String?,
     @SerializedName("location")
     val location: Location?,
     @SerializedName("stations")

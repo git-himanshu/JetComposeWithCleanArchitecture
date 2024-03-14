@@ -13,7 +13,6 @@ class BikeNetworkRemoteListDataMapperTest {
         val dto = modelMapper.fromEntityToDto(bikeNetwork1)
         assert(dto.id == bikeNetwork1.id)
         assert(dto.name == bikeNetwork1.name)
-        assert(dto.href == bikeNetwork1.href)
         assert(dto.location?.city == bikeNetwork1.city)
         assert(dto.location?.country == bikeNetwork1.country)
     }
@@ -23,7 +22,6 @@ class BikeNetworkRemoteListDataMapperTest {
         val entity = modelMapper.fromDtoToEntity(networkDto1)
         assert(entity.id == networkDto1.id)
         assert(entity.name == networkDto1.name)
-        assert(entity.href == networkDto1.href)
         assert(entity.city == networkDto1.location?.city)
         assert(entity.country == networkDto1.location?.country)
     }

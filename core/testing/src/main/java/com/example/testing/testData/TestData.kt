@@ -12,33 +12,30 @@ import com.example.core.network.dto.Extra
 import com.example.core.network.dto.Location
 import com.example.core.network.dto.Station as StationDto
 
-const val networkId = "network_id"
-const val networkIdValue = "1"
-const val serverError = "Server not reachable"
-const val genericError = "Some thing went wrong!"
-const val firstName = "New Delhi Bikers club"
-const val firstCity = "New Delhi"
-const val firstCountry = "India"
-const val errorText = "Error"
-const val netWorkId = "network1"
+const val NETWORK_ID = "network_id"
+const val NETWORK_ID_VALUE = "1"
+const val SERVER_ERROR = "Server not reachable"
+const val GENERIC_ERROR = "Some thing went wrong!"
+const val FIRST_NAME = "New Delhi Bikers club"
+const val FIRST_CITY = "New Delhi"
+const val FIRST_COUNTRY = "India"
+const val ERROR_TEST = "Error"
 
-const val secondName = "London Bikers club"
-const val secondCity = "London"
-const val secondCountry = "UK"
+const val SECOND_NAME = "London Bikers club"
+const val SECOND_CITY = "London"
+const val SECOND_COUNTRY = "UK"
 
 val bikeNetwork1 = BikeNetworkEntity(
     id = "1",
-    href = "href",
-    name = firstName,
-    city = firstCity,
-    country = firstCountry
+    name = FIRST_NAME,
+    city = FIRST_CITY,
+    country = FIRST_COUNTRY
 )
 val bikeNetwork2 = BikeNetworkEntity(
     id = "2",
-    href = "href",
-    name = secondName,
-    city = secondCity,
-    country = secondCountry
+    name = SECOND_NAME,
+    city = SECOND_CITY,
+    country = SECOND_COUNTRY
 )
 
 val networkList = listOf(
@@ -76,30 +73,27 @@ val stations = listOf(
 
 val networkDetailEntity = BikeNetworkDetailEntity(
     id = "1",
-    name = firstName,
-    href = "href",
-    city = firstCity,
-    country = firstCountry,
+    name = FIRST_NAME,
+    city = FIRST_CITY,
+    country = FIRST_COUNTRY,
     stations = stations
 )
 
 val networkDto1 = BikeNetworkDto(
     id = "1",
-    name = firstName,
-    href = "href",
+    name = FIRST_NAME,
     location = Location(
-        city = firstCity,
-        country = firstCountry,
+        city = FIRST_CITY,
+        country = FIRST_COUNTRY,
     )
 )
 
 val networkDto2 = BikeNetworkDto(
     id = "2",
-    name = secondName,
-    href = "href",
+    name = SECOND_NAME,
     location = Location(
-        city = secondCity,
-        country = secondCountry
+        city = SECOND_CITY,
+        country = SECOND_COUNTRY
     )
 )
 val networksDto = listOf(
@@ -133,12 +127,11 @@ val stationsDto = listOf(
 )
 val networkDetailDto = BikeNetworkDetailResponseDto(
     network = BikeNetworkDetail(
-        id = networkId,
-        name = firstName,
-        href = "href",
+        id = NETWORK_ID,
+        name = FIRST_NAME,
         location = Location(
-            city = secondCity,
-            country = secondCountry
+            city = SECOND_CITY,
+            country = SECOND_COUNTRY
         ),
         stations = stationsDto,
     )

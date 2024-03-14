@@ -11,35 +11,35 @@ plugins {
 
 android {
     namespace = "com.example.feature.bikeNetwork.data"
-    compileSdk = ConfigurationData.compileSdk
+    compileSdk = ConfigurationData.COMPILE_SDK
     defaultConfig {
-        minSdk = ConfigurationData.minSdk
+        minSdk = ConfigurationData.MIN_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
     compileOptions {
-        sourceCompatibility = Versions.sourceCompatibility
-        targetCompatibility = Versions.targetCompatibility
+        sourceCompatibility = Versions.SOURCE_COMPATIBILITY
+        targetCompatibility = Versions.TARGET_COMPATIBILITY
     }
     kotlinOptions {
-        jvmTarget = Versions.jvmTarget
+        jvmTarget = Versions.JVM_TARGET
     }
 }
 
 dependencies {
-    implementation(Libs.Google.Hilt.hiltAndroid)
-    kapt(Libs.Google.Hilt.hiltAndroidCompiler)
-    implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
-    implementation(Libs.Retrofit.converterGson)
+    implementation(Libs.Google.Hilt.HILT_ANDROID)
+    kapt(Libs.Google.Hilt.HILT_ANDROID_COMPILER)
+    implementation(Libs.AndroidX.Hilt.HILT_NAVIGATION_COMPOSE)
+    implementation(Libs.Retrofit.CONVERTER_GSON)
     implementation(project(":core:common"))
     implementation(project(":core:network"))
     implementation(project(":feature:bikeNetwork:domain"))
 
-    testImplementation(Libs.JUnit.jUnit)
-    testImplementation(Libs.AndroidTest.coroutinesTest)
-    testImplementation(Libs.MockK.mockk)
-    testImplementation(Libs.MockK.mockkAgent)
+    testImplementation(Libs.JUnit.JUNIT)
+    testImplementation(Libs.AndroidTest.COROUTINE_TEST)
+    testImplementation(Libs.MockK.MOCKK)
+    testImplementation(Libs.MockK.MOCKK_AGENT)
     testImplementation(project(":core:testing"))
 
     android.testVariants.all {

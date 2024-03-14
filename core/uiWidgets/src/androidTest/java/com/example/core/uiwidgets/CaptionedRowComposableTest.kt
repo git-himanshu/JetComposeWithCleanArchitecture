@@ -2,8 +2,8 @@ package com.example.core.uiwidgets
 
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import com.example.core.uiwidgets.Constants.caption
-import com.example.core.uiwidgets.Constants.value
+import com.example.core.uiwidgets.Constants.CAPTION
+import com.example.core.uiwidgets.Constants.VALUE
 import org.junit.Rule
 import org.junit.Test
 
@@ -15,16 +15,16 @@ class CaptionedRowComposableTest {
     @Test
     fun captionedRowComposable_caption_is_displayed() {
         composeTestRule.setContent {
-            CaptionedRowComposable(caption = caption, value = value)
+            CaptionedRowComposable(caption = CAPTION, value = VALUE)
         }
-        composeTestRule.onNodeWithText(caption).assertExists()
+        composeTestRule.onNodeWithText(CAPTION).assertExists()
     }
 
     @Test
     fun captionedRowComposable_value_is_displayed() {
         composeTestRule.setContent {
-            CaptionedRowComposable(caption = caption, value = value)
+            CaptionedRowComposable(caption = CAPTION, value = VALUE)
         }
-        composeTestRule.onNodeWithText(value).assertExists()
+        composeTestRule.onNodeWithText(VALUE).assertExists()
     }
 }

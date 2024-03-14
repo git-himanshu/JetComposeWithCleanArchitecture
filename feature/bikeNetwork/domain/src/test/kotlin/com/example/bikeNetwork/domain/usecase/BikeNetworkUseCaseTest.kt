@@ -3,9 +3,9 @@ package com.example.bikeNetwork.domain.usecase
 import com.example.bikeNetwork.domain.repository.IBikeNetworkRepository
 import com.example.common.model.Result
 import com.example.testing.dispatcherRule.MainDispatcherRule
+import com.example.testing.testData.NETWORK_ID
 import com.example.testing.testData.bikeNetworkEntity
 import com.example.testing.testData.networkDetailEntity
-import com.example.testing.testData.networkId
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -65,7 +65,7 @@ class BikeNetworkUseCaseTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkUseCase_get_bike_network_detail_is_called() = runTest {
-        useCase.getDetail(networkId)
+        useCase.getDetail(NETWORK_ID)
         coVerify {
             repository.getBikeNetworkDetail(any())
         }

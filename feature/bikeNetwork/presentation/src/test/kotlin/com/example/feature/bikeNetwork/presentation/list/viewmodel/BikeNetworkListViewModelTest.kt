@@ -6,10 +6,10 @@ import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.list.intent.ListIntent
 import com.example.feature.bikeNetwork.presentation.list.state.ListState
 import com.example.testing.dispatcherRule.MainDispatcherRule
+import com.example.testing.testData.GENERIC_ERROR
+import com.example.testing.testData.SERVER_ERROR
 import com.example.testing.testData.bikeNetworkEntity
 import com.example.testing.testData.bikeNetworkEntityWithEmptyList
-import com.example.testing.testData.genericError
-import com.example.testing.testData.serverError
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -85,8 +85,8 @@ class BikeNetworkListViewModelTest {
                 Result(
                     status = Result.Status.ERROR,
                     data = null,
-                    error = Error(statusCode = 500, statusMessage = serverError),
-                    message = genericError
+                    error = Error(statusCode = 500, statusMessage = SERVER_ERROR),
+                    message = GENERIC_ERROR
                 )
             )
         }

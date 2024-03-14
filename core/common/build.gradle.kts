@@ -8,21 +8,21 @@ plugins {
 
 android {
     namespace = "com.example.core.common"
-    compileSdk = ConfigurationData.compileSdk
+    compileSdk = ConfigurationData.COMPILE_SDK
 
     defaultConfig {
-        minSdk = ConfigurationData.minSdk
+        minSdk = ConfigurationData.MIN_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     compileOptions {
-        sourceCompatibility = Versions.sourceCompatibility
-        targetCompatibility = Versions.targetCompatibility
+        sourceCompatibility = Versions.SOURCE_COMPATIBILITY
+        targetCompatibility = Versions.TARGET_COMPATIBILITY
     }
     kotlinOptions {
-        jvmTarget = Versions.jvmTarget
+        jvmTarget = Versions.JVM_TARGET
     }
 }
 

@@ -8,7 +8,7 @@ import com.example.bikeNetwork.domain.usecase.IBikeNetworkUseCase
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.detail.intent.DetailIntent
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
-import com.example.feature.bikeNetwork.presentation.navigation.BikeNetworkDetails.networkIDArg
+import com.example.feature.bikeNetwork.presentation.navigation.BikeNetworkDetails.NETWORK_ID_ARG
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
@@ -20,7 +20,7 @@ class BikeNetworkDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val bikeNetworkUseCase: IBikeNetworkUseCase,
 ) : ViewModel() {
-    private val networkId: String = savedStateHandle.get<String>(networkIDArg) ?: ""
+    private val networkId: String = savedStateHandle.get<String>(NETWORK_ID_ARG) ?: ""
 
     val userIntent = Channel<DetailIntent>(Channel.UNLIMITED)
     val state = mutableStateOf<DetailState>(DetailState.Loading)

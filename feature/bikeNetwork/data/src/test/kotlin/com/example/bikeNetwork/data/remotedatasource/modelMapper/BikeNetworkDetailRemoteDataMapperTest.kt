@@ -12,7 +12,6 @@ class BikeNetworkDetailRemoteDataMapperTest {
         val dto = modelMapper.fromEntityToDto(networkDetailEntity)
         assert(dto.network?.id == networkDetailEntity.id)
         assert(dto.network?.name == networkDetailEntity.name)
-        assert(dto.network?.href == networkDetailEntity.href)
         assert(dto.network?.location?.city == networkDetailEntity.city)
         assert(dto.network?.location?.country == networkDetailEntity.country)
         dto.network?.stations?.isNotEmpty()?.let { assert(it) }
@@ -23,7 +22,6 @@ class BikeNetworkDetailRemoteDataMapperTest {
         val entity = modelMapper.fromDtoToEntity(networkDetailDto)
         assert(entity.id == networkDetailDto.network?.id)
         assert(entity.name == networkDetailDto.network?.name)
-        assert(entity.href == networkDetailDto.network?.href)
         assert(entity.city == networkDetailDto.network?.location?.city)
         assert(entity.country == networkDetailDto.network?.location?.country)
         assert(entity.stations.isNotEmpty())

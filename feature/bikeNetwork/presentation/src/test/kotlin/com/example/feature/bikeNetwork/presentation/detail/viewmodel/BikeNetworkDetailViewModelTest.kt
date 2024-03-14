@@ -7,11 +7,11 @@ import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.detail.intent.DetailIntent
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
 import com.example.testing.dispatcherRule.MainDispatcherRule
-import com.example.testing.testData.genericError
+import com.example.testing.testData.GENERIC_ERROR
+import com.example.testing.testData.NETWORK_ID
+import com.example.testing.testData.NETWORK_ID_VALUE
+import com.example.testing.testData.SERVER_ERROR
 import com.example.testing.testData.networkDetailEntity
-import com.example.testing.testData.networkId
-import com.example.testing.testData.networkIdValue
-import com.example.testing.testData.serverError
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -53,8 +53,8 @@ class BikeNetworkDetailViewModelTest {
         }
         viewModel = BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
             set(
-                networkId,
-                networkIdValue
+                NETWORK_ID,
+                NETWORK_ID_VALUE
             )
         }, bikeNetworkUseCase = useCase)
         val state = viewModel.state.value
@@ -78,8 +78,8 @@ class BikeNetworkDetailViewModelTest {
         }
         viewModel = BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
             set(
-                networkId,
-                networkIdValue
+                NETWORK_ID,
+                NETWORK_ID_VALUE
             )
         }, bikeNetworkUseCase = useCase)
         val state = viewModel.state.value
@@ -96,15 +96,15 @@ class BikeNetworkDetailViewModelTest {
                 Result(
                     status = Result.Status.ERROR,
                     data = null,
-                    error = Error(statusCode = 500, statusMessage = serverError),
-                    message = genericError
+                    error = Error(statusCode = 500, statusMessage = SERVER_ERROR),
+                    message = GENERIC_ERROR
                 )
             )
         }
         viewModel = BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
             set(
-                networkId,
-                networkIdValue
+                NETWORK_ID,
+                NETWORK_ID_VALUE
             )
         }, bikeNetworkUseCase = useCase)
         val state = viewModel.state.value

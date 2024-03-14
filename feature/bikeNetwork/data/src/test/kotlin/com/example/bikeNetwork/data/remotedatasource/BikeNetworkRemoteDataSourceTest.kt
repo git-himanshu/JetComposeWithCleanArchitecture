@@ -4,8 +4,8 @@ import com.example.common.model.Error
 import com.example.common.model.Result
 import com.example.core.network.service.IBikeNetworkService
 import com.example.testing.dispatcherRule.MainDispatcherRule
+import com.example.testing.testData.NETWORK_ID
 import com.example.testing.testData.networkDetailDto
-import com.example.testing.testData.networkId
 import com.example.testing.testData.networkListDto
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -82,11 +82,11 @@ class BikeNetworkRemoteDataSourceTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkRemoteDataSource_bike_network_detail_is_loaded() = runTest {
-        coEvery { service.getBikeNetworkDetail(networkId) } returns Response.success(
+        coEvery { service.getBikeNetworkDetail(NETWORK_ID) } returns Response.success(
             networkDetailDto
         )
         val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
-        val result = remoteSource.getBikeNetworkDetail(networkId)
+        val result = remoteSource.getBikeNetworkDetail(NETWORK_ID)
         coVerify {
             service.getBikeNetworkDetail(any())
         }
@@ -114,7 +114,7 @@ class BikeNetworkRemoteDataSourceTest {
                         )
                     }
             val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
-            val result = remoteSource.getBikeNetworkDetail(networkId)
+            val result = remoteSource.getBikeNetworkDetail(NETWORK_ID)
             coVerify {
                 service.getBikeNetworkDetail(any())
             }

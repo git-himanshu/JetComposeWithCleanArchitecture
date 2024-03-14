@@ -2,9 +2,9 @@ package com.example.core.network.di
 
 import android.util.Log
 import com.example.core.network.BASE_URL
-import com.example.core.network.Constants.logTag
-import com.example.core.network.Constants.requestLogPlaceHolder
-import com.example.core.network.Constants.responseLogPlaceHolder
+import com.example.core.network.Constants.LOG_TAG
+import com.example.core.network.Constants.REQUEST_LOG_PLACE_HOLDER
+import com.example.core.network.Constants.RESPONSE_LOG_PLACE_HOLDER
 import com.example.core.network.service.IBikeNetworkService
 import dagger.Module
 import dagger.Provides
@@ -54,18 +54,18 @@ internal class LoggingInterceptor : Interceptor {
         val request: Request = chain.request()
         val t1 = System.nanoTime()
         Log.d(
-            logTag,
+            LOG_TAG,
             String.format(
-                requestLogPlaceHolder,
+                REQUEST_LOG_PLACE_HOLDER,
                 request.url(), chain.connection(), request.headers()
             )
         )
         val response: Response = chain.proceed(request)
         val t2 = System.nanoTime()
         Log.d(
-            logTag,
+            LOG_TAG,
             String.format(
-                responseLogPlaceHolder,
+                RESPONSE_LOG_PLACE_HOLDER,
                 response.request().url(),
                 (t2 - t1) / 1e6,
                 response.headers(),

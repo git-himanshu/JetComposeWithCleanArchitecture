@@ -13,10 +13,10 @@ object BikeNetworkList : AppDestinations {
 
 object BikeNetworkDetails : AppDestinations {
     override val route = "BikeNetworkDetails"
-    const val networkIDArg = "network_id"
-    val routeWithArgs = "$route/{$networkIDArg}"
+    const val NETWORK_ID_ARG = "network_id"
+    val routeWithArgs = "$route/{$NETWORK_ID_ARG}"
     val arguments = listOf(
-        navArgument(networkIDArg) { type = NavType.StringType }
+        navArgument(NETWORK_ID_ARG) { type = NavType.StringType }
     )
 
     fun createRoute(networkId: String) = "$route/${networkId}"

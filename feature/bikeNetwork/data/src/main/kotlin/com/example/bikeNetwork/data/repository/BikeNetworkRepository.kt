@@ -57,7 +57,7 @@ class BikeNetworkRepository @Inject constructor(
                         Result.error(
                             error = resultDto.error,
                             message = resultDto.error?.statusMessage
-                                ?: Constants.defaultErrorMessage
+                                ?: Constants.DEFAULT_ERROR_MESSAGE
                         )
                     )
                 }

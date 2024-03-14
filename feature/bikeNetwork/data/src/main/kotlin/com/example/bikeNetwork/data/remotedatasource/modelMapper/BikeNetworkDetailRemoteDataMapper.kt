@@ -15,7 +15,6 @@ class BikeNetworkDetailRemoteDataMapper @Inject constructor() :
             network = BikeNetworkDetail(
                 id = entity.id,
                 name = entity.name,
-                href = entity.href,
                 location = Location(
                     city = entity.city,
                     country = entity.country
@@ -40,7 +39,6 @@ class BikeNetworkDetailRemoteDataMapper @Inject constructor() :
         return BikeNetworkDetailEntity(
             id = dto.network?.id ?: "",
             name = dto.network?.name ?: "",
-            href = dto.network?.href ?: "",
             city = dto.network?.location?.city ?: "",
             country = dto.network?.location?.country ?: "",
             stations = dto.network?.stations?.let { stations ->

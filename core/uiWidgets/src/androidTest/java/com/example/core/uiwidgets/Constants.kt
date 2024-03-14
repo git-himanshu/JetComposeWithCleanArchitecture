@@ -1,14 +1,14 @@
 package com.example.core.uiwidgets
 
 object Constants {
-    const val caption = "Caption"
-    const val value = "Value"
-    const val screenTitle = "Screen Title"
-    const val backContentDescription = "Back button"
-    const val errorText = "Error text"
-    const val btnLabel = "Retry"
-    const val testingTag = "Loader testing tag."
-    const val infoText = "Information text"
-    const val retryBtnLabel = "Retry"
-    const val iconContentDescription = "Icon content description"
+    const val CAPTION = "Caption"
+    const val VALUE = "Value"
+    const val SCREEN_TITLE = "Screen Title"
+    const val BACKGROUND_CONTENT_DESCRIPTION = "Back button"
+    const val ERROR_TEXT = "Error text"
+    const val BUTTON_LABEL = "Retry"
+    const val TESTING_TAG = "Loader testing tag."
+    const val INFO_TEXT = "Information text"
+    const val RETRY_BUTTON_LABEL = "Retry"
+    const val ICON_CONTENT_DESCRIPTION = "Icon content description"
 }

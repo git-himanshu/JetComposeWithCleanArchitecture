@@ -11,10 +11,10 @@ plugins {
 
 android {
     namespace = "com.example.feature.bikeNetwork.presentation"
-    compileSdk = ConfigurationData.compileSdk
+    compileSdk = ConfigurationData.COMPILE_SDK
 
     defaultConfig {
-        minSdk = ConfigurationData.minSdk
+        minSdk = ConfigurationData.MIN_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -30,17 +30,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = Versions.sourceCompatibility
-        targetCompatibility = Versions.targetCompatibility
+        sourceCompatibility = Versions.SOURCE_COMPATIBILITY
+        targetCompatibility = Versions.TARGET_COMPATIBILITY
     }
     kotlinOptions {
-        jvmTarget = Versions.jvmTarget
+        jvmTarget = Versions.JVM_TARGET
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
+        kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION_VERSION
     }
     packaging {
         resources {
@@ -52,30 +52,30 @@ android {
 }
 
 dependencies {
-    implementation(platform(Libs.AndroidX.Compose.bom))
-    implementation(Libs.AndroidX.Compose.material3)
-    implementation(Libs.Google.Hilt.hiltAndroid)
-    kapt(Libs.Google.Hilt.hiltAndroidCompiler)
-    implementation(Libs.AndroidX.Hilt.hiltNavigationCompose)
-    implementation(Libs.AndroidX.Lifecycle.runtimeCompose)
-    debugImplementation(Libs.AndroidX.Compose.uiTooling)
+    implementation(platform(Libs.AndroidX.Compose.BOM))
+    implementation(Libs.AndroidX.Compose.MATERIAL_3)
+    implementation(Libs.Google.Hilt.HILT_ANDROID)
+    kapt(Libs.Google.Hilt.HILT_ANDROID_COMPILER)
+    implementation(Libs.AndroidX.Hilt.HILT_NAVIGATION_COMPOSE)
+    implementation(Libs.AndroidX.Lifecycle.RUN_TIME_COMPOSE)
+    debugImplementation(Libs.AndroidX.Compose.UI_TOOLING)
     implementation(project(":feature:bikeNetwork:domain"))
     implementation(project(":core:uiWidgets"))
     implementation(project(":core:common"))
 
     testImplementation(project(":core:testing"))
     androidTestImplementation(project(":core:testing"))
-    testImplementation(Libs.JUnit.jUnit)
-    androidTestImplementation(Libs.AndroidTest.extJUnit)
-    androidTestImplementation(platform(Libs.AndroidX.Compose.bom))
-    androidTestImplementation(Libs.AndroidTest.composeTestJunit4)
-    debugImplementation(Libs.AndroidTest.composeTestUiTooling)
-    debugImplementation(Libs.AndroidTest.composeTestManifest)
-    testImplementation(Libs.AndroidTest.coroutinesTest)
-    testImplementation(Libs.MockK.mockk)
-    testImplementation(Libs.MockK.mockkAgent)
-    androidTestImplementation(Libs.MockK.mockkAndroid)
-    androidTestImplementation(Libs.MockK.mockkAgent)
+    testImplementation(Libs.JUnit.JUNIT)
+    androidTestImplementation(Libs.AndroidTest.EXT_JUNIT)
+    androidTestImplementation(platform(Libs.AndroidX.Compose.BOM))
+    androidTestImplementation(Libs.AndroidTest.COMPOSE_TEST_JUNIT_4)
+    debugImplementation(Libs.AndroidTest.COMPOSE_TEST_UI_TOOLING)
+    debugImplementation(Libs.AndroidTest.COMPOSE_TEST_MANIFEST)
+    testImplementation(Libs.AndroidTest.COROUTINE_TEST)
+    testImplementation(Libs.MockK.MOCKK)
+    testImplementation(Libs.MockK.MOCKK_AGENT)
+    androidTestImplementation(Libs.MockK.MOCKK_ANDROID)
+    androidTestImplementation(Libs.MockK.MOCKK_AGENT)
 }
 
 kapt {

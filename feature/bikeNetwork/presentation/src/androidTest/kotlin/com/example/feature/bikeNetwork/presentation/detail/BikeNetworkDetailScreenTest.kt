@@ -11,9 +11,9 @@ import com.example.feature.bikeNetwork.presentation.R
 import com.example.feature.bikeNetwork.presentation.detail.state.DetailState
 import com.example.feature.bikeNetwork.presentation.detail.ui.BikeNetworkDetailScreen
 import com.example.feature.bikeNetwork.presentation.detail.viewmodel.BikeNetworkDetailViewModel
-import com.example.feature.bikeNetwork.presentation.navigation.BikeNetworkDetails.networkIDArg
-import com.example.testing.testData.errorText
-import com.example.testing.testData.netWorkId
+import com.example.feature.bikeNetwork.presentation.navigation.BikeNetworkDetails.NETWORK_ID_ARG
+import com.example.feature.bikeNetwork.presentation.previewData.NETWORK_ID
+import com.example.testing.testData.ERROR_TEST
 import com.example.testing.testData.networkDetailEntity
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -48,8 +48,8 @@ class BikeNetworkDetailScreenTest {
         viewModel =
             BikeNetworkDetailViewModel(savedStateHandle = SavedStateHandle().apply {
                 set(
-                    networkIDArg,
-                    netWorkId
+                    NETWORK_ID_ARG,
+                    NETWORK_ID
                 )
             }, bikeNetworkUseCase = useCase)
     }
@@ -125,7 +125,7 @@ class BikeNetworkDetailScreenTest {
         composeTestRule.setContent {
             BikeNetworkDetailScreen(onBack = {}, viewModel = viewModel)
         }
-        viewModel.state.value = DetailState.Error(errorText)
+        viewModel.state.value = DetailState.Error(ERROR_TEST)
         composeTestRule.onNodeWithTag(
             composeTestRule.activity.getString(R.string.testTag_error),
             useUnmergedTree = true

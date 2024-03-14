@@ -10,7 +10,7 @@ import com.example.feature.bikeNetwork.presentation.R
 import com.example.feature.bikeNetwork.presentation.list.state.ListState
 import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkListScreen
 import com.example.feature.bikeNetwork.presentation.list.viewmodel.BikeNetworkListViewModel
-import com.example.testing.testData.errorText
+import com.example.testing.testData.ERROR_TEST
 import com.example.testing.testData.networkList
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -118,7 +118,7 @@ class BikeNetworkListScreenTest {
         composeTestRule.setContent {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
-        viewModel.state.value = ListState.Error(errorText)
+        viewModel.state.value = ListState.Error(ERROR_TEST)
         composeTestRule.onNodeWithTag(
             composeTestRule.activity.getString(R.string.testTag_error),
             useUnmergedTree = true

@@ -7,13 +7,13 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkList
-import com.example.testing.testData.firstCity
-import com.example.testing.testData.firstCountry
-import com.example.testing.testData.firstName
+import com.example.testing.testData.FIRST_CITY
+import com.example.testing.testData.FIRST_COUNTRY
+import com.example.testing.testData.FIRST_NAME
+import com.example.testing.testData.SECOND_CITY
+import com.example.testing.testData.SECOND_COUNTRY
+import com.example.testing.testData.SECOND_NAME
 import com.example.testing.testData.networkList
-import com.example.testing.testData.secondCity
-import com.example.testing.testData.secondCountry
-import com.example.testing.testData.secondName
 import org.junit.Rule
 import org.junit.Test
 
@@ -29,11 +29,11 @@ class BikeNetworkListTest {
             BikeNetworkList(bikeNetworkList = networkList, onItemClick = {})
         }
 
-        composeTestRule.onNodeWithText(firstName).assertExists()
-        composeTestRule.onNodeWithText("$firstCity, $firstCountry").assertExists()
+        composeTestRule.onNodeWithText(FIRST_NAME).assertExists()
+        composeTestRule.onNodeWithText("$FIRST_CITY, $FIRST_COUNTRY").assertExists()
 
-        composeTestRule.onNodeWithText(secondName).assertExists()
-        composeTestRule.onNodeWithText("$secondCity, $secondCountry").assertExists()
+        composeTestRule.onNodeWithText(SECOND_NAME).assertExists()
+        composeTestRule.onNodeWithText("$SECOND_CITY, $SECOND_COUNTRY").assertExists()
 
     }
 
@@ -45,7 +45,7 @@ class BikeNetworkListTest {
                 rowClicked = true
             })
         }
-        composeTestRule.onNode(hasText(firstName), useUnmergedTree = true).run {
+        composeTestRule.onNode(hasText(FIRST_NAME), useUnmergedTree = true).run {
             assertIsDisplayed()
             performClick()
         }

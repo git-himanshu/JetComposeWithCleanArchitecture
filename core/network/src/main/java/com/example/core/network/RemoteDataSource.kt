@@ -17,15 +17,15 @@ abstract class RemoteDataSource(private val retrofit: Retrofit) {
             } else {
                 val errorResponse = ErrorUtils.parseError(response, retrofit)
                 Result.error(
-                    errorResponse?.statusMessage ?: Constants.defaultErrorMessage,
+                    errorResponse?.statusMessage ?: Constants.DEFAULT_ERROR_MESSAGE,
                     errorResponse
                 )
             }
         } catch (e: Throwable) {
             print(e.printStackTrace())
             Result.error(
-                e.message ?: Constants.unknownError,
-                Error(statusMessage = e.message ?: Constants.unknownError)
+                e.message ?: Constants.UNKNOWN_ERROR,
+                Error(statusMessage = e.message ?: Constants.UNKNOWN_ERROR)
             )
         }
     }

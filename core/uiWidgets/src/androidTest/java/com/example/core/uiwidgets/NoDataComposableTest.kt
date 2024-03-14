@@ -4,9 +4,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import com.example.core.uiWidgets.R
-import com.example.core.uiwidgets.Constants.iconContentDescription
-import com.example.core.uiwidgets.Constants.infoText
-import com.example.core.uiwidgets.Constants.retryBtnLabel
+import com.example.core.uiwidgets.Constants.ICON_CONTENT_DESCRIPTION
+import com.example.core.uiwidgets.Constants.INFO_TEXT
+import com.example.core.uiwidgets.Constants.RETRY_BUTTON_LABEL
 import org.junit.Rule
 import org.junit.Test
 
@@ -19,15 +19,15 @@ class NoDataComposableTest {
     fun noDataComposable_info_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
-                infoText = infoText,
+                infoText = INFO_TEXT,
                 onRetry = {},
-                retryButtonLabel = retryBtnLabel,
-                iconContentDescription = iconContentDescription,
+                retryButtonLabel = RETRY_BUTTON_LABEL,
+                iconContentDescription = ICON_CONTENT_DESCRIPTION,
             )
         }
-        composeTestRule.onNodeWithText(infoText).assertExists()
-        composeTestRule.onNodeWithText(retryBtnLabel).assertExists()
-        composeTestRule.onNodeWithContentDescription(iconContentDescription).assertDoesNotExist()
+        composeTestRule.onNodeWithText(INFO_TEXT).assertExists()
+        composeTestRule.onNodeWithText(RETRY_BUTTON_LABEL).assertExists()
+        composeTestRule.onNodeWithContentDescription(ICON_CONTENT_DESCRIPTION).assertDoesNotExist()
     }
 
     @Test
@@ -35,29 +35,29 @@ class NoDataComposableTest {
         composeTestRule.setContent {
             NoDataComposable(
                 onRetry = {},
-                retryButtonLabel = retryBtnLabel,
-                iconContentDescription = iconContentDescription,
+                retryButtonLabel = RETRY_BUTTON_LABEL,
+                iconContentDescription = ICON_CONTENT_DESCRIPTION,
                 noDataDrawable = R.drawable.no_data
             )
         }
-        composeTestRule.onNodeWithText(infoText).assertDoesNotExist()
-        composeTestRule.onNodeWithText(retryBtnLabel).assertExists()
-        composeTestRule.onNodeWithContentDescription(iconContentDescription).assertExists()
+        composeTestRule.onNodeWithText(INFO_TEXT).assertDoesNotExist()
+        composeTestRule.onNodeWithText(RETRY_BUTTON_LABEL).assertExists()
+        composeTestRule.onNodeWithContentDescription(ICON_CONTENT_DESCRIPTION).assertExists()
     }
 
     @Test
     fun noDataComposable_icon_info_text_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
-                infoText = infoText,
+                infoText = INFO_TEXT,
                 onRetry = {},
-                retryButtonLabel = retryBtnLabel,
-                iconContentDescription = iconContentDescription,
+                retryButtonLabel = RETRY_BUTTON_LABEL,
+                iconContentDescription = ICON_CONTENT_DESCRIPTION,
                 noDataDrawable = R.drawable.no_data
             )
         }
-        composeTestRule.onNodeWithText(infoText).assertExists()
-        composeTestRule.onNodeWithText(retryBtnLabel).assertExists()
-        composeTestRule.onNodeWithContentDescription(iconContentDescription).assertExists()
+        composeTestRule.onNodeWithText(INFO_TEXT).assertExists()
+        composeTestRule.onNodeWithText(RETRY_BUTTON_LABEL).assertExists()
+        composeTestRule.onNodeWithContentDescription(ICON_CONTENT_DESCRIPTION).assertExists()
     }
 }

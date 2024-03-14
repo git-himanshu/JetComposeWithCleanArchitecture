@@ -1,9 +1,9 @@
 package com.example.core.network
 
 object Constants {
-    const val defaultErrorMessage = "Something went wrong."
-    const val unknownError = "Unknown Error"
-    const val logTag = "NetworkRequest"
-    const val requestLogPlaceHolder = "Sending request %s on %s%n%s"
-    const val responseLogPlaceHolder = "Received response for %s in %.1fms%n%s \n %s"
+    const val DEFAULT_ERROR_MESSAGE = "Something went wrong."
+    const val UNKNOWN_ERROR = "Unknown Error"
+    const val LOG_TAG = "NetworkRequest"
+    const val REQUEST_LOG_PLACE_HOLDER = "Sending request %s on %s%n%s"
+    const val RESPONSE_LOG_PLACE_HOLDER = "Received response for %s in %.1fms%n%s \n %s"
 }

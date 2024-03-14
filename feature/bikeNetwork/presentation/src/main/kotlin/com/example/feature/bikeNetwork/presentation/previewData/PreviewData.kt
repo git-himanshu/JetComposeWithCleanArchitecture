@@ -26,16 +26,15 @@ val stations = listOf(
     station2
 )
 
-const val firstName = "New Delhi Bikers club"
-const val firstCity = "New Delhi"
-const val firstCountry = "India"
-const val networkId = "1"
+const val FIRST_NAME = "New Delhi Bikers club"
+const val FIRST_CITY = "New Delhi"
+const val FIRST_COUNTRY = "India"
+const val NETWORK_ID = "1"
 
 val networkEntity = BikeNetworkDetailEntity(
-    id = "1",
-    name = firstName,
-    href = "",
-    city = firstCity,
-    country = firstCountry,
+    id = NETWORK_ID,
+    name = FIRST_NAME,
+    city = FIRST_CITY,
+    country = FIRST_COUNTRY,
     stations = stations
 )

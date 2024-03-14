@@ -2,7 +2,7 @@ package com.example.core.uiwidgets
 
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
-import com.example.core.uiwidgets.Constants.testingTag
+import com.example.core.uiwidgets.Constants.TESTING_TAG
 import org.junit.Rule
 import org.junit.Test
 
@@ -14,8 +14,8 @@ class LoaderComposableTest {
     @Test
     fun loaderComposable_is_displayed() {
         composeTestRule.setContent {
-            LoaderComposable(testTag = testingTag)
+            LoaderComposable(testTag = TESTING_TAG)
         }
-        composeTestRule.onNodeWithTag(testingTag).assertExists()
+        composeTestRule.onNodeWithTag(TESTING_TAG).assertExists()
     }
 }

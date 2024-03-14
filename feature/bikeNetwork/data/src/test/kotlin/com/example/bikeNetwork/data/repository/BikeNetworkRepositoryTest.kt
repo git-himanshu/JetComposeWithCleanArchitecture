@@ -7,8 +7,8 @@ import com.example.bikeNetwork.domain.entity.BikeNetworkDetailEntity
 import com.example.bikeNetwork.domain.entity.BikeNetworksEntity
 import com.example.common.model.Result
 import com.example.testing.dispatcherRule.MainDispatcherRule
+import com.example.testing.testData.NETWORK_ID
 import com.example.testing.testData.networkDetailDto
-import com.example.testing.testData.networkId
 import com.example.testing.testData.networkListDto
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -101,7 +101,7 @@ class BikeNetworkRepositoryTest {
             detailModelMapper = BikeNetworkDetailRemoteDataMapper()
         )
         lateinit var result: Result<BikeNetworkDetailEntity>
-        val response = repository.getBikeNetworkDetail(networkId)
+        val response = repository.getBikeNetworkDetail(NETWORK_ID)
         coVerify {
             dataSource.getBikeNetworkDetail(any())
             response.collect {
@@ -128,7 +128,7 @@ class BikeNetworkRepositoryTest {
             detailModelMapper = BikeNetworkDetailRemoteDataMapper()
         )
         lateinit var result: Result<BikeNetworkDetailEntity>
-        val response = repository.getBikeNetworkDetail(networkId)
+        val response = repository.getBikeNetworkDetail(NETWORK_ID)
         coVerify {
             dataSource.getBikeNetworkDetail(any())
             response.collect {

@@ -9,10 +9,10 @@ plugins {
 
 android {
     namespace = "com.example.testing"
-    compileSdk = ConfigurationData.compileSdk
+    compileSdk = ConfigurationData.COMPILE_SDK
 
     defaultConfig {
-        minSdk = ConfigurationData.minSdk
+        minSdk = ConfigurationData.MIN_SDK
     }
 
     buildTypes {
@@ -25,19 +25,19 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = Versions.sourceCompatibility
-        targetCompatibility = Versions.targetCompatibility
+        sourceCompatibility = Versions.SOURCE_COMPATIBILITY
+        targetCompatibility = Versions.TARGET_COMPATIBILITY
     }
     kotlinOptions {
-        jvmTarget = Versions.jvmTarget
+        jvmTarget = Versions.JVM_TARGET
     }
 }
 
 dependencies {
     implementation(project(":feature:bikeNetwork:domain"))
     implementation(project(":core:network"))
-    implementation(Libs.JUnit.jUnit)
-    implementation(Libs.AndroidTest.coroutinesTest)
-    implementation(Libs.MockK.mockk)
-    implementation(Libs.MockK.mockkAgent)
+    implementation(Libs.JUnit.JUNIT)
+    implementation(Libs.AndroidTest.COROUTINE_TEST)
+    implementation(Libs.MockK.MOCKK)
+    implementation(Libs.MockK.MOCKK_AGENT)
 }
