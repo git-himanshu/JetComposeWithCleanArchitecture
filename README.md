@@ -60,3 +60,12 @@ Dependency between the layer is towards the center, Low level modules are depend
 
 ![Module Dependency diagram showing dependencies between all the modules](docs/images/module_dependency_diagram.png "Module Dependency diagram showing dependencies between all the modules")
 
+# Testing
+
+To facilitate testing of components, **Jet Compose with Clean Architecture** uses dependency injection with
+[Hilt](https://developer.android.com/training/dependency-injection/hilt-android).
+
+Most data layer components are defined as interfaces.
+Then, concrete implementations (with various dependencies) are bound to provide those interfaces to
+other components in the app.
+In tests, **Jet Compose with Clean Architecture** use [Mockk](https://mockk.io/ANDROID.html) library for mocking the components.
