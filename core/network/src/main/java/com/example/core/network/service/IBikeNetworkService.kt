@@ -7,11 +7,14 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+object Constants {
+    const val NETWORK_ID = "networkId"
+}
 
 interface IBikeNetworkService {
     @GET(EndPoints.BIKE_NETWORK_LIST_ENDPOINT)
     suspend fun getBikeNetworkList(): Response<BikeNetworkListResponseDto>
 
     @GET(EndPoints.BIKE_NETWORK_DETAIL_ENDPOINT)
-    suspend fun getBikeNetworkDetail(@Path("networkId") networkId: String): Response<BikeNetworkDetailResponseDto>
+    suspend fun getBikeNetworkDetail(@Path(Constants.NETWORK_ID) networkId: String): Response<BikeNetworkDetailResponseDto>
 }
