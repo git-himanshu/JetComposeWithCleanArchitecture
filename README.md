@@ -49,3 +49,5 @@ App architecture includes following modules which are implemented as Android Lib
   - **testing** : This module contains the Unit Test cases and Android Test cases dependencies that can be shared between all the modules.
 
 **Hilt** is used for the Dependency Injection. Using **Gradle** dependency between the modules is defined.
+
+![Module Dependency diagram showing dependencies between all the modules](docs/images/module_dependency_diagram.png "Module Dependency diagram showing dependencies between all the modules")
