@@ -11,7 +11,7 @@ import com.example.feature.bikeNetwork.presentation.list.state.ListState
 import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkListScreen
 import com.example.feature.bikeNetwork.presentation.list.viewmodel.BikeNetworkListViewModel
 import com.example.testing.testData.ERROR_TEST
-import com.example.testing.testData.networkList
+import com.example.testing.testData.createNetworkList
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -102,7 +102,7 @@ class BikeNetworkListScreenTest {
             BikeNetworkListScreen(onItemClick = {}, viewModel = viewModel)
         }
         viewModel.state.value = ListState.BikeNetworks(
-                networks = networkList
+                networks = createNetworkList()
         )
 
         composeTestRule.onNodeWithTag(

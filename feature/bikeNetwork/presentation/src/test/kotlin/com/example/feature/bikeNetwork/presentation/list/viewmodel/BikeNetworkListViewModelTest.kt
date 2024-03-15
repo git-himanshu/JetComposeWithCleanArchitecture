@@ -8,8 +8,7 @@ import com.example.feature.bikeNetwork.presentation.list.state.ListState
 import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.GENERIC_ERROR
 import com.example.testing.testData.SERVER_ERROR
-import com.example.testing.testData.bikeNetworkEntity
-import com.example.testing.testData.bikeNetworkEntityWithEmptyList
+import com.example.testing.testData.createBikeNetworksEntity
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -44,7 +43,7 @@ class BikeNetworkListViewModelTest {
             emit(
                     Result(
                             status = Result.Status.SUCCESS,
-                            data = bikeNetworkEntity,
+                            data = createBikeNetworksEntity(),
                             error = null,
                             message = null
                     )
@@ -64,7 +63,7 @@ class BikeNetworkListViewModelTest {
             emit(
                     Result(
                             status = Result.Status.SUCCESS,
-                            data = bikeNetworkEntityWithEmptyList,
+                            data = createBikeNetworksEntity(networks= emptyList()),
                             error = null,
                             message = null
                     )

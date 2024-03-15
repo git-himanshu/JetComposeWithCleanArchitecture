@@ -14,7 +14,7 @@ import com.example.feature.bikeNetwork.presentation.detail.viewmodel.BikeNetwork
 import com.example.feature.bikeNetwork.presentation.navigation.BikeNetworkDetails.NETWORK_ID_ARG
 import com.example.feature.bikeNetwork.presentation.previewData.NETWORK_ID
 import com.example.testing.testData.ERROR_TEST
-import com.example.testing.testData.networkDetailEntity
+import com.example.testing.testData.createNetworkDetailEntity
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -110,7 +110,7 @@ class BikeNetworkDetailScreenTest {
         composeTestRule.setContent {
             BikeNetworkDetailScreen(onBack = {}, viewModel = viewModel)
         }
-        viewModel.state.value = DetailState.NetworkDetail(networkDetailEntity)
+        viewModel.state.value = DetailState.NetworkDetail(createNetworkDetailEntity())
 
         composeTestRule.onNodeWithTag(
                 composeTestRule.activity.getString(R.string.testTag_networkDetail),

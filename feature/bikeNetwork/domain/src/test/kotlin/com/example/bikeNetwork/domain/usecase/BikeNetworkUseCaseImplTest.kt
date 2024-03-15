@@ -4,8 +4,8 @@ import com.example.bikeNetwork.domain.repository.BikeNetworkRepository
 import com.example.common.model.Result
 import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.NETWORK_ID
-import com.example.testing.testData.bikeNetworkEntity
-import com.example.testing.testData.networkDetailEntity
+import com.example.testing.testData.createBikeNetworksEntity
+import com.example.testing.testData.createNetworkDetailEntity
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -34,7 +34,7 @@ class BikeNetworkUseCaseImplTest {
             emit(
                     Result(
                             status = Result.Status.SUCCESS,
-                            data = bikeNetworkEntity,
+                            data = createBikeNetworksEntity(),
                             error = null,
                             message = null
                     )
@@ -44,7 +44,7 @@ class BikeNetworkUseCaseImplTest {
             emit(
                     Result(
                             status = Result.Status.SUCCESS,
-                            data = networkDetailEntity,
+                            data = createNetworkDetailEntity(),
                             error = null,
                             message = null
                     )

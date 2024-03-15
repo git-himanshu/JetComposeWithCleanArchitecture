@@ -7,13 +7,13 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.example.feature.bikeNetwork.presentation.list.ui.BikeNetworkList
-import com.example.testing.testData.FIRST_CITY
-import com.example.testing.testData.FIRST_COUNTRY
-import com.example.testing.testData.FIRST_NAME
+import com.example.testing.testData.NETWORK_CITY
+import com.example.testing.testData.NETWORK_COUNTRY
+import com.example.testing.testData.NETWORK_NAME
 import com.example.testing.testData.SECOND_CITY
 import com.example.testing.testData.SECOND_COUNTRY
 import com.example.testing.testData.SECOND_NAME
-import com.example.testing.testData.networkList
+import com.example.testing.testData.createNetworkList
 import org.junit.Rule
 import org.junit.Test
 
@@ -26,11 +26,11 @@ class BikeNetworkListTest {
     fun networkList_list_items_are_visible() {
 
         composeTestRule.setContent {
-            BikeNetworkList(bikeNetworkList = networkList, onItemClick = {})
+            BikeNetworkList(bikeNetworkList = createNetworkList(), onItemClick = {})
         }
 
-        composeTestRule.onNodeWithText(FIRST_NAME).assertExists()
-        composeTestRule.onNodeWithText("$FIRST_CITY, $FIRST_COUNTRY").assertExists()
+        composeTestRule.onNodeWithText(NETWORK_NAME).assertExists()
+        composeTestRule.onNodeWithText("$NETWORK_CITY, $NETWORK_COUNTRY").assertExists()
 
         composeTestRule.onNodeWithText(SECOND_NAME).assertExists()
         composeTestRule.onNodeWithText("$SECOND_CITY, $SECOND_COUNTRY").assertExists()
@@ -41,11 +41,11 @@ class BikeNetworkListTest {
     fun networkList_list_items_are_clickable() {
         var rowClicked = false
         composeTestRule.setContent {
-            BikeNetworkList(bikeNetworkList = networkList, onItemClick = {
+            BikeNetworkList(bikeNetworkList = createNetworkList(), onItemClick = {
                 rowClicked = true
             })
         }
-        composeTestRule.onNode(hasText(FIRST_NAME), useUnmergedTree = true).run {
+        composeTestRule.onNode(hasText(NETWORK_NAME), useUnmergedTree = true).run {
             assertIsDisplayed()
             performClick()
         }

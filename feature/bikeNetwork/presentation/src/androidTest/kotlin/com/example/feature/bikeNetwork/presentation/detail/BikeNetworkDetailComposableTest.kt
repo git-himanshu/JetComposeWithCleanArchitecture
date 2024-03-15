@@ -7,8 +7,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import com.example.feature.bikeNetwork.presentation.R
 import com.example.feature.bikeNetwork.presentation.detail.ui.BikeNetworkDetailComposable
-import com.example.testing.testData.networkDetailEntity
-import com.example.testing.testData.stations
+import com.example.testing.testData.createNetworkDetailEntity
 import org.junit.Rule
 import org.junit.Test
 
@@ -19,6 +18,7 @@ class BikeNetworkDetailComposableTest {
 
     @Test
     fun bikeNetworkDetail_network_detail_is_displayed() {
+        val networkDetailEntity = createNetworkDetailEntity()
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
                     bikeNetworkDetail = networkDetailEntity
@@ -41,11 +41,13 @@ class BikeNetworkDetailComposableTest {
 
     @Test
     fun bikeNetworkDetail_stations_list_is_displayed() {
+        val networkDetailEntity = createNetworkDetailEntity()
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
                     bikeNetworkDetail = networkDetailEntity
             )
         }
+        val stations = networkDetailEntity.stations
         composeTestRule.onNodeWithText(stations.first().name).assertExists()
         composeTestRule.onNode(
                 hasText(composeTestRule.activity.getString(R.string.total_slots)) and

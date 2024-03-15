@@ -4,9 +4,13 @@ import com.example.common.model.Error
 import com.example.common.model.Result
 import com.example.core.network.service.BikeNetworkService
 import com.example.testing.dispatcherRule.MainDispatcherRule
+import com.example.testing.testData.MEDIA_TYPE
 import com.example.testing.testData.NETWORK_ID
-import com.example.testing.testData.networkDetailDto
-import com.example.testing.testData.networkListDto
+import com.example.testing.testData.SERVER_ERROR_CONTENT
+import com.example.testing.testData.SERVER_NOT_REACHABLE
+import com.example.testing.testData.SERVER_NOT_REACHABLE_ERROR_CODE
+import com.example.testing.testData.createBikeNetworkDetailResponseDto
+import com.example.testing.testData.createNetworkListDto
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -40,8 +44,8 @@ class BikeNetworkRemoteDataSourceTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun bikeNetworkRemoteDataSource_bike_network_list_is_loaded() = runTest {
-        coEvery { service.getBikeNetworkList() } returns Response.success(networkListDto)
+    fun  bikeNetworkRemoteDataSource_bike_network_list_is_loaded() = runTest {
+        coEvery { service.getBikeNetworkList() } returns Response.success(createNetworkListDto())
         val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
         val response = remoteSource.getBikeNetworkList()
         coVerify {
@@ -54,36 +58,36 @@ class BikeNetworkRemoteDataSourceTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkRemoteDataSource_server_not_reachable_when_loading_bike_network_list() =
-            runTest {
+        runTest {
 
-                coEvery { service.getBikeNetworkList() } returns Response.error(
-                        503,
-                        ResponseBody.create(
-                                MediaType.get("text/json"),
-                                "{'statusCode':503,'statusMessage':'Server is not reachable'}"
-                        )
+            coEvery { service.getBikeNetworkList() } returns Response.error(
+                SERVER_NOT_REACHABLE_ERROR_CODE,
+                ResponseBody.create(
+                    MediaType.get(MEDIA_TYPE),
+                    SERVER_ERROR_CONTENT
                 )
-                coEvery { retrofit.responseBodyConverter<Error>(any(), any()) } returns
-                        Converter {
-                            Error(
-                                    statusCode = 503,
-                                    statusMessage = "Server not reachable"
-                            )
-                        }
+            )
+            coEvery { retrofit.responseBodyConverter<Error>(any(), any()) } returns
+                    Converter {
+                        Error(
+                            statusCode = SERVER_NOT_REACHABLE_ERROR_CODE,
+                            statusMessage = SERVER_NOT_REACHABLE
+                        )
+                    }
 
-                val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
-                val response = remoteSource.getBikeNetworkList()
-                coVerify {
-                    service.getBikeNetworkList()
-                }
-                assert(response.status == Result.Status.ERROR)
+            val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
+            val response = remoteSource.getBikeNetworkList()
+            coVerify {
+                service.getBikeNetworkList()
             }
+            assert(response.status == Result.Status.ERROR)
+        }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkRemoteDataSource_bike_network_detail_is_loaded() = runTest {
         coEvery { service.getBikeNetworkDetail(NETWORK_ID) } returns Response.success(
-                networkDetailDto
+            createBikeNetworkDetailResponseDto()
         )
         val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
         val result = remoteSource.getBikeNetworkDetail(NETWORK_ID)
@@ -98,26 +102,26 @@ class BikeNetworkRemoteDataSourceTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkRemoteDataSource_server_not_reachable_when_loading_bike_network_detail() =
-            runTest {
-                coEvery { service.getBikeNetworkDetail(any()) } returns Response.error(
-                        503,
-                        ResponseBody.create(
-                                MediaType.get("text/json"),
-                                "{'statusCode':503,'statusMessage':'Server is not reachable'}"
-                        )
+        runTest {
+            coEvery { service.getBikeNetworkDetail(any()) } returns Response.error(
+                SERVER_NOT_REACHABLE_ERROR_CODE,
+                ResponseBody.create(
+                    MediaType.get(MEDIA_TYPE),
+                    SERVER_ERROR_CONTENT
                 )
-                coEvery { retrofit.responseBodyConverter<Error>(any(), any()) } returns
-                        Converter {
-                            Error(
-                                    statusCode = 503,
-                                    statusMessage = "Server not reachable"
-                            )
-                        }
-                val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
-                val result = remoteSource.getBikeNetworkDetail(NETWORK_ID)
-                coVerify {
-                    service.getBikeNetworkDetail(any())
-                }
-                assert(result.status == Result.Status.ERROR)
+            )
+            coEvery { retrofit.responseBodyConverter<Error>(any(), any()) } returns
+                    Converter {
+                        Error(
+                            statusCode = SERVER_NOT_REACHABLE_ERROR_CODE,
+                            statusMessage = SERVER_NOT_REACHABLE
+                        )
+                    }
+            val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
+            val result = remoteSource.getBikeNetworkDetail(NETWORK_ID)
+            coVerify {
+                service.getBikeNetworkDetail(any())
             }
+            assert(result.status == Result.Status.ERROR)
+        }
 }

@@ -11,7 +11,7 @@ import com.example.testing.testData.GENERIC_ERROR
 import com.example.testing.testData.NETWORK_ID
 import com.example.testing.testData.NETWORK_ID_VALUE
 import com.example.testing.testData.SERVER_ERROR
-import com.example.testing.testData.networkDetailEntity
+import com.example.testing.testData.createNetworkDetailEntity
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -45,7 +45,7 @@ class BikeNetworkDetailViewModelTest {
             emit(
                     Result(
                             status = Result.Status.SUCCESS,
-                            data = networkDetailEntity,
+                            data = createNetworkDetailEntity(),
                             error = null,
                             message = null
                     )

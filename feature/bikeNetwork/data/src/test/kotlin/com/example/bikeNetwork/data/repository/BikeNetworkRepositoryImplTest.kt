@@ -8,8 +8,8 @@ import com.example.bikeNetwork.domain.entity.BikeNetworksEntity
 import com.example.common.model.Result
 import com.example.testing.dispatcherRule.MainDispatcherRule
 import com.example.testing.testData.NETWORK_ID
-import com.example.testing.testData.networkDetailDto
-import com.example.testing.testData.networkListDto
+import com.example.testing.testData.createBikeNetworkDetailResponseDto
+import com.example.testing.testData.createNetworkListDto
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -38,7 +38,7 @@ class BikeNetworkRepositoryImplTest {
     fun bikeNetworkRepository_bike_network_list_is_loaded() = runTest {
         coEvery { dataSource.getBikeNetworkList() } returns Result(
                 status = Result.Status.SUCCESS,
-                data = networkListDto,
+                data = createNetworkListDto(),
                 error = null,
                 message = null
         )
@@ -91,7 +91,7 @@ class BikeNetworkRepositoryImplTest {
     fun bikeNetworkRepository_bike_network_detail_loaded() = runTest {
         coEvery { dataSource.getBikeNetworkDetail(any()) } returns Result(
                 status = Result.Status.SUCCESS,
-                data = networkDetailDto,
+                data = createBikeNetworkDetailResponseDto(),
                 error = null,
                 message = null
         )

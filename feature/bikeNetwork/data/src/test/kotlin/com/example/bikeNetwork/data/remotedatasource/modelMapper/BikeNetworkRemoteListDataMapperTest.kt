@@ -1,7 +1,8 @@
 package com.example.bikeNetwork.data.remotedatasource.modelMapper
 
-import com.example.testing.testData.bikeNetwork1
-import com.example.testing.testData.networkDto1
+
+import com.example.testing.testData.createBikeNetworkEntity
+import com.example.testing.testData.createNetworkDto
 import org.junit.Test
 
 class BikeNetworkRemoteListDataMapperTest {
@@ -10,19 +11,21 @@ class BikeNetworkRemoteListDataMapperTest {
 
     @Test
     fun bikeNetworkRemoteListDataMapper_conversion_from_entity_to_dto_is_success() {
-        val dto = modelMapper.fromEntityToDto(bikeNetwork1)
-        assert(dto.id == bikeNetwork1.id)
-        assert(dto.name == bikeNetwork1.name)
-        assert(dto.location?.city == bikeNetwork1.city)
-        assert(dto.location?.country == bikeNetwork1.country)
+        val bikeNetwork = createBikeNetworkEntity()
+        val dto = modelMapper.fromEntityToDto(bikeNetwork)
+        assert(dto.id == bikeNetwork.id)
+        assert(dto.name == bikeNetwork.name)
+        assert(dto.location?.city == bikeNetwork.city)
+        assert(dto.location?.country == bikeNetwork.country)
     }
 
     @Test
     fun bikeNetworkRemoteListDataMapper_conversion_from_dto_to_entity_success() {
-        val entity = modelMapper.fromDtoToEntity(networkDto1)
-        assert(entity.id == networkDto1.id)
-        assert(entity.name == networkDto1.name)
-        assert(entity.city == networkDto1.location?.city)
-        assert(entity.country == networkDto1.location?.country)
+        val networkDto = createNetworkDto()
+        val entity = modelMapper.fromDtoToEntity(networkDto)
+        assert(entity.id == networkDto.id)
+        assert(entity.name == networkDto.name)
+        assert(entity.city == networkDto.location?.city)
+        assert(entity.country == networkDto.location?.country)
     }
 }
