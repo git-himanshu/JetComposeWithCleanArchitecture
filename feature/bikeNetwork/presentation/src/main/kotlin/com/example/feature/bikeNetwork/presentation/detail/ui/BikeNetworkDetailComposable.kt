@@ -19,33 +19,33 @@ import com.example.feature.bikeNetwork.presentation.previewData.networkEntity
 
 @Composable
 fun BikeNetworkDetailComposable(
-        modifier: Modifier = Modifier,
-        bikeNetworkDetail: BikeNetworkDetailEntity
+    modifier: Modifier = Modifier,
+    bikeNetworkDetail: BikeNetworkDetailEntity
 ) {
 
     Column(modifier = modifier) {
         Surface(color = MaterialTheme.colorScheme.primaryContainer) {
             Column(modifier = Modifier.padding(AppTheme.dimens.grid2p5)) {
                 CaptionedRowComposable(
-                        caption = stringResource(id = R.string.network_name),
-                        value = bikeNetworkDetail.name,
-                        modifier = Modifier.padding(vertical = AppTheme.dimens.grid0p25)
+                    caption = stringResource(id = R.string.network_name),
+                    value = bikeNetworkDetail.name,
+                    modifier = Modifier.padding(vertical = AppTheme.dimens.grid0p25)
                 )
                 CaptionedRowComposable(
-                        caption = stringResource(id = R.string.location),
-                        value = "${bikeNetworkDetail.city}, ${bikeNetworkDetail.country}",
-                        modifier = Modifier.padding(vertical = AppTheme.dimens.grid0p25)
+                    caption = stringResource(id = R.string.location),
+                    value = "${bikeNetworkDetail.city}, ${bikeNetworkDetail.country}",
+                    modifier = Modifier.padding(vertical = AppTheme.dimens.grid0p25)
                 )
             }
         }
         Spacer(modifier = Modifier.height(AppTheme.dimens.grid0p5))
         Text(
-                text = stringResource(id = R.string.all_stations),
-                modifier = Modifier.padding(
-                        horizontal = AppTheme.dimens.grid2p5,
-                        vertical = AppTheme.dimens.grid1
-                ),
-                style = MaterialTheme.typography.titleLarge
+            text = stringResource(id = R.string.all_stations),
+            modifier = Modifier.padding(
+                horizontal = AppTheme.dimens.grid2p5,
+                vertical = AppTheme.dimens.grid1
+            ),
+            style = MaterialTheme.typography.titleLarge
         )
         StationListComposable(stationList = bikeNetworkDetail.stations)
     }
@@ -57,7 +57,7 @@ fun BikeNetworkDetailComposable(
 fun BikeNetworkDetailComposablePreview() {
     Surface {
         BikeNetworkDetailComposable(
-                bikeNetworkDetail = networkEntity, modifier = Modifier
+            bikeNetworkDetail = networkEntity, modifier = Modifier
         )
     }
 

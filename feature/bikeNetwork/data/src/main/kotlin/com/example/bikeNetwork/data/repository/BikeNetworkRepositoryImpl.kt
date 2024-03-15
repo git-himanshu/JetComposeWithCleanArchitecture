@@ -17,9 +17,9 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class BikeNetworkRepositoryImpl @Inject constructor(
-        private val dataSource: BikeNetworkDataSource,
-        private val listModelMapper: ModelMapper<BikeNetworkEntity, BikeNetworkDto>,
-        private val detailModelMapper: ModelMapper<BikeNetworkDetailEntity, BikeNetworkDetailResponseDto>
+    private val dataSource: BikeNetworkDataSource,
+    private val listModelMapper: ModelMapper<BikeNetworkEntity, BikeNetworkDto>,
+    private val detailModelMapper: ModelMapper<BikeNetworkDetailEntity, BikeNetworkDetailResponseDto>
 ) : BikeNetworkRepository {
     override suspend fun getBikeNetworkList(): Flow<Result<BikeNetworksEntity>> {
         val listDto = dataSource.getBikeNetworkList()
@@ -29,7 +29,7 @@ class BikeNetworkRepositoryImpl @Inject constructor(
             }
             Result.success(resultEntity?.let { BikeNetworksEntity(it) })
         }.processDataSourceResponse(
-                resultDto = listDto,
+            resultDto = listDto,
         )
     }
 
@@ -38,27 +38,27 @@ class BikeNetworkRepositoryImpl @Inject constructor(
         return {
             val resultEntity = detailDto.data?.let {
                 detailModelMapper.fromDtoToEntity(
-                        it
+                    it
                 )
             }
             Result.success(resultEntity)
         }.processDataSourceResponse(
-                resultDto = detailDto,
+            resultDto = detailDto,
         )
     }
 
     private suspend fun <T, S> (() -> Result<S>).processDataSourceResponse(
-            resultDto: Result<T>,
+        resultDto: Result<T>,
     ): Flow<Result<S>> {
         return flow {
             when (resultDto.status) {
                 Result.Status.ERROR -> {
                     this.emit(
-                            Result.error(
-                                    error = resultDto.error,
-                                    message = resultDto.error?.statusMessage
-                                            ?: Constants.DEFAULT_ERROR_MESSAGE
-                            )
+                        Result.error(
+                            error = resultDto.error,
+                            message = resultDto.error?.statusMessage
+                                ?: Constants.DEFAULT_ERROR_MESSAGE
+                        )
                     )
                 }
 

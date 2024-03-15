@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 
 abstract class RemoteDataSource(private val retrofit: Retrofit) {
     suspend fun <T> getResponse(
-            request: suspend () -> Response<T>
+        request: suspend () -> Response<T>
     ): Result<T> {
         return try {
             val response = request.invoke()
@@ -17,15 +17,15 @@ abstract class RemoteDataSource(private val retrofit: Retrofit) {
             } else {
                 val errorResponse = ErrorUtils.parseError(response, retrofit)
                 Result.error(
-                        errorResponse?.statusMessage ?: Constants.DEFAULT_ERROR_MESSAGE,
-                        errorResponse
+                    errorResponse?.statusMessage ?: Constants.DEFAULT_ERROR_MESSAGE,
+                    errorResponse
                 )
             }
         } catch (e: Throwable) {
             print(e.printStackTrace())
             Result.error(
-                    e.message ?: Constants.UNKNOWN_ERROR,
-                    Error(statusMessage = e.message ?: Constants.UNKNOWN_ERROR)
+                e.message ?: Constants.UNKNOWN_ERROR,
+                Error(statusMessage = e.message ?: Constants.UNKNOWN_ERROR)
             )
         }
     }

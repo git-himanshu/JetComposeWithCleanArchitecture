@@ -19,10 +19,10 @@ class NoDataComposableTest {
     fun noDataComposable_info_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
-                    infoText = INFO_TEXT,
-                    onRetry = {},
-                    retryButtonLabel = RETRY_BUTTON_LABEL,
-                    iconContentDescription = ICON_CONTENT_DESCRIPTION,
+                infoText = INFO_TEXT,
+                onRetry = {},
+                retryButtonLabel = RETRY_BUTTON_LABEL,
+                iconContentDescription = ICON_CONTENT_DESCRIPTION,
             )
         }
         composeTestRule.onNodeWithText(INFO_TEXT).assertExists()
@@ -34,10 +34,10 @@ class NoDataComposableTest {
     fun noDataComposable_icon_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
-                    onRetry = {},
-                    retryButtonLabel = RETRY_BUTTON_LABEL,
-                    iconContentDescription = ICON_CONTENT_DESCRIPTION,
-                    noDataDrawable = R.drawable.no_data
+                onRetry = {},
+                retryButtonLabel = RETRY_BUTTON_LABEL,
+                iconContentDescription = ICON_CONTENT_DESCRIPTION,
+                noDataDrawable = R.drawable.no_data
             )
         }
         composeTestRule.onNodeWithText(INFO_TEXT).assertDoesNotExist()
@@ -49,11 +49,11 @@ class NoDataComposableTest {
     fun noDataComposable_icon_info_text_and_retry_button_is_displayed() {
         composeTestRule.setContent {
             NoDataComposable(
-                    infoText = INFO_TEXT,
-                    onRetry = {},
-                    retryButtonLabel = RETRY_BUTTON_LABEL,
-                    iconContentDescription = ICON_CONTENT_DESCRIPTION,
-                    noDataDrawable = R.drawable.no_data
+                infoText = INFO_TEXT,
+                onRetry = {},
+                retryButtonLabel = RETRY_BUTTON_LABEL,
+                iconContentDescription = ICON_CONTENT_DESCRIPTION,
+                noDataDrawable = R.drawable.no_data
             )
         }
         composeTestRule.onNodeWithText(INFO_TEXT).assertExists()

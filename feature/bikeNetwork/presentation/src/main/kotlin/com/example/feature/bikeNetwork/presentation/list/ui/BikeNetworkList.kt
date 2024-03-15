@@ -21,17 +21,17 @@ import com.example.feature.bikeNetwork.presentation.previewData.NETWORK_ID
 
 @Composable
 fun BikeNetworkList(
-        bikeNetworkList: List<BikeNetworkEntity>,
-        onItemClick: (networkId: String) -> Unit,
-        modifier: Modifier = Modifier
+    bikeNetworkList: List<BikeNetworkEntity>,
+    onItemClick: (networkId: String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     LazyColumn(
-            modifier = modifier.padding(horizontal = AppTheme.dimens.grid2),
-            contentPadding = PaddingValues(vertical = AppTheme.dimens.grid1)
+        modifier = modifier.padding(horizontal = AppTheme.dimens.grid2),
+        contentPadding = PaddingValues(vertical = AppTheme.dimens.grid1)
     ) {
         items(
-                items = bikeNetworkList,
-                key = { item -> item.id }
+            items = bikeNetworkList,
+            key = { item -> item.id }
         ) { item ->
             ListItemRow(item = item, onItemClick = onItemClick)
         }
@@ -40,30 +40,30 @@ fun BikeNetworkList(
 
 @Composable
 fun ListItemRow(
-        modifier: Modifier = Modifier,
-        item: BikeNetworkEntity,
-        onItemClick: (networkId: String) -> Unit
+    modifier: Modifier = Modifier,
+    item: BikeNetworkEntity,
+    onItemClick: (networkId: String) -> Unit
 ) {
     Surface(
-            onClick = { onItemClick(item.id) },
-            color = MaterialTheme.colorScheme.secondaryContainer,
-            modifier = modifier.padding(vertical = AppTheme.dimens.grid0p5),
-            shape = MaterialTheme.shapes.small
+        onClick = { onItemClick(item.id) },
+        color = MaterialTheme.colorScheme.secondaryContainer,
+        modifier = modifier.padding(vertical = AppTheme.dimens.grid0p5),
+        shape = MaterialTheme.shapes.small
     ) {
         Column(
-                modifier = modifier
-                        .fillMaxWidth()
-                        .padding(AppTheme.dimens.grid1)
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(AppTheme.dimens.grid1)
         ) {
             Text(
-                    text = item.name,
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer
+                text = item.name,
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
             Text(
-                    text = "${item.city}, ${item.country}",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer
+                text = "${item.city}, ${item.country}",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
         }
     }
@@ -73,14 +73,14 @@ fun ListItemRow(
 @Composable
 fun ListItemRowPreview() {
     ListItemRow(
-            modifier = Modifier,
-            item = BikeNetworkEntity(
-                    id = NETWORK_ID,
-                    name = FIRST_NAME,
-                    city = FIRST_CITY,
-                    country = FIRST_COUNTRY
-            ),
-            onItemClick = {}
+        modifier = Modifier,
+        item = BikeNetworkEntity(
+            id = NETWORK_ID,
+            name = FIRST_NAME,
+            city = FIRST_CITY,
+            country = FIRST_COUNTRY
+        ),
+        onItemClick = {}
     )
 }
 

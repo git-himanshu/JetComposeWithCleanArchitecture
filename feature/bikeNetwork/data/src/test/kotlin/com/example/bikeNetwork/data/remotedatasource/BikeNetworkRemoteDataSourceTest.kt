@@ -44,7 +44,7 @@ class BikeNetworkRemoteDataSourceTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun  bikeNetworkRemoteDataSource_bike_network_list_is_loaded() = runTest {
+    fun bikeNetworkRemoteDataSource_bike_network_list_is_loaded() = runTest {
         coEvery { service.getBikeNetworkList() } returns Response.success(createNetworkListDto())
         val remoteSource = BikeNetworkRemoteDataSource(service, retrofit)
         val response = remoteSource.getBikeNetworkList()

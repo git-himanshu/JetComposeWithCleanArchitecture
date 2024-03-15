@@ -21,20 +21,20 @@ class BikeNetworkDetailComposableTest {
         val networkDetailEntity = createNetworkDetailEntity()
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
-                    bikeNetworkDetail = networkDetailEntity
+                bikeNetworkDetail = networkDetailEntity
             )
         }
 
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.network_name)) and
-                        hasAnySibling(hasText(networkDetailEntity.name))
+            hasText(composeTestRule.activity.getString(R.string.network_name)) and
+                    hasAnySibling(hasText(networkDetailEntity.name))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.location)) and
-                        hasAnySibling(hasText("${networkDetailEntity.city}, ${networkDetailEntity.country}"))
+            hasText(composeTestRule.activity.getString(R.string.location)) and
+                    hasAnySibling(hasText("${networkDetailEntity.city}, ${networkDetailEntity.country}"))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.all_stations))
+            hasText(composeTestRule.activity.getString(R.string.all_stations))
         ).assertExists()
 
     }
@@ -44,36 +44,36 @@ class BikeNetworkDetailComposableTest {
         val networkDetailEntity = createNetworkDetailEntity()
         composeTestRule.setContent {
             BikeNetworkDetailComposable(
-                    bikeNetworkDetail = networkDetailEntity
+                bikeNetworkDetail = networkDetailEntity
             )
         }
         val stations = networkDetailEntity.stations
         composeTestRule.onNodeWithText(stations.first().name).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.total_slots)) and
-                        hasAnySibling(hasText(stations.first().slots.toString()))
+            hasText(composeTestRule.activity.getString(R.string.total_slots)) and
+                    hasAnySibling(hasText(stations.first().slots.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.available_slots)) and
-                        hasAnySibling(hasText(stations.first().emptySlot.toString()))
+            hasText(composeTestRule.activity.getString(R.string.available_slots)) and
+                    hasAnySibling(hasText(stations.first().emptySlot.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
-                        hasAnySibling(hasText(stations.first().freeBikes.toString()))
+            hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
+                    hasAnySibling(hasText(stations.first().freeBikes.toString()))
         ).assertExists()
 
         composeTestRule.onNodeWithText(stations.last().name).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.total_slots)) and
-                        hasAnySibling(hasText(stations.last().slots.toString()))
+            hasText(composeTestRule.activity.getString(R.string.total_slots)) and
+                    hasAnySibling(hasText(stations.last().slots.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.available_slots)) and
-                        hasAnySibling(hasText(stations.last().emptySlot.toString()))
+            hasText(composeTestRule.activity.getString(R.string.available_slots)) and
+                    hasAnySibling(hasText(stations.last().emptySlot.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
-                        hasAnySibling(hasText(stations.last().freeBikes.toString()))
+            hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
+                    hasAnySibling(hasText(stations.last().freeBikes.toString()))
         ).assertExists()
     }
 }

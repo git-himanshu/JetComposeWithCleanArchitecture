@@ -20,9 +20,9 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun BikeNetworkDetailScreen(
-        modifier: Modifier = Modifier,
-        onBack: () -> Unit,
-        viewModel: BikeNetworkDetailViewModel = hiltViewModel<BikeNetworkDetailViewModel>(),
+    modifier: Modifier = Modifier,
+    onBack: () -> Unit,
+    viewModel: BikeNetworkDetailViewModel = hiltViewModel<BikeNetworkDetailViewModel>(),
 ) {
 
     val state = viewModel.state.value
@@ -35,65 +35,65 @@ fun BikeNetworkDetailScreen(
     }
 
     Scaffold(
-            modifier = modifier,
-            topBar = {
-                CustomTopAppBar(
-                        title = stringResource(id = R.string.bike_network_detail_screen_name),
-                        onBack = onBack,
-                        backContentDescription = stringResource(id = R.string.back),
-                )
-            }
+        modifier = modifier,
+        topBar = {
+            CustomTopAppBar(
+                title = stringResource(id = R.string.bike_network_detail_screen_name),
+                onBack = onBack,
+                backContentDescription = stringResource(id = R.string.back),
+            )
+        }
 
     ) { innerPadding ->
         when (state) {
             is DetailState.Loading -> {
                 LoaderComposable(
-                        modifier = modifier
-                                .padding(innerPadding)
-                                .testTag(stringResource(id = R.string.testTag_loader))
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_loader))
                 )
             }
 
             is DetailState.NetworkDetail -> {
                 BikeNetworkDetailComposable(
-                        modifier
-                                .padding(innerPadding)
-                                .testTag(stringResource(id = R.string.testTag_networkDetail)),
-                        bikeNetworkDetail = state.networks
+                    modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_networkDetail)),
+                    bikeNetworkDetail = state.networks
                 )
             }
 
             is DetailState.DataNotFound -> {
                 NoDataComposable(
-                        infoText = stringResource(id = R.string.data_not_found),
-                        retryButtonLabel = stringResource(id = R.string.retry),
-                        onRetry = fetchNetworksIntent,
-                        modifier = modifier
-                                .padding(innerPadding)
-                                .testTag(stringResource(id = R.string.testTag_noData)),
-                        noDataDrawable = R.drawable.no_data
+                    infoText = stringResource(id = R.string.data_not_found),
+                    retryButtonLabel = stringResource(id = R.string.retry),
+                    onRetry = fetchNetworksIntent,
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_noData)),
+                    noDataDrawable = R.drawable.no_data
                 )
             }
 
             is DetailState.Error -> {
                 ErrorComposable(
-                        errorText = state.error,
-                        retryButtonLabel = stringResource(id = R.string.retry),
-                        onRetry = fetchNetworksIntent,
-                        modifier = modifier
-                                .padding(innerPadding)
-                                .testTag(stringResource(id = R.string.testTag_error))
+                    errorText = state.error,
+                    retryButtonLabel = stringResource(id = R.string.retry),
+                    onRetry = fetchNetworksIntent,
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_error))
                 )
             }
 
             is DetailState.Idle -> {
                 NoDataComposable(
-                        infoText = stringResource(id = R.string.generic_error_message),
-                        retryButtonLabel = stringResource(id = R.string.retry),
-                        onRetry = fetchNetworksIntent,
-                        modifier = modifier
-                                .padding(innerPadding)
-                                .testTag(stringResource(id = R.string.testTag_idle))
+                    infoText = stringResource(id = R.string.generic_error_message),
+                    retryButtonLabel = stringResource(id = R.string.retry),
+                    onRetry = fetchNetworksIntent,
+                    modifier = modifier
+                        .padding(innerPadding)
+                        .testTag(stringResource(id = R.string.testTag_idle))
                 )
             }
         }

@@ -9,7 +9,7 @@ class BikeNetworkDetailRemoteDataMapperTest {
 
     @Test
     fun bikeNetworkRemoteDetailDataMapper_conversion_from_entity_to_dto_is_success() {
-         val networkDetailEntity = createNetworkDetailEntity()
+        val networkDetailEntity = createNetworkDetailEntity()
         val dto = modelMapper.fromEntityToDto(networkDetailEntity)
         assert(dto.network?.id == networkDetailEntity.id)
         assert(dto.network?.name == networkDetailEntity.name)

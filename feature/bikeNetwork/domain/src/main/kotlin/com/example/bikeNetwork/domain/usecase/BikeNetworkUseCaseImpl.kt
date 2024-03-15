@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class BikeNetworkUseCaseImpl @Inject constructor(private val repository: BikeNetworkRepository) :
-        BikeNetworkUseCase {
+    BikeNetworkUseCase {
     override suspend fun getList(): Flow<Result<BikeNetworksEntity>> =
-            repository.getBikeNetworkList()
+        repository.getBikeNetworkList()
 
     override suspend fun getDetail(networkId: String): Flow<Result<BikeNetworkDetailEntity>> =
-            repository.getBikeNetworkDetail(networkId)
+        repository.getBikeNetworkDetail(networkId)
 }

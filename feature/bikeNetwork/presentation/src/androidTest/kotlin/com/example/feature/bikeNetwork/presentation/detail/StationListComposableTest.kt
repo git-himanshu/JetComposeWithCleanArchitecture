@@ -25,30 +25,30 @@ class StationListComposableTest {
 
         composeTestRule.onNodeWithText(stations.first().name).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.total_slots)) and
-                        hasAnySibling(hasText(stations.first().slots.toString()))
+            hasText(composeTestRule.activity.getString(R.string.total_slots)) and
+                    hasAnySibling(hasText(stations.first().slots.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.available_slots)) and
-                        hasAnySibling(hasText(stations.first().emptySlot.toString()))
+            hasText(composeTestRule.activity.getString(R.string.available_slots)) and
+                    hasAnySibling(hasText(stations.first().emptySlot.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
-                        hasAnySibling(hasText(stations.first().freeBikes.toString()))
+            hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
+                    hasAnySibling(hasText(stations.first().freeBikes.toString()))
         ).assertExists()
 
         composeTestRule.onNodeWithText(stations.last().name).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.total_slots)) and
-                        hasAnySibling(hasText(stations.last().slots.toString()))
+            hasText(composeTestRule.activity.getString(R.string.total_slots)) and
+                    hasAnySibling(hasText(stations.last().slots.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.available_slots)) and
-                        hasAnySibling(hasText(stations.last().emptySlot.toString()))
+            hasText(composeTestRule.activity.getString(R.string.available_slots)) and
+                    hasAnySibling(hasText(stations.last().emptySlot.toString()))
         ).assertExists()
         composeTestRule.onNode(
-                hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
-                        hasAnySibling(hasText(stations.last().freeBikes.toString()))
+            hasText(composeTestRule.activity.getString(R.string.free_bikes)) and
+                    hasAnySibling(hasText(stations.last().freeBikes.toString()))
         ).assertExists()
 
     }
