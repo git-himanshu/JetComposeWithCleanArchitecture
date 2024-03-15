@@ -3,7 +3,7 @@ package com.example.feature.bikeNetwork.presentation.list.viewmodel
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bikeNetwork.domain.usecase.BikeNetworkUseCase
+import com.example.bikeNetwork.domain.usecase.BikeNetworkListUseCase
 import com.example.common.model.Result
 import com.example.feature.bikeNetwork.presentation.list.intent.ListIntent
 import com.example.feature.bikeNetwork.presentation.list.state.ListState
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BikeNetworkListViewModel @Inject constructor(
-    private val bikeNetworkUseCase: BikeNetworkUseCase,
+    private val bikeNetworkListUseCase: BikeNetworkListUseCase,
 ) : ViewModel() {
 
     val userIntent = Channel<ListIntent>(Channel.UNLIMITED)
@@ -41,7 +41,7 @@ class BikeNetworkListViewModel @Inject constructor(
     private fun fetchBikeNetworkList() {
         viewModelScope.launch {
             state.value = ListState.Loading
-            bikeNetworkUseCase.getList().collect {
+            bikeNetworkListUseCase.getList().collect {
                 when (it.status) {
                     Result.Status.SUCCESS -> {
                         val networks = it.data?.networks ?: emptyList()

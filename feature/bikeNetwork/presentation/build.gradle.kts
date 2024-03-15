@@ -33,6 +33,13 @@ android {
         sourceCompatibility = Versions.SOURCE_COMPATIBILITY
         targetCompatibility = Versions.TARGET_COMPATIBILITY
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/LICENSE.md"
+            excludes += "/META-INF/LICENSE-notice.md"
+        }
+    }
     kotlinOptions {
         jvmTarget = Versions.JVM_TARGET
     }

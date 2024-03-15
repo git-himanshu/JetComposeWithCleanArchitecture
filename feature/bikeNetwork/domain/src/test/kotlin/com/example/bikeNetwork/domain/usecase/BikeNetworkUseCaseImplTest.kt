@@ -25,7 +25,8 @@ class BikeNetworkUseCaseImplTest {
     @MockK
     lateinit var repository: BikeNetworkRepository
 
-    private lateinit var useCase: BikeNetworkUseCase
+    private lateinit var listUseCase: BikeNetworkListUseCase
+    private lateinit var detailUseCase: BikeNetworkDetailUseCase
 
     @Before
     fun setUp() {
@@ -50,13 +51,15 @@ class BikeNetworkUseCaseImplTest {
                 )
             )
         }
-        useCase = BikeNetworkUseCaseImpl(repository)
+        val repository = BikeNetworkUseCaseImpl(repository)
+        listUseCase = repository
+        detailUseCase = repository
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkUseCase_get_bike_network_list_is_called() = runTest {
-        useCase.getList()
+        listUseCase.getList()
         coVerify {
             repository.getBikeNetworkList()
         }
@@ -65,7 +68,7 @@ class BikeNetworkUseCaseImplTest {
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun bikeNetworkUseCase_get_bike_network_detail_is_called() = runTest {
-        useCase.getDetail(NETWORK_ID)
+        detailUseCase.getDetail(NETWORK_ID)
         coVerify {
             repository.getBikeNetworkDetail(any())
         }
