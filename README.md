@@ -38,11 +38,8 @@ with following details-
 Following screenshots shows the behaviour of dynamic theme. When user changes the basic color in the
 **Wallpaper & style** then it is reflected in the app theme.
 
-![Screenshot showing For screen, Bike Network List Screen with Theme1](docs/images/bike_networks_theme1.png "Screenshot showing For screen, Bike Network List Screen with Theme1")
-![Screenshot showing For screen, Bike Network List Screen with Theme2](docs/images/bike_networks_theme2.png "Screenshot showing For screen, Bike Network List Screen with Theme2")
-![Screenshot showing For screen, Bike Network Details Screen with Theme1](docs/images/bike_network_detail_theme1.png "Screenshot showing For screen, Bike Network Details Screen with Theme1")
-![Screenshot showing For screen, Bike Network Details Screen with Theme2](docs/images/bike_network_detail_theme2.png "Screenshot showing For screen, Bike Network Details Screen with Theme2")
-
+![Screenshot showing For screen, Bike Network List Screen and Bike Network Details with Theme1](docs/images/screenshot_theme1.png "Screenshot showing For screen, Bike Network List Screen and Bike Network Details with Theme1")
+![Screenshot showing For screen, Bike Network List Screen and Bike Network Details with Theme2](docs/images/screenshot_theme2.png "Screenshot showing For screen, Bike Network List Screen and Bike Network Details with Theme2")
 # Architecture
 
 The **Jet Compose with Clean Architecture** app follows the Clean architecture along with MVVM,MVI
