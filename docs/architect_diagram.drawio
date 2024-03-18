@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-18T08:18:27.505Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="YSe-mxqB89tWk6L24ZIw" version="24.0.6" type="device">
+<mxfile host="app.diagrams.net" modified="2024-03-18T08:19:51.007Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="dW6IUy8A7b1Xuckj57Hs" version="24.0.6" type="device">
   <diagram name="Page-1" id="w0F4990IebUHdaa1SNlP">
     <mxGraphModel dx="2062" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -100,7 +100,7 @@
         <mxCell id="8ZNE8kO5BKtXkHlJv4oJ-24" value="Network Layer" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="20" y="1203" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="8ZNE8kO5BKtXkHlJv4oJ-25" value="BikeNetworkService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B3B3B3;" parent="1" vertex="1">
+        <mxCell id="8ZNE8kO5BKtXkHlJv4oJ-25" value="&amp;lt;interface&amp;gt;&lt;div&gt;BikeNetworkService&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B3B3B3;" parent="1" vertex="1">
           <mxGeometry x="610" y="1030" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="8ZNE8kO5BKtXkHlJv4oJ-26" value="Retrofit" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
