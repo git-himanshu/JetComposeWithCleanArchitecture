@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-18T07:52:44.728Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="bXkFs5uYvt_lEREbzw0B" version="24.0.6" type="device">
+<mxfile host="app.diagrams.net" modified="2024-03-18T08:18:27.505Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="YSe-mxqB89tWk6L24ZIw" version="24.0.6" type="device">
   <diagram name="Page-1" id="w0F4990IebUHdaa1SNlP">
     <mxGraphModel dx="2062" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -176,7 +176,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Na9Cz-mRtzjb4uJ2m-rb-1" value="NetworkClient" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B3B3B3;" vertex="1" parent="1">
+        <mxCell id="Na9Cz-mRtzjb4uJ2m-rb-1" value="&amp;lt;interface&amp;gt;&lt;div&gt;NetworkClient&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#B3B3B3;" vertex="1" parent="1">
           <mxGeometry x="355" y="1030" width="190" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Na9Cz-mRtzjb4uJ2m-rb-4" value="NetworkClientImpl" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
