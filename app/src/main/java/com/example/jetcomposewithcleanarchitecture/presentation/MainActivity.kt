@@ -9,8 +9,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.feature.bikeNetwork.presentation.navigation.NavigationHost
 import com.example.jetcomposewithcleanarchitecture.ui.theme.AppTheme
+import com.example.presentation.navigation.NavigationHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

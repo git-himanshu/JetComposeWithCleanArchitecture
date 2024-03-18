@@ -59,9 +59,9 @@ dependencies {
     implementation(Libs.AndroidX.Hilt.HILT_NAVIGATION_COMPOSE)
     implementation(Libs.AndroidX.Lifecycle.RUN_TIME_COMPOSE)
     debugImplementation(Libs.AndroidX.Compose.UI_TOOLING)
-    implementation(project(":feature:bikeNetwork:presentation"))
-    implementation(project(":feature:bikeNetwork:domain"))
-    implementation(project(":feature:bikeNetwork:data"))
+    implementation(project(":presentation"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
     implementation(project(":core:uiWidgets"))
 }
 

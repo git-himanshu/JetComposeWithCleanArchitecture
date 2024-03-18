@@ -34,11 +34,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:bikeNetwork:domain"))
+    implementation(project(":domain"))
     implementation(project(":core:network"))
     implementation(Libs.JUnit.JUNIT)
     implementation(Libs.AndroidTest.COROUTINE_TEST)
     implementation(Libs.MockK.MOCKK)
     implementation(Libs.MockK.MOCKK_AGENT)
-    implementation(project(":feature:bikeNetwork:data"))
+    implementation(project(":data"))
 }

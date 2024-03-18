@@ -1,14 +1,16 @@
 package com.example.testing.testData
 
-import com.example.bikeNetwork.data.dto.BikeNetworkDto
-import com.example.bikeNetwork.data.dto.BikeNetworkListResponseDto
-import com.example.bikeNetwork.data.dto.Extra
-import com.example.bikeNetwork.data.dto.Location
-import com.example.bikeNetwork.domain.entity.BikeNetworkDetailEntity
-import com.example.bikeNetwork.domain.entity.BikeNetworkEntity
-import com.example.bikeNetwork.domain.entity.BikeNetworksEntity
-import com.example.bikeNetwork.domain.entity.Station
-import com.example.bikeNetwork.data.dto.Station as StationDto
+import com.example.data.dto.BikeNetworkDetail
+import com.example.data.dto.BikeNetworkDetailResponseDto
+import com.example.data.dto.BikeNetworkDto
+import com.example.data.dto.BikeNetworkListResponseDto
+import com.example.data.dto.Extra
+import com.example.data.dto.Location
+import com.example.domain.entity.BikeNetworkDetailEntity
+import com.example.domain.entity.BikeNetworkEntity
+import com.example.domain.entity.BikeNetworksEntity
+import com.example.domain.entity.Station
+import com.example.data.dto.Station as StationDto
 
 const val NETWORK_ID = "network_id"
 const val NETWORK_ID_VALUE = "1"
@@ -148,8 +150,8 @@ fun createBikeNetworkDetailResponseDto(
         country = SECOND_COUNTRY
     ),
     stations: List<StationDto> = stationsDto,
-) = com.example.bikeNetwork.data.dto.BikeNetworkDetailResponseDto(
-    network = com.example.bikeNetwork.data.dto.BikeNetworkDetail(
+) = BikeNetworkDetailResponseDto(
+    network = BikeNetworkDetail(
         id = id,
         name = name,
         location = location,
