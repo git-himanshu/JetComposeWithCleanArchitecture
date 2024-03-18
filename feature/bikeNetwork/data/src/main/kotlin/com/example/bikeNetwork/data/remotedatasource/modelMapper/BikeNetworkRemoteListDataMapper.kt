@@ -1,8 +1,8 @@
 package com.example.bikeNetwork.data.remotedatasource.modelMapper
 
+import com.example.bikeNetwork.data.dto.BikeNetworkDto
+import com.example.bikeNetwork.data.dto.Location
 import com.example.bikeNetwork.domain.entity.BikeNetworkEntity
-import com.example.core.network.dto.BikeNetworkDto
-import com.example.core.network.dto.Location
 import javax.inject.Inject
 
 

@@ -1,9 +1,9 @@
 package com.example.bikeNetwork.data.datasource
 
 
+import com.example.bikeNetwork.data.dto.BikeNetworkDetailResponseDto
+import com.example.bikeNetwork.data.dto.BikeNetworkListResponseDto
 import com.example.common.model.Result
-import com.example.core.network.dto.BikeNetworkDetailResponseDto
-import com.example.core.network.dto.BikeNetworkListResponseDto
 
 interface BikeNetworkDataSource {
     suspend fun getBikeNetworkList(): Result<BikeNetworkListResponseDto>

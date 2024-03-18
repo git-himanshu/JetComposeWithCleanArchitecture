@@ -1,8 +1,8 @@
 package com.example.core.network.di
 
-import com.example.core.network.BASE_URL
+import com.example.bikeNetwork.data.service.BASE_URL
+import com.example.bikeNetwork.data.service.BikeNetworkService
 import com.example.core.network.networkInterceptor.LoggingInterceptor
-import com.example.core.network.service.BikeNetworkService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

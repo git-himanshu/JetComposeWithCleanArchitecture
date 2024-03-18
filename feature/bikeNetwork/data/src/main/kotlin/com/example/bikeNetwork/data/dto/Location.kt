@@ -1,4 +1,4 @@
-package com.example.core.network.dto
+package com.example.bikeNetwork.data.dto
 
 import com.google.gson.annotations.SerializedName
 

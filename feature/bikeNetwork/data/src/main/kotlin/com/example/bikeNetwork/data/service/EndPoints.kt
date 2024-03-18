@@ -1,4 +1,4 @@
-package com.example.core.network
+package com.example.bikeNetwork.data.service
 
 const val BASE_URL = "https://api.citybik.es"
 

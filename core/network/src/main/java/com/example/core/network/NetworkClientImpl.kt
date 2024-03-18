@@ -1,13 +1,15 @@
 package com.example.core.network
 
+import com.example.client.NetworkClient
 import com.example.common.model.Error
 import com.example.common.model.Result
 import com.example.core.network.util.ErrorUtils
 import retrofit2.Response
 import retrofit2.Retrofit
+import javax.inject.Inject
 
-abstract class RemoteDataSource(private val retrofit: Retrofit) {
-    suspend fun <T> getResponse(
+class NetworkClientImpl @Inject constructor(private val retrofit: Retrofit) : NetworkClient {
+    override suspend fun <T> executeRequest(
         request: suspend () -> Response<T>
     ): Result<T> {
         return try {

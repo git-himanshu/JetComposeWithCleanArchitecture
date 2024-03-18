@@ -33,6 +33,7 @@ dependencies {
     implementation(Libs.Retrofit.RETROFIT_CLIENT)
     implementation(Libs.Retrofit.CONVERTER_GSON)
     implementation(project(":core:common"))
+    implementation(project(":feature:bikeNetwork:data"))
 }
 
 // Allow references to generated code

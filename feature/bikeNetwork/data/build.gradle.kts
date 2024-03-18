@@ -33,7 +33,6 @@ dependencies {
     implementation(Libs.AndroidX.Hilt.HILT_NAVIGATION_COMPOSE)
     implementation(Libs.Retrofit.CONVERTER_GSON)
     implementation(project(":core:common"))
-    implementation(project(":core:network"))
     implementation(project(":feature:bikeNetwork:domain"))
 
     testImplementation(Libs.JUnit.JUNIT)

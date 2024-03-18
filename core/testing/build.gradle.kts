@@ -40,4 +40,5 @@ dependencies {
     implementation(Libs.AndroidTest.COROUTINE_TEST)
     implementation(Libs.MockK.MOCKK)
     implementation(Libs.MockK.MOCKK_AGENT)
+    implementation(project(":feature:bikeNetwork:data"))
 }

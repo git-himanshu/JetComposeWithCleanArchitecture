@@ -1,11 +1,11 @@
 package com.example.bikeNetwork.data.remotedatasource.modelMapper
 
+import com.example.bikeNetwork.data.dto.BikeNetworkDetail
+import com.example.bikeNetwork.data.dto.BikeNetworkDetailResponseDto
+import com.example.bikeNetwork.data.dto.Extra
+import com.example.bikeNetwork.data.dto.Location
+import com.example.bikeNetwork.data.dto.Station
 import com.example.bikeNetwork.domain.entity.BikeNetworkDetailEntity
-import com.example.core.network.dto.BikeNetworkDetail
-import com.example.core.network.dto.BikeNetworkDetailResponseDto
-import com.example.core.network.dto.Extra
-import com.example.core.network.dto.Location
-import com.example.core.network.dto.Station
 import javax.inject.Inject
 
 class BikeNetworkDetailRemoteDataMapper @Inject constructor() :
